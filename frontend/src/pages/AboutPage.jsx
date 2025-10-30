@@ -18,17 +18,17 @@ const AboutPage = () => {
     <div id="header" className="flex h-full  justify-center bg-center bg-cover bg-darkestBlue"
          style={{backgroundImage: "url('assets/AboutBG.svg')", overflow: 'hidden'}}>
         <div className="flex flex-col w-full h-full mx-75 mt-50 items-center relative">
-            <motion.div className="flex relative" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.7}}>
+            <div className="flex relative" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.7}}>
                 <heading className="text-white text-7xl">
                     ABOUT ME
                 </heading>
                 <heading className="absolute -left-20 -top-5 -rotate-24 text-white text-3xl">
                     [more]
                 </heading>
-            </motion.div>
+            </div>
 
             {/* Paragraph */}
-            <motion.div className="flex flex-col relative w-full mt-40 items-center" 
+            <div className="flex flex-col relative w-full mt-40 items-center" 
                         initial={{y: 20, opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{amount: 0.5, once: true}} transition={{duration: 0.7}}>
                 <iframe className="absolute w-[300px] h-[500px] -top-35" src="/assets/SusAnimation.html"/>
                 <div className="flex flex-col  justify-center w-full min-w-[700px] h-[350px] from-darkestBlue to-darkerBlue bg-gradient-to-b rounded-2xl drop-shadow-xl relative">
@@ -43,27 +43,27 @@ const AboutPage = () => {
                         One of my dreams is to be able to travel the world and see beautiful landscapes all over. 
                     </span>
                 </div>
-            </motion.div>
+            </div>
             {/*====================================== SKILLS ======================================*/}
-            <motion.div className="flex flex-col relative w-full mt-50 items-center justify-center"
+            <div className="flex flex-col relative w-full mt-50 items-center justify-center"
                         initial={{y: 20, opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{amount: 0.5, once: true}} transition={{duration: 0.7}}>    
                 <heading className="text-white text-7xl mb-5">
                     CORE SKILLS
                 </heading>
                 <SkillList skills={skills}/>
                 <img className="absolute -left-40 -bottom-20 scale-80" src="/assets/TargetSticker.svg"/>
-            </motion.div>    
+            </div>    
             {/*====================================== PHOTOS ======================================*/}
-            <motion.div className="flex flex-col h-[600px] relative w-full mt-50 items-center justify-center"
+            <div className="flex flex-col h-[600px] relative w-full mt-50 items-center justify-center"
                         initial={{y: 20, opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{amount: 0.5, once: true}} transition={{duration: 0.7}}>    
                 <heading className="text-white text-7xl">
                     PHOTOS
                 </heading>
                 <ImageCarousel className="" images={images} />
                 <img className="absolute top-0 -right-20" src="/assets/Camera.svg"/>
-            </motion.div>   
+            </div>   
             {/*====================================== PHOTOS ======================================*/}
-            <motion.div className="flex flex-col h-[700px] relative w-full items-center justify-center"
+            <div className="flex flex-col h-[700px] relative w-full items-center justify-center"
                         initial={{y: 20, opacity: 0}} whileInView={{y: 0, opacity: 1}} viewport={{amount: 0.2, once: true}} transition={{duration: 0.7}}>    
                 <heading className="text-white text-5xl flex w-full justify-center text-center">
                     RECENTLY COMPLETED GAME
@@ -73,7 +73,7 @@ const AboutPage = () => {
                     <img className="absolute top-10 -left-30 scale-40 -rotate-12" src="/assets/HornetSticker.svg"/>
                 </div>
 
-            </motion.div>    
+            </div>    
         </div>
     </div>
   )
