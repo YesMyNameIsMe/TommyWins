@@ -121,7 +121,7 @@ function landingPage() {
                             </span>
                           </span>
                           <span className="text-white font-normal text-xl font-mono mt-4">
-                            Developed a website under ACM UTD, apart of the largest international computing society. I operate as a fronted-developer and designer.
+                            Developed a website under ACM UTD, apart of the largest international computing society. I operate as a frontend-developer and designer.
                           </span>
                           <li className="text-white font-normal text-xl font-mono">
                             Collaborated with a team of other developers in implementing features and designs for the website using {' '}
