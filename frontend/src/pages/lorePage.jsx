@@ -41,7 +41,7 @@ const LorePage = () => {
             <LinkBubble name="Demo Video" image="/assets/VideoIcon.png" link="https://drive.google.com/file/d/13smlSXXKzOVhZBdTQ7A8B_GJTHSYrkFX/view?usp=sharing"/>
           </motion.div>
           {/*---------------------------------- IMAGE CAROUSEL ---------------------------------*/}
-            <motion.div className="items-center flex flex-col w-[60%] mt-30 relative" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.3}}>
+            <div className="items-center flex flex-col w-[60%] mt-30 relative" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.3}}>
                 <heading className="flex text-white text-5xl items-center text-center justify-center">
                   SAMPLE SCREENS
                 </heading>
@@ -55,9 +55,9 @@ const LorePage = () => {
                   <img className="border-4 rounded-xl border-blue" src='/assets/LoreImage4.png' />
                 </div>
                 <img className="-right-85 -bottom-55 scale-50 absolute" src="/assets/RoboSquadSticker.svg" />
-            </motion.div>
-          {/*---------------------------------- WHAT IS NEXUS? ---------------------------------*/}
-          <motion.div className="flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+            </div>
+          {/*---------------------------------- WHAT IS LORE? ---------------------------------*/}
+          <div className="flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
             <heading className="text-white text-5xl mt-40">
               WHAT IS LORE?
             </heading>
@@ -70,9 +70,9 @@ const LorePage = () => {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
           {/*---------------------------------- WHAT DID I DO? ---------------------------------*/}
-          <motion.div className="relative flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+          <div className="relative flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
             <heading className="text-white text-5xl mt-30">
               WHAT DID I DO?
             </heading>
@@ -87,9 +87,9 @@ const LorePage = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
           {/*---------------------------------- WHAT DID I USE? ---------------------------------*/}
-          <motion.div className="relative w-full flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+          <div className="relative w-full flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
             <heading className="text-white text-5xl mt-30 mb-5">
               WHAT DID I USE?
             </heading>
@@ -97,7 +97,7 @@ const LorePage = () => {
               <SkillList skills={skills} />
               <img className='absolute scale-80 -bottom-20 -left-25' src='/assets/ToolboxSticker.svg'></img>
             </div>
-          </motion.div>
+          </div>
           
           <motion.div className="absolute -right-10 -bottom-45" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}}>
             <Link to="/lore/info" className="z-1 text-white hover:underline absolute top-50 left-50 text-4xl font-mono font-bold"> Wanna Learn More? → </Link>
