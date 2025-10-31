@@ -34,7 +34,7 @@ const DetectMobile = () => {
     return (
         (isMobile &&
         <div className={`fixed w-full flex backdrop-brightness-20 z-100 items-center justify-center`} style={{ minHeight: '100vh' }}>
-            <div className="text-white w-[70%] h-[20%] justify-center items-center bg-gradient-to-b from-darkestBlue to-darkerBlue p-10 rounded-2xl">
+            <div className="text-white w-[80%] h-[20%] justify-center items-center bg-gradient-to-b from-darkestBlue to-darkerBlue rounded-2xl">
                 <div className="flex w-full h-full justify-center flex-col text-center">
                     <span className="font-mono text-2xl font-black">
                         Hold It!
