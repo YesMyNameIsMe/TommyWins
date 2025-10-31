@@ -27,9 +27,9 @@ function landingPage() {
             </div>
             {/* ------------------------------------------- ABOUT ------------------------------------- */}            
             <div className='flex flex-col items-center justify-center w-[60%]' initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
-              <heading className="text-white text-7xl mt-50">
+              <span className="text-white text-7xl mt-50 heading">
                 ABOUT
-              </heading>
+              </span>
               <div className="flex mt-10 min-w-[600px] w-full min-h-[10%] rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 {/* Image Container */}
                 <div className="w-[37%] items-center p-4 flex relative">
@@ -88,9 +88,9 @@ function landingPage() {
             </div>
             {/* ------------------------------------------- EXPERIENCE ------------------------------------- */}            
             <div id="experience" className='flex flex-col items-center justify-center w-[60%] '  initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
-              <heading className="text-white text-7xl mt-50">
+              <span className="text-white text-7xl mt-50 heading">
                 EXPERIENCE
-              </heading>
+              </span>
               {/* Experience Clicker */}
               <div className="flex w-full min-w-[600px] min-h-[3%] mt-10 py-4 bg-darkestBlue rounded-2xl drop-shadow-xl select-none"> 
                 <LuChevronLeft className='flex h-full cursor-pointer' color='#FFFFFF' size={50} onClick={() => {if(Selected !== 1) {setSelected(prevSelected => (prevSelected-1))} }}/>
@@ -166,9 +166,9 @@ function landingPage() {
             </div>
             {/* ------------------------------------------- PROJECTS ------------------------------------- */}            
             <div id="projects" className='flex flex-col items-center justify-center w-[60%]' initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.5}} viewport={{ once: true}}>            
-              <heading className="text-white text-7xl mt-50">
+              <span className="text-white text-7xl mt-50 heading">
                 PROJECTS
-              </heading>
+              </span>
               <div className="mt-10 flex min-w-[600px] gap-10 flex-wrap items-center justify-center ">
                 <ProjectComponent link="/lore#header" title="Lore" img="/assets/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories"/>
                 <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/NexusSticker.svg" description="A website for students to easily stay on top of classes"/>

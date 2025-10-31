@@ -23,53 +23,53 @@ const Footer = () => {
       <div className="flex w-fit gap-20 justify-center mx-10 mt-20">
         <span className="flex flex-col font-mono text-2xl text-white gap-4">
           <Link to={'/about#header'}>
-            <underlineText>
+            <span className="underlineText">
               ABOUT
-            </underlineText>
+            </span>
           </Link>
           <Link to="/#projects">
-            <underlineText>
+            <span className="underlineText">
               PROJECTS
-            </underlineText>
+            </span>
           </Link>
           <Link to="/#experience">
-            <underlineText>
+            <span className="underlineText">
               EXPERIENCE
-            </underlineText>
+            </span>
           </Link>
           <Link to="/#contact">
-            <underlineText>
+            <span className="underlineText">
               CONTACT
-            </underlineText>
+            </span>
           </Link>
         </span>
         <span className="flex flex-col font-mono text-2xl text-white gap-4">
           <Link to={'/nexus'}>
-            <underlineText>
+            <span className="underlineText">
               NEXUS
-            </underlineText>
+            </span>
           </Link>
           <Link to="/lore">
-            <underlineText>
+            <span className="underlineText">
               LORE
-            </underlineText>
+            </span>
           </Link>
         </span>
        <span className="flex flex-col font-mono text-2xl text-white gap-4">
           <a className='' target='_blank'  rel="noopener noreferrer" href="https://www.linkedin.com/in/tommy-nguyen-ba899423a">
-            <underlineText>
+            <span className="underlineText">
               GITHUB
-            </underlineText>
+            </span>
           </a>
           <a className='' target='_blank'  rel="noopener noreferrer" href="https://github.com/YesMyNameIsMe">
-            <underlineText>
+            <span className="underlineText">
               LINKEDIN
-            </underlineText>
+            </span>
           </a>
           <div onClick={handleCopy}>
-            <underlineText>
+            <span className="underlineText">
               EMAIL
-            </underlineText>            
+            </span>            
           </div>
         </span>
       </div>

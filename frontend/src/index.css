@@ -16,18 +16,18 @@
   --color-clearBlue: #40A4CC;
 }
 
-heading {
+.heading {
   font-family: 'TitanOne-Regular';
 }
 
-underlineText {
+.underlineText {
   position: relative;
 
   text-decoration: none;
   padding-bottom: 4px;
 }
 
-underlineText::after {
+.underlineText::after {
   content: '';
   position: absolute;
 
@@ -40,7 +40,7 @@ underlineText::after {
   transition: 0.4s ease-out
 }
 
-underlineText:hover::after {
+.underlineText:hover::after {
   width: 100%;
 }
 

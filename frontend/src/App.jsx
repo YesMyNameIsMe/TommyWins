@@ -10,6 +10,7 @@ import NexusInfo from './pages/nexusInfo'
 import LorePage from './pages/lorePage'
 import LoreInfo from './pages/loreInfo'
 import AboutPage from './pages/AboutPage'
+import DetectMobile from './components/detectMobile'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
     <>
       <Router>
         <ScrollToTop />
+        <DetectMobile />
         <div>
           <NavBar />
           <Routes>
