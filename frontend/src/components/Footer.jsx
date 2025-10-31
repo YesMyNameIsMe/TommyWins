@@ -51,9 +51,9 @@ const Footer = () => {
               LINKEDIN
             </span>
           </a>
-          <div onClick={handleCopy}>
+          <div>
             <span className="underlineText">
-              EMAIL
+              EMAIL 
             </span>            
           </div>
         </span>
