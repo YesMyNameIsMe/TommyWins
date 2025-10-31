@@ -42,9 +42,9 @@ const LorePage = () => {
           </motion.div>
           {/*---------------------------------- IMAGE CAROUSEL ---------------------------------*/}
             <div className="items-center flex flex-col w-[60%] mt-30 relative" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.3}}>
-                <heading className="flex text-white text-5xl items-center text-center justify-center">
+                <span className="heading flex text-white text-5xl items-center text-center justify-center">
                   SAMPLE SCREENS
-                </heading>
+                </span>
                 <h1 className='flex font-mono text-white mt-3 justify-center '>
                   (All Designed By Yours Truly!)
                 </h1>
@@ -57,10 +57,10 @@ const LorePage = () => {
                 <img className="-right-85 -bottom-55 scale-50 absolute" src="/assets/RoboSquadSticker.svg" />
             </div>
           {/*---------------------------------- WHAT IS LORE? ---------------------------------*/}
-          <div className="flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
-            <heading className="text-white text-5xl mt-40">
+          <div className="heading flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+            <span className="text-white text-5xl mt-40">
               WHAT IS LORE?
-            </heading>
+            </span>
             <div className="flex mt-5 min-w-[650px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
               <img className="absolute scale-25 -bottom-90 -left-80" src='/assets/DoorSticker.svg'/>
               {/* Text Container */}
@@ -73,9 +73,9 @@ const LorePage = () => {
           </div>
           {/*---------------------------------- WHAT DID I DO? ---------------------------------*/}
           <div className="relative flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
-            <heading className="text-white text-5xl mt-30">
+            <span className="heading text-white text-5xl mt-30">
               WHAT DID I DO?
-            </heading>
+            </span>
             <div className="relative min-w-[650px] w-[60%] min-h-[10%]">
               <div className="z-2 flex mt-5 rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
               <img className="absolute top-0 -right-75 z-50 scale-40" src='/assets/DrawingSticker.svg'/>
@@ -90,9 +90,9 @@ const LorePage = () => {
           </div>
           {/*---------------------------------- WHAT DID I USE? ---------------------------------*/}
           <div className="relative w-full flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
-            <heading className="text-white text-5xl mt-30 mb-5">
+            <span className="heading text-white text-5xl mt-30 mb-5">
               WHAT DID I USE?
-            </heading>
+            </span>
             <div className="min-w-[700px] w-[60%] justify-center items-center flex relative">
               <SkillList skills={skills} />
               <img className='absolute scale-80 -bottom-20 -left-25' src='/assets/ToolboxSticker.svg'></img>

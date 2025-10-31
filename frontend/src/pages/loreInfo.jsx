@@ -8,9 +8,9 @@ const LoreInfo = () => {
       className="flex flex-col w-full h-full bg-darkBlue bg-center bg-cover items-center justify-center px-40 py-40"
       style={{ backgroundImage: 'url("/assets/MoreInfoBG.svg")' }}
     >
-        <heading className="text-5xl text-white justify-center">
+        <span className="heading text-5xl text-white justify-center">
             More On Lore 
-        </heading>
+        </span>
         <div className="flex w-full min-w-[700px] h-fit items-center justify-center rounded-xl border-4 border-blue bg-gradient-to-b from-darkBlue to-darkestBlue mt-5 px-10 py-10">
             {/* ----------------------------------------- TEXT ----------------------------------------- */}
             <motion.div className="flex flex-col w-full h-full justify-center items-center" initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.7}}>
