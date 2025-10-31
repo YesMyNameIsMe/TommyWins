@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { HiOutlineDesktopComputer, HiOutlineDeviceMobile } from 'react-icons/hi'
 
 const DetectMobile = () => {
 
