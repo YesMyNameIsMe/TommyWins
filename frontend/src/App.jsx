@@ -6,9 +6,9 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import NexusPage from './pages/nexusPage'
 import ScrollToTop from './components/ScrollToTop'
-import DetectMobile from './components/DetectMobile'
 import NexusInfo from './pages/nexusInfo'
 import LorePage from './pages/lorePage'
+import detectMobile from './components/detectMobile'
 import LoreInfo from './pages/loreInfo'
 import AboutPage from './pages/AboutPage'
 
@@ -18,7 +18,7 @@ function App() {
     <>
       <Router>
         <ScrollToTop />
-        <DetectMobile />
+        <detectMobile />
         <div>
           <NavBar />
           <Routes>
