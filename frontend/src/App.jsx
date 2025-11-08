@@ -8,7 +8,7 @@ import NexusPage from './pages/nexusPage'
 import ScrollToTop from './components/ScrollToTop'
 import NexusInfo from './pages/nexusInfo'
 import LorePage from './pages/lorePage'
-import DetectMobile from './components/detectMobile'
+import DetectMobile from './components/DetectMobile'
 import LoreInfo from './pages/loreInfo'
 import AboutPage from './pages/AboutPage'
 
