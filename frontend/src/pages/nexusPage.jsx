@@ -35,7 +35,7 @@ const NexusPage = () => {
           </motion.div>
           <motion.div initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.4}}>
             <h1 className="flex items-center justify-center text-3xl text-white mt-5 font-mono font-bold" >
-              FRONT-END DEVELEPOR & DESIGNER
+              FRONT-END DEVELOPER & DESIGNER
             </h1>
           </motion.div>
           <motion.div className="flex mt-5 gap-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.6}}>
