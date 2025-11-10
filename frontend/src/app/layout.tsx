@@ -3,6 +3,7 @@ import { Titan_One } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import DetectMobile from "@/components/DetectMobile";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const titanOne = Titan_One({
@@ -29,6 +30,7 @@ export default function RootLayout({
         <DetectMobile />
         <NavBar />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
