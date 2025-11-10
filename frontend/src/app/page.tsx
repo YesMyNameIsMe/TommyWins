@@ -1,9 +1,11 @@
-import {React, useState} from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
-import ProjectComponent from '../components/ProjectComponent'
-import LinkBubble from '../components/LinkBubble'
-import { HashLink as Link } from 'react-router-hash-link';
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
+import ProjectComponent from '@/components/ProjectComponent';
+import LinkBubble from '@/components/LinkBubble';
+import Link from 'next/link';
 
 function landingPage() {
 
@@ -12,7 +14,7 @@ function landingPage() {
 
   return (
     <div id="header" className="flex justify-center bg-cover bg-center relative bg-darkestBlue" 
-         style={{backgroundImage: "url('assets/HomeBG.svg')", overflow: 'hidden'}}>   
+         style={{backgroundImage: "url('/assets/HomeBG.svg')", overflow: 'hidden'}}>   
         <div className="flex w-full flex-col items-center mt-30">
           {/* Hero Page Logo */}
             <div className="flex w-full h-[16%] justify-center items-start">
@@ -26,11 +28,11 @@ function landingPage() {
               </motion.div>
             </div>
             {/* ------------------------------------------- ABOUT ------------------------------------- */}            
-            <div className='flex flex-col items-center justify-center w-[60%]' initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+            <div className='flex flex-col items-center justify-center w-[60%]'>
               <span className="text-white text-7xl mt-50 heading">
                 ABOUT
               </span>
-              <div className="flex mt-10 min-w-[600px] w-full min-h-[10%] rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+              <div className="flex mt-10 min-w-[600px] w-full min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 {/* Image Container */}
                 <div className="w-[37%] items-center p-4 flex relative">
                   <img className="w-full h-auto rounded-lg" src="/assets/HeadShot.png"/>
@@ -39,7 +41,7 @@ function landingPage() {
                 </div>
                 {/* Text Container */}
                 <div className="w-[63%] flex flex-col justify-center relative">
-                  <h1 className="flex-col text-white m-4 min-w-[50%]"> 
+                  <h1 className="flex flex-col text-white m-4 min-w-[50%]"> 
                     <span className="flex text-white font-bold text-3xl font-mono"> 
                       Who Am I? 
                     <span className="mt-2 ml-4 text-white font-normal text-sm font-mono"> 
@@ -56,13 +58,16 @@ function landingPage() {
                       <span className="font-black">Graphics </span>
                       for my works and projects. I've always been desining ever since I was a kid, so you could say this is my life's ambition!
                     </span>
+                    <Link href="/about" className='w-fit mt-4 font-mono text-xl text-white underlineText'>
+                      Wanna Know More About Me? →
+                    </Link>
                   </h1> 
                 </div>
               </div>
             </div>
             {/* ------------------------------------------- DESIGN PHILOSOPHY ------------------------------------- */}            
-            <div className='flex flex-col items-center justify-center w-[60%] mt-10' initial={{y:50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{amount: 0.5, once: true}}>
-              <div className="flex min-w-[600px] w-full min-h-[7%] py-4 rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+            <div className='flex flex-col items-center justify-center w-[60%] mt-10'>
+              <div className="flex min-w-[600px] w-full min-h-[7%] py-4 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 <img className="absolute -bottom-16 -right-24 scale-85" src="/assets/MePondering.svg" />
                 {/*<img className="absolute -bottom-16 -left-24 scale-85" src="/assets/PlatoHead.svg" />}
                 {/* Text Container */}
@@ -87,7 +92,7 @@ function landingPage() {
               </div>
             </div>
             {/* ------------------------------------------- EXPERIENCE ------------------------------------- */}            
-            <div id="experience" className='flex flex-col items-center justify-center w-[60%] '  initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+            <div id="experience" className='flex flex-col items-center justify-center w-[60%] '>
               <span className="text-white text-7xl mt-50 heading">
                 EXPERIENCE
               </span>
@@ -102,7 +107,7 @@ function landingPage() {
                 </div>
                 <LuChevronRight className='flex h-full cursor-pointer' color='#FFFFFF' size={50} onClick={() => {if(Selected !== maxExperience) {setSelected(prevSelected => (prevSelected+1))}}}/>
               </div>
-              <div className="flex w-full min-w-[600px] min-h-[450px] mt-5 bg-gradient-to-b from-darkestBlue to-darkerBlue rounded-2xl drop-shadow-xl relative"> {/* Experience Div */}
+              <div className="flex w-full min-w-[600px] min-h-[450px] mt-5 bg-linear-to-b from-darkestBlue to-darkerBlue rounded-2xl drop-shadow-xl relative"> {/* Experience Div */}
                 <div className="flex w-full h-full mx-8">
                   {Selected == 1 && // ACM UTD
                     <AnimatePresence>
@@ -165,7 +170,7 @@ function landingPage() {
               </div>
             </div>
             {/* ------------------------------------------- PROJECTS ------------------------------------- */}            
-            <div id="projects" className='flex flex-col items-center justify-center w-[60%]' initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}} transition={{duration: 0.5}} viewport={{ once: true}}>            
+            <div id="projects" className='flex flex-col items-center justify-center w-[60%]'>            
               <span className="text-white text-7xl mt-50 heading">
                 PROJECTS
               </span>

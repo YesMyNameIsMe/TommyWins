@@ -1,8 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { AnimatePresence, delay, motion } from 'framer-motion'
+'use client';
 
-const LoreInfo = () => {
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import SkillList from '@/components/SkillList';
+import LinkBubble from '@/components/LinkBubble';
+
+const LorePage = () => {
   return (
     <div
       className="flex flex-col w-full h-full bg-darkBlue bg-center bg-cover items-center justify-center px-40 py-40"
@@ -15,7 +19,7 @@ const LoreInfo = () => {
             {/* ----------------------------------------- TEXT ----------------------------------------- */}
             <motion.div className="flex flex-col w-full h-full justify-center items-center" initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.7}}>
                 <div className='flex flex-col text-white font-mono text-lg gap-2'>
-                    <Link to="/lore" className="hover:underline text-xl font-mono w-fit text-white flex mb-5"> ← Take Me Back </Link>
+                    <Link href="/lore" className="hover:underline text-xl font-mono w-fit text-white flex mb-5"> ← Take Me Back </Link>
                     {/* Paragraph 1 */}
                     <h1 className="font-black text-3xl">
                         How Did I Get Here?
@@ -70,6 +74,6 @@ const LoreInfo = () => {
         </div>
     </div>
   )
-}
+};
 
-export default LoreInfo
+export default LorePage;

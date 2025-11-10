@@ -1,15 +1,23 @@
+'use client'
+
 import React, {useState, useEffect} from 'react'
 
 const DetectMobile = () => {
 
-    const [windowDimensions, setwindowDimensions] = useState({ width: window.innerWidth, height: window.innerHeight })
+    const [windowDimensions, setwindowDimensions] = useState({ width: 1920, height: 1080 })
     const [isMobile, setMobile] = useState(false)
 
     useEffect(() => {
+        // Initialize dimensions after component mounts
+        setwindowDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight
+        })
+
         function handleResize() {
             setwindowDimensions({
                 width: window.innerWidth,
-                height: screen.height
+                height: window.innerHeight
             })
         }
 
@@ -19,7 +27,7 @@ const DetectMobile = () => {
 
     useEffect(() => {
         windowDimensions.width < 700 ? setMobile(true) : setMobile(false)
-    }, [])
+    }, [windowDimensions.width])
 
     useEffect(() => {
         if(isMobile) {
@@ -34,7 +42,7 @@ const DetectMobile = () => {
     return (
         (isMobile &&
         <div className={`fixed w-full flex backdrop-brightness-20 z-100 items-center justify-center`} style={{ minHeight: '100vh' }}>
-            <div className="text-white w-[80%] h-[20%] justify-center items-center bg-gradient-to-b from-darkestBlue to-darkerBlue rounded-2xl p-5">
+            <div className="text-white w-[80%] h-[20%] justify-center items-center bg-linear-to-b from-darkestBlue to-darkerBlue rounded-2xl p-5">
                 <div className="flex w-full h-full justify-center flex-col text-center">
                     <span className="font-mono text-2xl font-black">
                         Hold It!

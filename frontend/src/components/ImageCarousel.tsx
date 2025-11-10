@@ -1,29 +1,39 @@
-import React, { useState } from 'react'
+'use client';
+
+import { useState } from 'react';
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
+import Image from 'next/image';
 
-const ImageCarousel = ({className, images}) => {
+interface ImageCarouselProps {
+  className?: string;
+  images: Array<{
+    src: string;
+    desc?: string;
+  }>;
+}
 
-    const [currentIndex, setIndex] = useState(0);
+const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
+  const [currentIndex, setIndex] = useState(0);
 
-    const goToPrev = () => {
-        if(currentIndex !== 0) {
-            setIndex(prevIndex => prevIndex - 1)
-        } else {
-            setIndex(images.length - 1)
-        }
+  const goToPrev = () => {
+    if(currentIndex !== 0) {
+      setIndex(prevIndex => prevIndex - 1);
+    } else {
+      setIndex(images.length - 1);
     }
+  };
 
-    const goToNext = () => {
-        if(currentIndex === images.length - 1) {
-            setIndex(0)
-        } else {
-            setIndex(prevIndex => prevIndex + 1)
-        }
+  const goToNext = () => {
+    if(currentIndex === images.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(prevIndex => prevIndex + 1);
     }
+  };
 
-    const goToimage = (imageIndex) => {
-        setIndex(imageIndex)
-    }
+  const goToImage = (imageIndex: number) => {
+    setIndex(imageIndex);
+  };
 
     return (
         <div className={`${className} flex w-full justify-center items-center max-h-[640px] select-none relative`}> {/* Carousel Container */}
@@ -50,9 +60,9 @@ const ImageCarousel = ({className, images}) => {
                 {/* Dots */}
                 {images.map((image, imageIndex) => (
                     <div
-                      className={`rounded-full h-[20px] w-[20px] cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
+                      className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
                       key={imageIndex}
-                      onClick={() => {goToimage(imageIndex)}}
+                      onClick={() => {goToImage(imageIndex)}}
                     />
                 ))}
             </div>

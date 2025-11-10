@@ -1,28 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { AnimatePresence, delay, motion } from 'framer-motion'
+'use client';
 
-const NexusInfo = () => {
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import SkillList from '@/components/SkillList';
+import LinkBubble from '@/components/LinkBubble';
+
+const LorePage = () => {
   return (
     <div
       className="flex flex-col w-full h-full bg-darkBlue bg-center bg-cover items-center justify-center px-40 py-40"
-      style={{ backgroundImage: 'url("/assets/MoreInfoBG.svg")' }}
+      style={{ backgroundImage: "url('/assets/MoreInfoBG.svg')" }}
     >
         <span className="heading text-5xl text-white justify-center">
             More On Nexus 
         </span>
-        <div className="flex w-full min-w-[700px] h-fit items-center justify-center rounded-xl drop-shadow-xl bg-gradient-to-b from-darkBlue to-darkestBlue mt-5 px-10 py-10 overflow-hidden">
+        <div className="flex w-full min-w-[700px] h-fit items-center justify-center rounded-xl drop-shadow-xl bg-linear-to-b from-darkBlue to-darkestBlue mt-5 px-10 py-10 overflow-hidden">
             {/* ----------------------------------------- TEXT ----------------------------------------- */}
             <motion.div className="flex flex-col w-full h-full justify-center items-center" initial={{opacity: 0, y: 20}} animate={{opacity: 1, y: 0}} transition={{duration: 0.7}}>
                 <div className='flex flex-col text-white font-mono text-lg gap-2'>
-                    <Link to="/nexus" className="hover:underline text-xl font-mono w-fit text-white flex mb-5"> ← Take Me Back </Link>
+                    <Link href="/nexus" className="hover:underline text-xl font-mono w-fit text-white flex mb-5"> ← Take Me Back </Link>
                     {/* Paragraph 1 */}
                     <h1 className="font-black text-3xl">
                         How Did I Get Here?
                     </h1>
                     <span className=''>
                         Directly after my {' '}
-                        <Link to="/lore" className='font-black text-blue-300 hover:underline'>
+                        <Link href="/lore" className='font-black text-blue-300 hover:underline'>
                             previous project
                         </Link>
                         , I tried to find another similar oppurtunity because it was such a blast to be able to work on it. I decided that the natural course of action was to move on to the {' '}
@@ -75,6 +79,6 @@ const NexusInfo = () => {
         </div>
     </div>
   )
-}
+};
 
-export default NexusInfo
+export default LorePage;

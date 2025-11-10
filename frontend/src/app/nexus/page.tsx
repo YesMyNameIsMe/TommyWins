@@ -1,10 +1,11 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { AnimatePresence, delay, motion } from 'framer-motion'
-import ImageCarousel from '../components/ImageCarousel'
-import SkillList from '../components/SkillList'
-import LinkBubble from '../components/LinkBubble'
-import NexusInfo from './nexusInfo'
+import ImageCarousel from '@/components/ImageCarousel';
+import SkillList from '@/components/SkillList';
+import LinkBubble from '@/components/LinkBubble';
+import Link from 'next/link';
 
 const NexusPage = () => {
 
@@ -27,8 +28,8 @@ const NexusPage = () => {
                   {name: 'Prototyping'}, {name: 'TailwindCSS'}, {name: 'Programming'}, {name: 'SVG Animation'}]
 
   return (
-    <div className='flex justify-center h-[3100px] min-w-full bg-darkBlue bg-center bg-cover' style={{backgroundImage: "url('assets/NexusBG.svg')", overflow: 'auto'}}>
-        <div className="flex flex-col h-full w-full items-center relative overflow-hidden">
+    <div className='flex justify-center h-[3100px] min-w-full bg-darkBlue bg-center bg-cover' style={{backgroundImage: "url('/assets/NexusBG.svg')", overflow: 'auto'}}>
+        <div id="header" className="flex flex-col h-full w-full items-center relative overflow-hidden">
           {/*---------------------------------- TITLE ---------------------------------*/}
           <motion.div initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
             <img className="items-center justify-center h-auto w-[500px] flex mt-50" src="/assets/NexusLogo.svg" />
@@ -43,7 +44,7 @@ const NexusPage = () => {
             <LinkBubble name="Website (Coming Soon!)" image="/assets/WebIcon.png"/>
           </motion.div>
           {/*---------------------------------- IMAGE CAROUSEL ---------------------------------*/}
-            <div className="flex flex-col w-[60%] mt-30 relative" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.3}}>
+            <div className="flex flex-col w-[60%] mt-30 relative">
                 <span className="heading flex text-white text-5xl justify-center text-center">
                   SAMPLE PAGES
                 </span>
@@ -56,11 +57,11 @@ const NexusPage = () => {
                 </div>
             </div>
           {/*---------------------------------- WHAT IS NEXUS? ---------------------------------*/}
-          <div className="flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+          <div className="flex flex-col justify-center items-center" >
             <span className="heading text-white text-5xl mt-40">
               WHAT IS NEXUS?
             </span>
-            <div className="flex mt-5 min-w-[650px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+            <div className="flex mt-5 min-w-[650px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
                 <img className="absolute -scale-x-100 -bottom-20 -left-20" src='/assets/BackpackSticker.svg'/>
@@ -71,13 +72,13 @@ const NexusPage = () => {
             </div>
           </div>
           {/*---------------------------------- WHAT DID I DO? ---------------------------------*/}
-          <div className="relative flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+          <div className="relative flex flex-col justify-center items-center">
             <span className="heading text-white text-5xl mt-30">
               WHAT DID I DO?
             </span>
             <div className="relative min-w-[650px] w-[60%] min-h-[10%]">
               <img className="absolute -top-30 -right-20 z-1" src='/assets/PeechiSticker.svg'/>
-              <div className="z-2 flex mt-5 rounded-2xl justify-center bg-gradient-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+              <div className="z-2 flex mt-5 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 {/* Text Container */}
                 <div className="w-full flex flex-col justify-center relative">
                   <span className="m-10 text-white font-normal text-xl font-mono">
@@ -88,7 +89,7 @@ const NexusPage = () => {
             </div>
           </div>
           {/*---------------------------------- WHAT DID I USE? ---------------------------------*/}
-          <div className="relative w-full flex flex-col justify-center items-center" initial={{y: 50, opacity: 0}} whileInView={{y:0, opacity: 1}} transition={{duration: 0.5}} viewport={{once: true, amount: 0.5}}>
+          <div className="relative w-full flex flex-col justify-center items-center">
             <span className="heading text-white text-5xl mt-30 mb-5">
               WHAT DID I USE?
             </span>
@@ -99,7 +100,7 @@ const NexusPage = () => {
           </div>
           
           <motion.div className="absolute -right-30 -bottom-40" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}}>
-            <Link to="/nexus/info" className="hover:underline absolute top-23 left-40 text-4xl font-mono font-bold"> Wanna Learn More? → </Link>
+            <Link href="/nexus/info" className="hover:underline absolute top-23 left-40 text-4xl font-mono font-bold"> Wanna Learn More? → </Link>
             <img className="" src='/assets/Paper.svg'/>
           </motion.div>
         </div>
