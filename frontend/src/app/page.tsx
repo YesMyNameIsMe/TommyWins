@@ -1,14 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
 import ProjectComponent from '@/components/ProjectComponent';
 import LinkBubble from '@/components/LinkBubble';
 import Link from 'next/link';
+import { useMobile } from '@/context/mobileContext';
 
 function landingPage() {
-
+  const {isMobile} = useMobile()
   const [Selected, setSelected] = useState(1)
   const maxExperience = 2;
 
@@ -20,7 +21,7 @@ function landingPage() {
             <div className="flex w-full h-[16%] justify-center items-start">
               <motion.div className="flex flex-col justify-center items-center z-10" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
                   <iframe id="contact" className="h-[500px] w-150" src='/assets/HeroPageLogo.html'/>
-                  <div className="flex h-full w-full items-center justify-center gap-4">
+                  <div className={`flex ${isMobile ? 'flex-col' : ''} h-full w-full items-center justify-center gap-4`}>
                     <LinkBubble name="LinkedIn" image="/assets/LinkedInLogo.png" link="https://www.linkedin.com/in/tommy-nguyen-ba899423a"/>
                     <LinkBubble name="GitHub" image="/assets/GitHubLogo.png" link="https://github.com/YesMyNameIsMe"/>
                     <LinkBubble name="txn230018@utdallas.edu" image="/assets/EmailLogo.png"/>                  

@@ -63,7 +63,7 @@ const AboutPage = () => {
                 <span className="heading text-white text-7xl">
                     PHOTOS
                 </span>
-                <ImageCarousel className="" images={images} />
+                <ImageCarousel className="mt-5" images={images} />
                 <img className="absolute top-0 -right-20" src="/assets/Camera.svg"/>
             </div>   
             {/*====================================== YOUTUBE ======================================*/}

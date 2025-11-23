@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 import Image from 'next/image';
+import { AnimatePresence, motion } from 'motion/react';
 
 interface ImageCarouselProps {
   className?: string;
@@ -14,6 +15,29 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
   const [currentIndex, setIndex] = useState(0);
+  const [openedImage, setOpenedImage] = useState("")
+  const [isOpen, setOpen] = useState(false)
+  const imageRef = useRef<HTMLImageElement | null>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if(imageRef.current && !imageRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, []) 
+
+  useEffect(() => {
+      if(isOpen) {
+          document.body.style.overflow = 'hidden'
+      }
+
+      return () => {
+          document.body.style.overflow = 'auto';
+      }
+  }, [isOpen])
 
   const goToPrev = () => {
     if(currentIndex !== 0) {
@@ -36,6 +60,17 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
   };
 
     return (
+      <>
+        <AnimatePresence>
+          {isOpen && 
+          <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
+            <div className="flex w-[90%] h-[90%] items-center justify-center">
+              <img className="max-w-full max-h-full object-contain" src={openedImage} ref={imageRef} alt="expanded"/>
+            </div>
+          </motion.div>
+          }
+        </AnimatePresence>
+
         <div className={`${className} flex w-full justify-center items-center max-h-[640px] select-none relative`}> {/* Carousel Container */}
             <HiArrowCircleLeft className="absolute -left-20 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
                 {/* Holds Overflowing Images */}
@@ -43,13 +78,12 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
                     {/* Contains Images in a Row */}
                     <div className="h-full flex flex-row transition-transform duration-300" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {images.map((image, index) => (
-                            // Image Container
-                            <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
-                                <div className="w-full h-[80%] overflow-hidden rounded-xl mb-4">
-                                  <img className="w-full h-full object-cover" src={image.src} alt={image.desc || `slide-${index}`} />
-                                </div>
-                                <span className="text-gray-300 font-mono text-lg mt-3">{image.desc}</span>
-                            </div>
+                          // Image Container
+                          <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
+                              <img className="w-full max-h-[600px] object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
+                                    onClick={() => {setOpenedImage(image.src); setOpen(true)}}/>
+                            <span className="text-gray-300 font-mono flex-wrap text-center text-lg my-3">{image.desc}</span>
+                          </div>
                         ))}
                     </div>
                 </div>
@@ -59,14 +93,15 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
             <div className="absolute w-full justify-center flex -bottom-5 gap-5">
                 {/* Dots */}
                 {images.map((image, imageIndex) => (
-                    <div
-                      className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
-                      key={imageIndex}
-                      onClick={() => {goToImage(imageIndex)}}
-                    />
+                  <div
+                  className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
+                  key={imageIndex}
+                  onClick={() => {goToImage(imageIndex)}}
+                  />
                 ))}
             </div>
         </div>
+      </>
     )
 }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, delay, motion } from 'framer-motion'
+import { animate, AnimatePresence, delay, motion } from 'framer-motion'
 import ImageCarousel from '@/components/ImageCarousel';
 import SkillList from '@/components/SkillList';
 import LinkBubble from '@/components/LinkBubble';
@@ -9,28 +9,71 @@ import Link from 'next/link';
 
 const NexusPage = () => {
 
-  const images = [
-    {
-      src: '/assets/NexusImage1.png'
-    },
-    {
-      src: '/assets/NexusImage2.png'
-    },
-    {
-      src: '/assets/NexusImage3.png'
-    },
-    {
-      src: '/assets/NexusImage4.png'
+  const [isOpen, setOpen] = useState(false)
+  const [openedImage, setOpenedImage] = useState("")
+  const imageRef = useRef<HTMLImageElement | null>(null)
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if(imageRef.current && !imageRef.current.contains(event.target)) {
+        setOpen(false);
+      }
     }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, []) 
+
+  useEffect(() => {
+      if(isOpen) {
+          document.body.style.overflow = 'hidden'
+      }
+
+      return () => {
+          document.body.style.overflow = 'auto';
+      }
+  }, [isOpen])
+
+  const images = [
+    {src: '/assets/nexus/Home.png'},
+    {src: '/assets/nexus/Grade Calc.png'},
+    {src: '/assets/nexus/Superdoc.png'},
+    {src: '/assets/nexus/AccessRequest.png'}
   ]
 
-  const skills = [{name: 'Figma'}, {name: 'UI/UX Design'}, {name: 'React'}, {name: 'TypeScript'}, {name: 'Graphic Design'},
-                  {name: 'Prototyping'}, {name: 'TailwindCSS'}, {name: 'Programming'}, {name: 'SVG Animation'}]
+  const oldPages = [
+    {src: '/assets/nexus/OldNexus1.png'},
+    {src: '/assets/nexus/OldNexus2.png'},
+    {src: '/assets/nexus/OldNexus3.png'}
+  ]
+
+  const conceptPages = [
+    {src: '/assets/nexus/Concept3.png', desc: 'One of the earliest pages made to test out the concepts and how it would mesh with the existing UI at the time.'},
+    {src: '/assets/nexus/Concept1.png', desc: "Better view of the previous image's background. A 'crystal' theme that is invoked by the geometric design of Nexus."},
+    {src: '/assets/nexus/Concept2.png', desc: "Another early page, the background is meant to represent Nexus quite literally, where it's a connection of multiple points and lines."},
+    {src: '/assets/nexus/Concept4.png', desc: 'The fan favorite design! An attempt to make a more identifiable style through more playful graphics.'},    
+    {src: '/assets/nexus/loadingAnim.gif', desc: 'Custom loading animation I made that also takes the word Nexus literally, where the logo grows and disperses out to make connections.'},    
+  ]
+
+  const skills = [{name: 'Figma'}, {name: 'React'}, {name: 'TypeScript'}, 
+                  {name: 'Prototyping'}, {name: 'TailwindCSS'}, {name: 'SVG Animation'}]
+
+  const wdid = [{desc: 'Oversaw A Complete Overhaul of Existing Design', src: '/assets/Refresh.png'}, 
+                {desc: 'Integration of Designs into Code via React', src: '/assets/ReactLogo.png'}, 
+                {desc: 'Created Designs and Graphics for all Pages via Figma', src: '/assets/FigmaLogo.png'}]
+
+  const wisn = [{desc: 'Easy Grade Management via  Grade Calculator'}, 
+                {desc: 'Consolidated Class Notes for Students via “Superdoc”'}, 
+                {desc: 'Quick Class Group Chat Creation via Class Scraping '}]
 
   return (
-    <div className='flex justify-center h-[3100px] min-w-full bg-darkBlue bg-center bg-cover' style={{backgroundImage: "url('/assets/NexusBG.svg')", overflow: 'auto'}}>
+    <div className='flex justify-center h-[6500px] min-w-full bg-darkBlue bg-center bg-cover' style={{backgroundImage: "url('/assets/NexusBG.svg')", overflow: 'auto'}}>
         <div id="header" className="flex flex-col h-full w-full items-center relative overflow-hidden">
-          {/*---------------------------------- TITLE ---------------------------------*/}
+          {/*============================== TITLE ==============================*/}
           <motion.div initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
             <img className="items-center justify-center h-auto w-[500px] flex mt-50" src="/assets/NexusLogo.svg" />
           </motion.div>
@@ -43,24 +86,66 @@ const NexusPage = () => {
             <LinkBubble name="Figma" image="/assets/FigmaLogo.png" link="https://www.figma.com/design/G5POQBVUXCiCwuvaA2rWmA/Nexus?t=zJsmJ8ybWiNWlcc7-1"/>
             <LinkBubble name="Website (Coming Soon!)" image="/assets/WebIcon.png"/>
           </motion.div>
-          {/*---------------------------------- IMAGE CAROUSEL ---------------------------------*/}
-            <div className="flex flex-col w-[60%] mt-30 relative">
-                <span className="heading flex text-white text-5xl justify-center text-center">
-                  SAMPLE PAGES
-                </span>
-                <h1 className='flex font-mono text-white mt-3 justify-center '>
-                  (All Designed By Yours Truly!)
-                </h1>
-                <div className="justify-center items-center flex relative">
-                  <ImageCarousel className="mt-4" images={images} />
-                  <img className="-right-75 -bottom-55 -rotate-12 scale-50 absolute" src="/assets/NexusSleeping.svg" />
+          {/*============================== SAMPLE PAGES ==============================*/}
+          <div className="flex flex-col w-[60%] mt-30 relative">
+              <span className="heading flex text-white text-5xl justify-center text-center">
+                SAMPLE PAGES
+              </span>
+              <h1 className='flex font-mono text-white mt-3 justify-center '>
+                (All Designed By Yours Truly!)
+              </h1>
+              <div className="flex flex-col justify-center items-center relative">
+                <ImageCarousel className="mt-5" images={images} />
+                <img className="-right-75 -bottom-55 -rotate-12 scale-50 absolute" src="/assets/NexusSleeping.svg" />
+              </div>
+          </div>
+          {/*============================== WHAT DID I DO ==============================*/}
+          <div className="flex flex-col items-center justify-center mt-30">
+            <h1 className="heading text-white text-5xl mb-5">
+              WHAT DID I DO?
+            </h1>
+            <div className="flex flex-row w-full gap-10 items-center justify-center">
+              {wdid.map((item, index) => (
+                <div key={index} className="flex flex-col min-w-[200px] w-[18%] h-[200px] bg-darkerBlue rounded-xl text-white font-mono text-center text-xl">
+                  <div className="flex w-full h-[100px] bg-darkBlue rounded-t-xl items-center justify-center">
+                    {item.desc}
+                  </div>
+                  <div className="flex items-center justify-center h-[100px] w-full p-3">
+                    <img className="max-w-full max-h-full hover:scale-120 hover:rotate-10 transition duration-200" src={item.src} alt={item.desc} />
+                  </div>
                 </div>
+              ))}
             </div>
-          {/*---------------------------------- WHAT IS NEXUS? ---------------------------------*/}
-          <div className="flex flex-col justify-center items-center" >
-            <span className="heading text-white text-5xl mt-40">
+          </div>
+          {/*============================== PROBLEM STATEMENT ==============================*/}
+          <div className="relative flex flex-col justify-center items-center">
+            <span className="heading text-white text-5xl mt-30">
+              PROBLEM STATEMENT
+            </span>
+            <div className="relative min-w-[650px] w-[60%] min-h-[10%]">
+              <img className="absolute -top-5 -left-10 z-10 rotate-24" src='/assets/nexus/QM.svg'/>
+              <div className="z-2 flex mt-5 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+                {/* Text Container */}
+                <div className="w-full flex flex-col justify-center relative">
+                  <span className="m-10 text-white font-normal text-xl font-mono">
+                    In college, obtaining contact information with other classmates can be a hassle as students splinter off into separate group chats. There’s also a lack of a singular site that can serve as a consolidated study tool, forcing students to hop around different sites, which can become overwhelming. 
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/*============================== WHAT IS NEXUS? ==============================*/}
+          <div className="flex flex-col justify-center items-center mt-30" >
+            <span className="heading text-white text-5xl ">
               WHAT IS NEXUS?
             </span>
+            <div className="flex flex-row w-full gap-10 items-center justify-center mt-5">
+              {wisn.map((item, index) => (
+                <div key={index} className="flex min-w-[200px] w-[18%] h-[100px] bg-darkBlue items-center justify-center text-center rounded-xl text-white font-mono text-xl p-2">
+                  {item.desc}
+                </div>
+              ))}
+            </div>
             <div className="flex mt-5 min-w-[650px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
@@ -71,36 +156,102 @@ const NexusPage = () => {
               </div>
             </div>
           </div>
-          {/*---------------------------------- WHAT DID I DO? ---------------------------------*/}
+          {/*============================== WHAT DID I USE? ==============================*/}
+          <div className="relative w-full flex flex-col justify-center items-center mt-30">
+            <span className="heading text-white text-5xl mb-5">
+              WHAT DID I USE?
+            </span>
+            <div className="min-w-[700px] w-[60%] justify-center items-center flex relative">
+              <SkillList skills={skills} />
+              <img className='absolute scale-80 -bottom-20 -right-25' src='/assets/ToolboxSticker.svg'></img>
+            </div>
+          </div>
+          {/*============================== CONCEPTS ==============================*/}
+          <div className="flex flex-col w-[60%] mt-30 relative">
+              <span className="heading flex text-white text-5xl justify-center text-center">
+                CONCEPT DESIGNS
+              </span>
+              <div className="flex flex-col justify-center items-center relative">
+                <ImageCarousel className="mt-5" images={conceptPages} />
+              </div>
+          </div>
+          {/*============================== DISCOVERY ==============================*/}
           <div className="relative flex flex-col justify-center items-center">
             <span className="heading text-white text-5xl mt-30">
-              WHAT DID I DO?
+              DISCOVERY
             </span>
             <div className="relative min-w-[650px] w-[60%] min-h-[10%]">
-              <img className="absolute -top-30 -right-20 z-1" src='/assets/PeechiSticker.svg'/>
+              <img className="absolute -top-30 -left-20 -scale-x-100 z-1" src='/assets/PeechiSticker.svg'/>
               <div className="z-2 flex mt-5 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 {/* Text Container */}
                 <div className="w-full flex flex-col justify-center relative">
                   <span className="m-10 text-white font-normal text-xl font-mono">
-                    With collaboration among other ACM officers, I helped build many parts of Nexus’ front-end. I am responsible for Nexus’ overall design as well as a handful of the pages. I joined the team after Nexus was already established, so as the lead designer, I was tasked for a complete design overhaul of the website, which was quite the tall order! But after a few iterations and feedback, I landed on a style that I believe can set Nexus apart from other websites and make it memorable!
+                    I joined Nexus after it was conceived, meaning it already had an existing design. However, I was brought on as the lead designer, and was thrown in with no clear direction as the team never had one. Being given not much to work with other than knowing what pages to design, I came up with multiple concepts, some that followed the existing design and one that diverged. 
+                    My PM presented the designs to other leads and the director, and it was decided that the divergent design was the favorite, making it the main style moving forward. 
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          {/*---------------------------------- WHAT DID I USE? ---------------------------------*/}
-          <div className="relative w-full flex flex-col justify-center items-center">
-            <span className="heading text-white text-5xl mt-30 mb-5">
-              WHAT DID I USE?
+          {/*============================== USER FLOW ==============================*/}
+          <div className="relative flex flex-col justify-center items-center">
+            <span className="heading text-white text-5xl mt-30">
+              INITIAL USER FLOW
             </span>
-            <div className="min-w-[700px] w-[60%] justify-center items-center flex relative">
-              <SkillList skills={skills} />
-              <img className='absolute scale-80 -bottom-20 -left-25' src='/assets/ToolboxSticker.svg'></img>
-            </div>
+            <img onClick={() => {setOpenedImage("/assets/nexus/UserFlow.png"); setOpen(true)}}
+                className='flex mt-5 w-[65%] object-contain rounded-xl cursor-pointer' src="/assets/nexus/UserFlow.png"/>
+            <LinkBubble className='mt-5' link='https://www.figma.com/proto/GqaxQ5U2G2XsezcwFAPSbI/Nexus?node-id=1057-17&t=bBgYf32IUJxHFk3x-1' name='Prototype Link' image='/assets/FigmaLogo.png'/>
           </div>
+          {/*============================== DESIGN ==============================*/}
+          <div className="flex flex-col justify-center items-center mt-30" >
+            <span className="heading text-white text-5xl ">
+              DESIGN
+            </span>
+            <div className="flex mt-5 min-w-[650px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+              {/* Text Container */}
+              <div className="w-full flex flex-col justify-center relative">
+                <img className="absolute scale-90 -bottom-20 -left-30 -rotate-24" src='/assets/PaletteSticker.svg'/>
+                <span className="mx-10 mt-10 text-white font-normal text-xl font-mono">
+                  My design choice was guided from the one concept piece that was well received among others as well as my own design style that I’ve developed. The design strays from the sanitized and minimalist look of other education-related websites in favor of a lively and playful style that’ll set Nexus apart and more memorable. 
+                </span>
+                <span className="mx-10 mt-5 mb-10 text-white font-normal text-xl font-mono">
+                  The biggest challenge I ran into, and frankly, still am, is keeping up with consistency. When I began I was still a novice in using Figma, and as I've grown more experienced, I find that many of my practices were nonoptimal. Going back to implement best practices for things I've already done is a hassle, but for the sake developer handoff, it'll ultimately save more time for everybody.
+                </span>
+              </div>
+            </div>
+          </div>      
+          {/*============================== OUTCOME ==============================*/}
+          <div className="flex flex-col justify-center items-center mt-30" >
+            <span className="heading text-white text-5xl ">
+              OUTCOME
+            </span>
+            <div className="flex mt-5 min-w-[650px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+              {/* Text Container */}
+              <div className="w-full flex flex-col justify-center relative">
+                <img className="absolute scale-90 -bottom-15 -right-20" src='/assets/Stonks.svg'/>
+                <span className="m-10 text-white font-normal text-xl font-mono">
+                  Nexus is set to release in the Spring 2026 semester for all UTD students, stay tuned for results! 
+                  Thanks to holding weekly meetings as well as having a framework already complete the year before, steady progress was made even during the team’s busy college schedule. 
+                  Our team was able to ship a product I’m extremely satisfied with and am excited to develop and design more features for!
+                </span>
+              </div>
+            </div>
+          </div>  
           
-          <motion.div className="absolute -right-30 -bottom-40" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}}>
-            <Link href="/nexus/info" className="hover:underline absolute top-23 left-40 text-4xl font-mono font-bold"> Wanna Learn More? → </Link>
+          {/*============================== USER FLOW POP UP ==============================*/}
+          <AnimatePresence>
+              {isOpen && 
+            <motion.div className="z-150 fixed flex inset-0 backdrop-brightness-50 items-center justify-center" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.3}}>
+                <div className="flex w-[85%] h-[85%]">
+                  <img className="rounded-xl" src={openedImage} ref={imageRef} alt="" />
+                </div>
+            </motion.div>
+              }
+          </AnimatePresence>
+
+          <motion.div className="absolute -right-30 -bottom-40 flex flex-col" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}}>
+            <span className="absolute top-23 left-40 text-4xl font-mono font-bold"> Thanks for Reading! </span>
+            <Link href="/nexus" onClick={() => scrollToSection("/header")} className="hover:underline absolute top-37 left-40 text-4xl font-mono font-bold"> Click Here to Go Back Up! </Link>
             <img className="" src='/assets/Paper.svg'/>
           </motion.div>
         </div>

@@ -4,6 +4,8 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import DetectMobile from "@/components/DetectMobile";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { MobileProvider } from "@/context/mobileContext";
 import "./globals.css";
 
 const titanOne = Titan_One({
@@ -27,11 +29,14 @@ export default function RootLayout({
       <body
         className={titanOne.variable}
       >
-        <DetectMobile />
-        <NavBar />
-        {children}
-        <Analytics />
-        <Footer />
+        <MobileProvider>
+          <DetectMobile />
+          <NavBar />
+          {children}
+          <Analytics />
+          <SpeedInsights />
+          <Footer />
+        </MobileProvider>
       </body>
     </html>
   );
