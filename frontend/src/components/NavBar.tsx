@@ -10,11 +10,6 @@ function NavBar() {
   const {isMobile} = useMobile();
   const [isOpen, setOpen] = useState(false)
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <>
     {isMobile ? 
@@ -35,17 +30,17 @@ function NavBar() {
                   ABOUT
                 </span>
               </Link>
-              <Link href="/" onClick={() => scrollToSection('projects')} className="flex text-white font-bold text-3xl font-mono">
+              <Link href="/#projects" className="flex text-white font-bold text-3xl font-mono">
                 <span className="underlineText">
                   PROJECTS
                 </span>
               </Link>
-              <Link href="/" onClick={() => scrollToSection('experience')} className="flex text-white font-bold text-3xl font-mono">
+              <Link href="/#experience" className="flex text-white font-bold text-3xl font-mono">
                 <span className="underlineText">
                   EXPERIENCE
                 </span>
               </Link>
-              <Link href="/" onClick={() => scrollToSection('contact')} className="flex text-white font-bold text-3xl font-mono">
+              <Link href="/#header" className="flex text-white font-bold text-3xl font-mono">
                 <span className="underlineText">
                   CONTACT
                 </span>
@@ -65,20 +60,20 @@ function NavBar() {
             ABOUT
           </span>
         </Link>
-        <Link href="/" onClick={() => scrollToSection('projects')} className="flex justify-center text-white font-bold text-3xl font-mono">
+        <Link href="/#projects" className="flex justify-center text-white font-bold text-3xl font-mono">
           <span className="underlineText">
             PROJECTS
           </span>
         </Link>
-        <Link href="/" onClick={() => scrollToSection('header')} className="w-1/5 flex justify-center">
+        <Link href="/#header" className="w-1/5 flex justify-center">
           <img className="scale-80" src="/assets/NavBarLogo.svg" alt="Logo" style={{cursor: 'pointer'}} />
         </Link>
-        <Link href="/" onClick={() => scrollToSection('experience')} className="flex justify-center text-white font-bold text-3xl font-mono">
+        <Link href="/#experience" className="flex justify-center text-white font-bold text-3xl font-mono">
           <span className="underlineText">
             EXPERIENCE
           </span>
         </Link>
-        <Link href="/" onClick={() => scrollToSection('contact')} className="flex justify-center text-white font-bold text-3xl font-mono">
+        <Link href="/#header" className="flex justify-center text-white font-bold text-3xl font-mono">
           <span className="underlineText">
             CONTACT
           </span>

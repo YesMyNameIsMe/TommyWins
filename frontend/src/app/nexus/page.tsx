@@ -13,11 +13,6 @@ const NexusPage = () => {
   const [openedImage, setOpenedImage] = useState("")
   const imageRef = useRef<HTMLImageElement | null>(null)
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   useEffect(() => {
     const handleClickOutside = (event: any) => {
       if(imageRef.current && !imageRef.current.contains(event.target)) {
@@ -251,7 +246,7 @@ const NexusPage = () => {
 
           <motion.div className="absolute -right-30 -bottom-40 flex flex-col" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}}>
             <span className="absolute top-23 left-40 text-4xl font-mono font-bold"> Thanks for Reading! </span>
-            <Link href="/nexus" onClick={() => scrollToSection("/header")} className="hover:underline absolute top-37 left-40 text-4xl font-mono font-bold"> Click Here to Go Back Up! </Link>
+            <Link href="/nexus#header" className="hover:underline absolute top-37 left-40 text-4xl font-mono font-bold"> Click Here to Go Back Up! </Link>
             <img className="" src='/assets/Paper.svg'/>
           </motion.div>
         </div>
