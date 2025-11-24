@@ -14,7 +14,7 @@
 .heading {
   font-family: var(--font-titanOne);
 }
-/* Enable smooth scrolling for in-page anchors */
+
 html {
   scroll-behavior: smooth;
 }

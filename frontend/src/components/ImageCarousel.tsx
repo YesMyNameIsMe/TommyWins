@@ -71,23 +71,24 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
           }
         </AnimatePresence>
 
-        <div className={`${className} flex w-full justify-center items-center max-h-[640px] select-none relative`}> {/* Carousel Container */}
-            <HiArrowCircleLeft className="absolute -left-20 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
+        <div className={`${className} flex min-w-[400px] justify-center items-center h-[300px] md:h-[550px] select-none relative`}> {/* Carousel Container */}
+            
+            <HiArrowCircleLeft className="absolute -left-15 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
                 {/* Holds Overflowing Images */}
                 <div className="flex h-full w-full overflow-hidden">
                     {/* Contains Images in a Row */}
-                    <div className="h-full flex flex-row transition-transform duration-300" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                    <div className="w-full h-full flex flex-row transition-transform duration-300" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                         {images.map((image, index) => (
                           // Image Container
                           <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
-                              <img className="w-full max-h-[600px] object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
+                              <img className="min-w-full h-full object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
                                     onClick={() => {setOpenedImage(image.src); setOpen(true)}}/>
-                            <span className="text-gray-300 font-mono flex-wrap text-center text-lg my-3">{image.desc}</span>
+                              <span className="flex text-gray-300 font-mono flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
                           </div>
                         ))}
                     </div>
                 </div>
-            <HiArrowCircleRight className="absolute -right-20 cursor-pointer" size={40} onClick={goToNext} color='white'/>
+            <HiArrowCircleRight className="absolute -right-15 cursor-pointer" size={40} onClick={goToNext} color='white'/>
             
             {/* Dot Container */}
             <div className="absolute w-full justify-center flex -bottom-5 gap-5">

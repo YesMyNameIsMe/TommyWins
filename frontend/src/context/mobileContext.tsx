@@ -31,7 +31,7 @@ export const MobileProvider = ({ children }: { children: ReactNode }) => {
 	}, []);
 
 	useEffect(() => {
-		setIsMobile(windowDimensions.width < 700);
+		setIsMobile(windowDimensions.width < 900);
 	}, [windowDimensions.width]);
 
 	return (

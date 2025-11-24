@@ -52,7 +52,7 @@ const DetectMobile = () => {
                     </span>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center items-center">
-                    <img className="w-50 h-50 flex" src="/assets/Yamcha.svg"/>
+                    <img className="w-50 h-50 flex" src="/assets/general/Yamcha.svg"/>
                     <div onClick={() => {setMobile(false)}} className="h-[50px] w-[70%] flex justify-center items-center bg-blue rounded-xl cursor-pointer">
                         <span className="text-white font-mono font-black text-2xl">
                             Got It

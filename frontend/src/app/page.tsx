@@ -1,47 +1,65 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
 import ProjectComponent from '@/components/ProjectComponent';
 import LinkBubble from '@/components/LinkBubble';
-import Link from 'next/link';
+import TechStack from '@/components/TechStack';
+import Sticker from '@/components/Sticker';
 import { useMobile } from '@/context/mobileContext';
+import { useScreen } from '@/context/screenContext';
 
 function landingPage() {
   const {isMobile} = useMobile()
+  const screenWidth = useScreen()
   const [Selected, setSelected] = useState(1)
   const maxExperience = 2;
 
+  const techStack = [
+    { src: '/assets/techstack/FigmaTS.png', desc: 'Figma',},
+    { src: '/assets/techstack/ReactTS.png', desc: 'React',},
+    { src: '/assets/techstack/AiTS.png', desc: 'Adobe Illustrator',},
+    { src: '/assets/techstack/PsTS.png', desc: 'Adobe Photoshop',},
+    { src: '/assets/techstack/AffinityTS.png', desc: 'Affinity',},
+    { src: '/assets/techstack/TailwindTS.png', desc: 'Tailwind CSS',},
+    { src: '/assets/techstack/NextTS.png', desc: 'Next JS',},
+    { src: '/assets/techstack/VercelTS.png', desc: 'Vercel',}, 
+  ]
+
   return (
     <div id="header" className="flex justify-center bg-cover bg-center relative bg-darkestBlue" 
-         style={{backgroundImage: "url('/assets/HomeBG.svg')", overflow: 'hidden'}}>   
-        <div className="flex w-full flex-col items-center mt-30">
+         style={{backgroundImage: isMobile ? "url('/assets/landingpage/MobileHomeBG.svg')" : "url('/assets/landingpage/HomeBG.svg')", overflow: 'hidden'}}>   
+        <div className="flex w-full flex-col items-center mt-20">
           {/* Hero Page Logo */}
-            <div className="flex w-full h-[16%] justify-center items-start">
+            <div className="flex w-full h-[15%] justify-center items-center md:scale-100 scale-90 mt-0 md:mt-5">
               <motion.div className="flex flex-col justify-center items-center z-10" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
-                  <iframe id="contact" className="h-[500px] w-150" src='/assets/HeroPageLogo.html'/>
-                  <div className={`flex ${isMobile ? 'flex-col' : ''} h-full w-full items-center justify-center gap-4`}>
-                    <LinkBubble name="LinkedIn" image="/assets/LinkedInLogo.png" link="https://www.linkedin.com/in/tommy-nguyen-ba899423a"/>
-                    <LinkBubble name="GitHub" image="/assets/GitHubLogo.png" link="https://github.com/YesMyNameIsMe"/>
-                    <LinkBubble name="txn230018@utdallas.edu" image="/assets/EmailLogo.png"/>                  
+                  <iframe id="contact" className="h-[460px] w-150 ml-10" src='/assets/landingpage/HeroPageLogo.html'/>
+                  <span className={`font-mono text-white ${isMobile ? 'text-xl' : 'text-lg'} mb-4`}>
+                    Tommy <span className='line-through'> Win</span> {' '}Nguyen | UI/UX & Product Designer
+                  </span>
+                  <div className={`flex ${isMobile ? 'flex-row flex-wrap' : ''} h-full w-full items-center justify-center gap-4`}>
+                    <LinkBubble name="LinkedIn" image="/assets/general/LinkedInLogo.png" link="https://www.linkedin.com/in/tommy-nguyen-ba899423a"/>
+                    <LinkBubble name="GitHub" image="/assets/general/GitHubLogo.png" link="https://github.com/YesMyNameIsMe"/>
+                    <LinkBubble name="nguyen424787@gmail.com" image="/assets/general/EmailLogo.png"/>                  
                   </div>
               </motion.div>
             </div>
-            {/* ------------------------------------------- ABOUT ------------------------------------- */}            
+            {/* ========================================== ABOUT ========================================== */}            
             <div className='flex flex-col items-center justify-center w-[60%]'>
-              <span className="text-white text-7xl mt-50 heading">
+              <span className="text-white text-7xl mt-60 heading">
                 ABOUT
               </span>
-              <div className="flex mt-10 min-w-[600px] w-full min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+              <div className={`flex ${isMobile ? 'flex-col p-4' : ''} mt-10 min-w-[500px] w-full min-h-[10%] rounded-2xl justify-center items-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative`}>
                 {/* Image Container */}
-                <div className="w-[37%] items-center p-4 flex relative">
-                  <img className="w-full h-auto rounded-lg" src="/assets/HeadShot.png"/>
-                  <img className="absolute -bottom-8 -left-8 scale-85" src="/assets/MeOP.svg"></img>
-                  <img className="absolute -top-8 -right-8 scale-85" src="/assets/Camera.svg"></img>
+                <div className={`${isMobile ? 'w-[75%]': 'w-[40%]'} items-center p-4 flex relative`}>
+                  <img className={`${isMobile ? 'rounded-full': 'w-full rounded-lg'} h-auto`} src={`${isMobile ? '/assets/landingpage/HeadShotMobile.png' : '/assets/landingpage/HeadShot.png'}`}/>
+                  <Sticker className="-bottom-8 -left-12" src="/assets/landingpage/MeOP.svg"/>
+                  <Sticker className="-top-8 -right-6" src="/assets/general/Camera.svg"/>
                 </div>
                 {/* Text Container */}
-                <div className="w-[63%] flex flex-col justify-center relative">
+                <div className={`${isMobile ? 'w-full' : 'w-[67%]'} flex flex-col justify-center relative`}>
                   <h1 className="flex flex-col text-white m-4 min-w-[50%]"> 
                     <span className="flex text-white font-bold text-3xl font-mono"> 
                       Who Am I? 
@@ -66,10 +84,10 @@ function landingPage() {
                 </div>
               </div>
             </div>
-            {/* ------------------------------------------- DESIGN PHILOSOPHY ------------------------------------- */}            
+            {/* ========================================== DESIGN PHILOSOPHY ========================================== */}            
             <div className='flex flex-col items-center justify-center w-[60%] mt-10'>
-              <div className="flex min-w-[600px] w-full min-h-[7%] py-4 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
-                <img className="absolute -bottom-16 -right-24 scale-85" src="/assets/MePondering.svg" />
+              <div className="flex min-w-[500px] w-full min-h-[7%] py-4 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+                <Sticker className="-bottom-20 -right-16" src="/assets/landingpage/MePondering.svg" />
                 {/*<img className="absolute -bottom-16 -left-24 scale-85" src="/assets/PlatoHead.svg" />}
                 {/* Text Container */}
                 <div className="w-full flex flex-col justify-center relative mx-8">
@@ -92,23 +110,34 @@ function landingPage() {
                 </div>
               </div>
             </div>
-            {/* ------------------------------------------- EXPERIENCE ------------------------------------- */}            
-            <div id="experience" className='flex flex-col items-center justify-center w-[60%] '>
-              <span className="text-white text-7xl mt-50 heading">
+            {/* ========================================== PROJECTS ========================================== */}            
+            <div id="projects" className='flex flex-col items-center justify-center w-[60%] mt-30'>            
+              <span className="text-white text-7xl heading">
+                PROJECTS
+              </span>
+              <div className="mt-10 flex min-w-[500px] gap-10 flex-wrap items-center justify-center ">
+                <ProjectComponent link="/lore#header" title="Lore" img="/assets/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories"/>
+                <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes"/>
+              </div>
+            </div>
+            {/* ========================================== EXPERIENCE ========================================== */}            
+            <div id="experience" className='flex flex-col items-center justify-center w-[60%] mt-30'>
+              <span className="text-white text-7xl heading">
                 EXPERIENCE
               </span>
               {/* Experience Clicker */}
-              <div className="flex w-full min-w-[600px] min-h-[3%] mt-10 py-4 bg-darkestBlue rounded-2xl drop-shadow-xl select-none"> 
+              <div className="flex w-full min-w-[500px] min-h-[3%] mt-10 py-4 bg-darkestBlue rounded-2xl drop-shadow-xl select-none"> 
                 <LuChevronLeft className='flex h-full cursor-pointer' color='#FFFFFF' size={50} onClick={() => {if(Selected !== 1) {setSelected(prevSelected => (prevSelected-1))} }}/>
                 <div className="flex w-full items-center justify-start"> {/* Experience Icons */}
                   <img className={`flex ${Selected == 1 ? 'opacity-100' : 'opacity-70'} hover:opacity-100 transition duration-200 mr-4`} 
-                      src="/assets/ACM Logo.svg" style={{cursor: 'pointer'}} onClick={() => setSelected(1)}/>
+                      src="/assets/landingpage/ACM Logo.svg" style={{cursor: 'pointer'}} onClick={() => setSelected(1)}/>
                   <img className={`flex ${Selected == 2 ? 'opacity-100' : 'opacity-70'} hover:opacity-100 transition duration-200 mr-4`} 
-                      src="/assets/Next Logo.svg" style={{cursor: 'pointer'}} onClick={() => setSelected(2)}/>
+                      src="/assets/landingpage/Next Logo.svg" style={{cursor: 'pointer'}} onClick={() => setSelected(2)}/>
                 </div>
                 <LuChevronRight className='flex h-full cursor-pointer' color='#FFFFFF' size={50} onClick={() => {if(Selected !== maxExperience) {setSelected(prevSelected => (prevSelected+1))}}}/>
               </div>
-              <div className="flex w-full min-w-[600px] min-h-[450px] mt-5 bg-linear-to-b from-darkestBlue to-darkerBlue rounded-2xl drop-shadow-xl relative"> {/* Experience Div */}
+              {/* Experience Box */}
+              <div className="flex w-full min-w-[500px] min-h-[450px] mt-5 p-6 bg-linear-to-b from-darkestBlue to-darkerBlue rounded-2xl drop-shadow-xl relative"> {/* Experience Div */}
                 <div className="flex w-full h-full mx-8">
                   {Selected == 1 && // ACM UTD
                     <AnimatePresence>
@@ -166,18 +195,18 @@ function landingPage() {
                     </AnimatePresence>
                   }
                 </div>
-                <img className="absolute -bottom-24 -left-26 scale-90" src='/assets/CoffeeMe.svg'/> 
-                <img className="absolute -bottom-14 -right-26 scale-90" src='/assets/Glasses.svg'/> 
+                <Sticker className="-bottom-24 -left-26" src='/assets/landingpage/CoffeeMe.svg'/> 
+                <Sticker className="-bottom-14 -right-20" src='/assets/landingpage/Glasses.svg'/> 
               </div>
             </div>
-            {/* ------------------------------------------- PROJECTS ------------------------------------- */}            
-            <div id="projects" className='flex flex-col items-center justify-center w-[60%]'>            
-              <span className="text-white text-7xl mt-50 heading">
-                PROJECTS
+            {/* ========================================== TECH STACK ================================= */}            
+            <div id="projects" className='flex flex-col items-center justify-center w-[75%] my-30 relative'>            
+              <span className="text-white text-7xl heading">
+                TECH STACK
               </span>
-              <div className="mt-10 flex min-w-[600px] gap-10 flex-wrap items-center justify-center ">
-                <ProjectComponent link="/lore#header" title="Lore" img="/assets/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories"/>
-                <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/NexusSticker.svg" description="A website for students to easily stay on top of classes"/>
+              <div className="mt-10 min-w-[500px] flex flex-wrap items-center justify-center relative">
+                  <TechStack block={techStack}/>
+                  <Sticker className="-bottom-20 -right-28 rotate-12" src="/assets/landingpage/MeNerd.svg"/>
               </div>
             </div>
         </div>

@@ -38,9 +38,9 @@ const LorePage = () => {
             </h1>
           </motion.div>
           <motion.div className="flex mt-5 gap-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.6}}>
-            <LinkBubble name="Figma" image="/assets/FigmaLogo.png" link="https://www.figma.com/design/6PwvZhxVdKTtVnILXk28bF/ACM-Lore?node-id=0-1&t=oiWfVVZgvw2kZDJC-1"/>
-            <LinkBubble name="Live Presentation" image="/assets/VideoIcon.png" link="https://www.youtube.com/live/toUGY4KB2c8?si=yWPqK2mHa5dPgeGk&t=3256"/>
-            <LinkBubble name="Demo Video" image="/assets/VideoIcon.png" link="https://drive.google.com/file/d/13smlSXXKzOVhZBdTQ7A8B_GJTHSYrkFX/view?usp=sharing"/>
+            <LinkBubble name="Figma" image="/assets/general/FigmaLogo.png" link="https://www.figma.com/design/6PwvZhxVdKTtVnILXk28bF/ACM-Lore?node-id=0-1&t=oiWfVVZgvw2kZDJC-1"/>
+            <LinkBubble name="Live Presentation" image="/assets/general/VideoIcon.png" link="https://www.youtube.com/live/toUGY4KB2c8?si=yWPqK2mHa5dPgeGk&t=3256"/>
+            <LinkBubble name="Demo Video" image="/assets/general/VideoIcon.png" link="https://drive.google.com/file/d/13smlSXXKzOVhZBdTQ7A8B_GJTHSYrkFX/view?usp=sharing"/>
           </motion.div>
           {/*---------------------------------- IMAGE CAROUSEL ---------------------------------*/}
             <div className="items-center flex flex-col w-[60%] mt-30 relative">
@@ -97,7 +97,7 @@ const LorePage = () => {
             </span>
             <div className="min-w-[700px] w-[60%] justify-center items-center flex relative">
               <SkillList skills={skills} />
-              <img className='absolute scale-80 -bottom-20 -left-25' src='/assets/ToolboxSticker.svg'></img>
+              <img className='absolute scale-80 -bottom-20 -left-25' src='/assets/general/ToolboxSticker.svg'></img>
             </div>
           </div>
           
