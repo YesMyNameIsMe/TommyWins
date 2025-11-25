@@ -32,7 +32,7 @@ function landingPage() {
   return (
     <div id="header" className="flex justify-center bg-cover bg-center relative bg-darkestBlue" 
          style={{backgroundImage: isMobile ? "url('/assets/landingpage/MobileHomeBG.svg')" : "url('/assets/landingpage/HomeBG.svg')", overflow: 'hidden'}}>   
-        <div className="flex w-full flex-col items-center mt-20">
+        <div className={`flex w-full flex-col items-center ${isTinyMobile ? 'mt-10' : 'mt-20'}`}>
             {/* ========================================== TITLE ========================================== */}            
             <div className={`flex w-full h-[15%] justify-center items-center mt-0 md:mt-5 ${isTinyMobile ? 'scale-70' : isMobile ? 'scale-90' : ''} `}>
               

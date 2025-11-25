@@ -16,6 +16,7 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
   const {isTinyMobile} = useMobile()
+  const {isMobile} = useMobile()
   const [currentIndex, setIndex] = useState(0);
   const [openedImage, setOpenedImage] = useState("")
   const [isOpen, setOpen] = useState(false)
@@ -74,7 +75,7 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
         <AnimatePresence>
           {isOpen && 
           <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
-            <div className="w-[80%] h-[80%] flex items-center justify-center relative" ref={imageRef}>
+            <div className={`w-[80%] ${isMobile ? 'h-fit' : 'h-[80%]'} flex items-center justify-center relative`} ref={imageRef}>
                 <img
                   className="max-w-full max-h-full object-contain"
                   src={openedImage}
