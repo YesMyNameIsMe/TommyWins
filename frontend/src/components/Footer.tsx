@@ -6,8 +6,8 @@ const Footer = () => {
 
   return (
     <div className="flex h-fit bg-darkestBlue overflow-hidden flex-wrap-reverse justify-center ">
-      <div className="flex w-full h-[50px] border-t border-black items-center justify-center ml-3">
-        <span className='font-mono text-white'>
+      <div className="flex w-full h-[70px] border-t border-black items-center justify-center ml-3">
+        <span className='font-mono text-white text-center'>
           Website Designed and Developed with 💙 by Tommy
         </span>
       </div>

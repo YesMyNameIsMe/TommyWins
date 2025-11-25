@@ -5,7 +5,6 @@ import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { useMobile } from '@/context/mobileContext';
-import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 
 interface ImageCarouselProps {
   className?: string;
@@ -32,33 +31,22 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, []) 
 
-useEffect(() => {
-    // 1. Define the function to prevent default scrolling
-    const preventDefault = (e: TouchEvent) => {
-      e.preventDefault();
-    }
+  useEffect(() => {
+      if(isOpen) {
+        // Desktop/Standard locking
+        document.documentElement.style.overflow = 'hidden'
+        document.body.style.overflow = 'hidden'
+      } 
 
-    if(isOpen) {
-      // Desktop/Standard locking
-      document.documentElement.style.overflow = 'hidden'
-      document.body.style.overflow = 'hidden'
-      
-      // Mobile/iOS locking: Prevent the browser from accepting touch drag events
-      // { passive: false } is required to allow us to call preventDefault()
-      document.body.addEventListener('touchmove', preventDefault, { passive: false })
-    } else {
-      document.documentElement.style.overflow = 'auto';
-      document.body.style.overflow = 'auto';
-      document.body.removeEventListener('touchmove', preventDefault)
-    }
+      return () => {
+        document.documentElement.style.overflow = 'auto';
+        document.body.style.overflow = 'auto';
+      }
+    }, [isOpen])
 
-    // Cleanup: Ensure we remove the listener if the component unmounts while open
-    return () => {
-      document.documentElement.style.overflow = 'auto';
-      document.body.style.overflow = 'auto';
-      document.body.removeEventListener('touchmove', preventDefault)
-    }
-  }, [isOpen])
+  useEffect(() => {
+    setOpenedImage(images[currentIndex].src)
+  }, [currentIndex])
 
   const goToPrev = () => {
     if(currentIndex !== 0) {
@@ -86,32 +74,23 @@ useEffect(() => {
         <AnimatePresence>
           {isOpen && 
           <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
-            <div className="w-[90%] h-[90%] flex items-center justify-center" ref={imageRef}>
-              <TransformWrapper
-                initialScale={1}
-                minScale={0.5}
-                maxScale={4}
-                centerOnInit
-              >
-                {/* Internal tools to help with double-tap zoom etc */}
-                <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }}>
-                  <img
-                    className="max-w-full max-h-full object-contain"
-                    src={openedImage}
-                    alt="expanded"
-                    // Important: Reset zoom is handled by library usually, 
-                    // but you might want to reset it when closing.
-                  />
-                </TransformComponent>
-              </TransformWrapper>
+            <div className="w-[80%] h-[80%] flex items-center justify-center relative" ref={imageRef}>
+                <img
+                  className="max-w-full max-h-full object-contain"
+                  src={openedImage}
+                  alt="expanded"
+                />
+            <HiArrowCircleLeft className="absolute -bottom-15 right-[55%] cursor-pointer" size={40} onClick={goToPrev} color='white'/>
+            <HiArrowCircleRight className="absolute -bottom-15 left-[55%] cursor-pointer" size={40} onClick={goToNext} color='white'/>
             </div>
           </motion.div>
         }
         </AnimatePresence>
-        <div className={`${isTinyMobile ? 'scale-85' : ''}`}>
 
+        <div className={`${isTinyMobile ? 'scale-85' : ''}`}>
           <div className={`${className} flex min-w-[300px] ${isTinyMobile ? 'max-w-[300px]' : ''} justify-center items-center h-[300px] md:h-[550px] select-none relative`}> {/* Carousel Container */}
               
+              {/* ================================== IMAGE CONTAINERS ==================================*/}
               <HiArrowCircleLeft className="absolute -left-15 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
                   {/* Holds Overflowing Images */}
                   <div className="flex h-full w-full overflow-hidden">
@@ -121,7 +100,7 @@ useEffect(() => {
                             // Image Container
                             <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
                                 <img className="min-w-full h-full object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
-                                      onClick={() => {setOpenedImage(image.src); setOpen(true)}}/>
+                                      onClick={() => {setOpenedImage(images[currentIndex].src); setOpen(true)}}/>
                                 <span className="flex text-gray-300 font-mono flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
                             </div>
                           ))}
@@ -129,16 +108,16 @@ useEffect(() => {
                   </div>
               <HiArrowCircleRight className="absolute -right-15 cursor-pointer" size={40} onClick={goToNext} color='white'/>
               
-              {/* Dot Container */}
+              {/* ================================== DOT CONTAINER ==================================*/}
               <div className="absolute w-full justify-center flex -bottom-5 gap-5">
-                  {/* Dots */}
-                  {images.map((image, imageIndex) => (
-                    <div
-                    className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
-                    key={imageIndex}
-                    onClick={() => {goToImage(imageIndex)}}
-                    />
-                  ))}
+                {/* Dots */}
+                {images.map((image, imageIndex) => (
+                  <div
+                  className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
+                  key={imageIndex}
+                  onClick={() => {goToImage(imageIndex)}}
+                  />
+                ))}
               </div>
           </div>
         </div>

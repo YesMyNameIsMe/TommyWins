@@ -26,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={titanOne.variable}>
+    <html lang="en" className="bg-darkestBlue">
+      <body className={`${titanOne.variable} bg-darkestBlue`}>
         <MobileProvider>
         <ScreenProvider>
           <DetectMobile />
