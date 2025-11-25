@@ -28,10 +28,12 @@ const NexusPage = () => {
 
   useEffect(() => {
       if(isOpen) {
+          document.documentElement.style.overflow = 'hidden'
           document.body.style.overflow = 'hidden'
       }
 
       return () => {
+          document.documentElement.style.overflow = 'auto';
           document.body.style.overflow = 'auto';
       }
   }, [isOpen])
@@ -72,7 +74,7 @@ const NexusPage = () => {
                 {desc: 'Quick Class Group Chat Creation via Class Scraping '}]
 
   return (
-    <div className={`flex justify-center ${isTinyMobile || isMobile ? 'h-[8000px]' : 'h-[7200px]'} min-w-full bg-darkBlue bg-center bg-cover`} style={{backgroundImage: isMobile ? "url('/assets/nexus/MobileNexusBG.svg')" : "url('/assets/nexus/NexusBG.svg')", overflow: 'auto'}}>
+    <div className={`flex justify-center ${isTinyMobile ? 'h-[8500px]' : isMobile ? 'h-[8000px]' : 'h-[7400px]'} min-w-full bg-darkBlue bg-center bg-cover`} style={{backgroundImage: isMobile ? "url('/assets/nexus/MobileNexusBG.svg')" : "url('/assets/nexus/NexusBG.svg')", overflow: 'auto'}}>
         <div id="header" className="flex flex-col h-full w-full items-center relative overflow-hidden">
           {/*============================== TITLE ==============================*/}
           <motion.div className="mx-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
@@ -209,7 +211,7 @@ const NexusPage = () => {
             <div className="flex mt-5 min-w-[300px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
-                <Sticker className=" scale-90 -bottom-20 -left-30 -rotate-24" src='/assets/general/PaletteSticker.svg'/>
+                <Sticker className=" scale-90 -bottom-25 -right-20 -rotate-24" src='/assets/general/PaletteSticker.svg'/>
                 <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
                   My design choice was guided from the one concept piece that was well received among others as well as my own design style that I’ve developed. The design strays from the sanitized and minimalist look of other education-related websites in favor of a lively and playful style that’ll set Nexus apart and more memorable. 
                 </span>
@@ -220,7 +222,7 @@ const NexusPage = () => {
             </div>
           </div>  
           {/*============================== BEFORE & AFTER ==============================*/}
-          <div className="flex flex-col w-[60%] mt-30 relative">
+          <div className="flex flex-col w-[60%] mt-30 relative items-center">
               <span className={`text-white ${isMobile ? "text-5xl" : "text-7xl"} heading text-center`}>
                 DESIGN COMPARISONS
               </span>
@@ -230,10 +232,10 @@ const NexusPage = () => {
           </div>    
           {/*============================== OUTCOME ==============================*/}
           <div className="flex flex-col justify-center items-center mt-30" >
-            <span className="heading text-white text-5xl ">
+            <span className={`text-white ${isMobile ? "text-5xl" : "text-7xl"} heading text-center`}>
               OUTCOME
             </span>
-            <div className="flex mt-5 min-w-[500px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
+            <div className="flex mt-5 min-w-[300px] w-[60%] min-h-[10%] rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
                 <Sticker className="-bottom-15 -right-13" src='/assets/general/Stonks.svg'/>

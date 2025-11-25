@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useMobile } from '@/context/mobileContext';
 
 interface ProjectComponentProps {
   link: string;
@@ -13,12 +14,14 @@ interface ProjectComponentProps {
 
 function ProjectComponent({ link, title, img, description }: ProjectComponentProps) {
   const [isHovered, setHovered] = useState(false);
+  const {isMobile} = useMobile()
+  const {isTinyMobile} = useMobile()
 
   return (
     <Link 
       href={link} 
       className={`flex flex-col relative w-[300px] min-h-[200px] bg-linear-to-b from-darkestBlue to-darkBlue drop-shadow-xl rounded-xl p-6
-                text-5xl font-mono font-black text-white ${isHovered ? '' : 'overflow-hidden'}`} 
+                text-5xl font-mono font-black text-white ${isHovered ? '' : 'overflow-hidden'} ${isTinyMobile ? 'scale-80' : isMobile ? 'scale-90' : ''}`} 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

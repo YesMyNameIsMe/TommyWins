@@ -30,6 +30,7 @@ export default function RootLayout({
       <body className={titanOne.variable}>
         <MobileProvider>
         <ScreenProvider>
+          <DetectMobile />
           <NavBar />
           {children}
           <Analytics />

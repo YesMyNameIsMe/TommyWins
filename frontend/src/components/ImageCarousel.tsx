@@ -33,10 +33,10 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
 
   useEffect(() => {
       if(isOpen) {
+          document.documentElement.style.overflow = 'hidden'
           document.body.style.overflow = 'hidden'
-      }
-
-      return () => {
+      } else {
+          document.documentElement.style.overflow = 'auto';
           document.body.style.overflow = 'auto';
       }
   }, [isOpen])

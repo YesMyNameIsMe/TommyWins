@@ -48,7 +48,7 @@ const DetectMobile = () => {
                         Hold It!
                     </span>
                     <span className="font-mono ">
-                        It looks like you're using a mobile view, which isn't supported (yet). You can still continue, but don't expect things to look pretty (or function)!
+                        It looks like you're using a mobile view, which will work, but I recommend you to switch on over to desktop for the best experience!
                     </span>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center items-center">
