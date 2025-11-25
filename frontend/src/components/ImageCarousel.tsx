@@ -5,6 +5,7 @@ import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { useMobile } from '@/context/mobileContext';
+import { TransformComponent, TransformWrapper } from 'react-zoom-pan-pinch';
 
 interface ImageCarouselProps {
   className?: string;
@@ -81,14 +82,31 @@ useEffect(() => {
 
     return (
       <>
+        {/* ================================== IMAGE MODAL ==================================*/}
         <AnimatePresence>
           {isOpen && 
           <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
-            <div className="flex w-[90%] h-[90%] items-center justify-center">
-              <img className="max-w-full max-h-full object-contain" src={openedImage} ref={imageRef} alt="expanded"/>
+            <div className="w-[90%] h-[90%] flex items-center justify-center" ref={imageRef}>
+              <TransformWrapper
+                initialScale={1}
+                minScale={0.5}
+                maxScale={4}
+                centerOnInit
+              >
+                {/* Internal tools to help with double-tap zoom etc */}
+                <TransformComponent wrapperStyle={{ width: "100%", height: "100%" }}>
+                  <img
+                    className="max-w-full max-h-full object-contain"
+                    src={openedImage}
+                    alt="expanded"
+                    // Important: Reset zoom is handled by library usually, 
+                    // but you might want to reset it when closing.
+                  />
+                </TransformComponent>
+              </TransformWrapper>
             </div>
           </motion.div>
-          }
+        }
         </AnimatePresence>
         <div className={`${isTinyMobile ? 'scale-85' : ''}`}>
 
