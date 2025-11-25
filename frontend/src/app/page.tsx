@@ -32,7 +32,7 @@ function landingPage() {
   return (
     <div id="header" className="flex justify-center bg-cover bg-center relative bg-darkestBlue" 
          style={{backgroundImage: isMobile ? "url('/assets/landingpage/MobileHomeBG.svg')" : "url('/assets/landingpage/HomeBG.svg')", overflow: 'hidden'}}>   
-        <div className={`flex w-full flex-col items-center ${isTinyMobile ? 'mt-10' : 'mt-20'}`}>
+        <div className={`flex w-full flex-col items-center ${isTinyMobile ? '' : 'mt-20'}`}>
             {/* ========================================== TITLE ========================================== */}            
             <div className={`flex w-full h-[15%] justify-center items-center mt-0 md:mt-5 ${isTinyMobile ? 'scale-70' : isMobile ? 'scale-90' : ''} `}>
               
@@ -53,7 +53,7 @@ function landingPage() {
             </div>
             {/* ========================================== ABOUT ========================================== */}            
             <div className='flex flex-col items-center justify-center w-[60%]'>
-              <span className={`text-white ${isTinyMobile ? "text-5xl" : "text-7xl"} mt-60 heading`}>
+              <span className={`text-white ${isTinyMobile ? "text-5xl" : "text-7xl"} mt-40 heading`}>
                 ABOUT
               </span>
               <div className={`flex ${isMobile ? 'flex-col p-4' : ''} mt-10 min-w-[300px] w-full min-h-[10%] rounded-2xl justify-center items-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative`}>

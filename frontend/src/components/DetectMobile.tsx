@@ -13,16 +13,6 @@ const DetectMobile = () => {
             width: window.innerWidth,
             height: window.innerHeight
         })
-
-        function handleResize() {
-            setwindowDimensions({
-                width: window.innerWidth,
-                height: window.innerHeight
-            })
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
     }, [])
 
     useEffect(() => {
