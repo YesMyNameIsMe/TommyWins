@@ -26,16 +26,30 @@ const NexusPage = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, []) 
 
-  useEffect(() => {
-      if(isOpen) {
-          document.documentElement.style.overflow = 'hidden'
-          document.body.style.overflow = 'hidden'
-      }
+useEffect(() => {
+    // 1. Define the function to prevent default scrolling
+    const preventDefault = (e: TouchEvent) => {
+      e.preventDefault();
+    }
 
-      return () => {
-          document.documentElement.style.overflow = 'auto';
-          document.body.style.overflow = 'auto';
-      }
+    if(isOpen) {
+      // Desktop/Standard locking
+      document.documentElement.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden'
+      
+      // Mobile/iOS locking: Prevent the browser from accepting touch drag events
+      document.body.addEventListener('touchmove', preventDefault, { passive: false })
+    } else {
+      document.documentElement.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
+      document.body.removeEventListener('touchmove', preventDefault)
+    }
+
+    return () => {
+      document.documentElement.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
+      document.body.removeEventListener('touchmove', preventDefault)
+    }
   }, [isOpen])
 
   const images = [
