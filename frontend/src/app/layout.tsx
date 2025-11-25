@@ -27,13 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={titanOne.variable}
-      >
+      <body className={titanOne.variable}>
         <MobileProvider>
         <ScreenProvider>
-
-          <DetectMobile />
           <NavBar />
           {children}
           <Analytics />

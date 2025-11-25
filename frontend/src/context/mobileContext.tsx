@@ -9,6 +9,7 @@ interface WindowDimensions {
 
 interface MobileContextType {
 	isMobile: boolean;
+	isTinyMobile: boolean;
 	windowDimensions: WindowDimensions;
 }
 
@@ -17,6 +18,7 @@ const MobileContext = createContext<MobileContextType | undefined>(undefined);
 export const MobileProvider = ({ children }: { children: ReactNode }) => {
 	const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({ width: 1920, height: 1080 });
 	const [isMobile, setIsMobile] = useState(false);
+	const [isTinyMobile, setTinyMobile] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -32,10 +34,11 @@ export const MobileProvider = ({ children }: { children: ReactNode }) => {
 
 	useEffect(() => {
 		setIsMobile(windowDimensions.width < 900);
+		setTinyMobile(windowDimensions.width < 500);
 	}, [windowDimensions.width]);
 
 	return (
-		<MobileContext.Provider value={{ isMobile, windowDimensions }}>
+		<MobileContext.Provider value={{ isMobile, isTinyMobile, windowDimensions }}>
 			{children}
 		</MobileContext.Provider>
 	);

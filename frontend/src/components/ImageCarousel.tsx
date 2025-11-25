@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
+import { useMobile } from '@/context/mobileContext';
 
 interface ImageCarouselProps {
   className?: string;
@@ -14,6 +15,7 @@ interface ImageCarouselProps {
 }
 
 const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
+  const {isTinyMobile} = useMobile()
   const [currentIndex, setIndex] = useState(0);
   const [openedImage, setOpenedImage] = useState("")
   const [isOpen, setOpen] = useState(false)
@@ -70,37 +72,39 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
           </motion.div>
           }
         </AnimatePresence>
+        <div className={`${isTinyMobile ? 'scale-85' : ''}`}>
 
-        <div className={`${className} flex min-w-[400px] justify-center items-center h-[300px] md:h-[550px] select-none relative`}> {/* Carousel Container */}
-            
-            <HiArrowCircleLeft className="absolute -left-15 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
-                {/* Holds Overflowing Images */}
-                <div className="flex h-full w-full overflow-hidden">
-                    {/* Contains Images in a Row */}
-                    <div className="w-full h-full flex flex-row transition-transform duration-300" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                        {images.map((image, index) => (
-                          // Image Container
-                          <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
-                              <img className="min-w-full h-full object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
-                                    onClick={() => {setOpenedImage(image.src); setOpen(true)}}/>
-                              <span className="flex text-gray-300 font-mono flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
-                          </div>
-                        ))}
-                    </div>
-                </div>
-            <HiArrowCircleRight className="absolute -right-15 cursor-pointer" size={40} onClick={goToNext} color='white'/>
-            
-            {/* Dot Container */}
-            <div className="absolute w-full justify-center flex -bottom-5 gap-5">
-                {/* Dots */}
-                {images.map((image, imageIndex) => (
-                  <div
-                  className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
-                  key={imageIndex}
-                  onClick={() => {goToImage(imageIndex)}}
-                  />
-                ))}
-            </div>
+          <div className={`${className} flex min-w-[300px] ${isTinyMobile ? 'max-w-[300px]' : ''} justify-center items-center h-[300px] md:h-[550px] select-none relative`}> {/* Carousel Container */}
+              
+              <HiArrowCircleLeft className="absolute -left-15 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
+                  {/* Holds Overflowing Images */}
+                  <div className="flex h-full w-full overflow-hidden">
+                      {/* Contains Images in a Row */}
+                      <div className="w-full h-full flex flex-row transition-transform duration-300" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                          {images.map((image, index) => (
+                            // Image Container
+                            <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
+                                <img className="min-w-full h-full object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
+                                      onClick={() => {setOpenedImage(image.src); setOpen(true)}}/>
+                                <span className="flex text-gray-300 font-mono flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
+                            </div>
+                          ))}
+                      </div>
+                  </div>
+              <HiArrowCircleRight className="absolute -right-15 cursor-pointer" size={40} onClick={goToNext} color='white'/>
+              
+              {/* Dot Container */}
+              <div className="absolute w-full justify-center flex -bottom-5 gap-5">
+                  {/* Dots */}
+                  {images.map((image, imageIndex) => (
+                    <div
+                    className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
+                    key={imageIndex}
+                    onClick={() => {goToImage(imageIndex)}}
+                    />
+                  ))}
+              </div>
+          </div>
         </div>
       </>
     )

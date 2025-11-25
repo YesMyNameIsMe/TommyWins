@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useMobile } from '@/context/mobileContext';
 
 interface LinkBubbleProps {
   link?: string;
@@ -10,6 +11,9 @@ interface LinkBubbleProps {
 }
 
 const LinkBubble = ({ link, name, image, className }: LinkBubbleProps) => {
+
+  const {isTinyMobile} = useMobile()
+
   return (
     <a 
       className={`${className} flex w-fit h-[50px] bg-darkBlue p-4 gap-2 rounded-full items-center justify-center transition duration-200 hover:scale-110`} 

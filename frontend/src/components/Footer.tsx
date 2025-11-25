@@ -6,13 +6,13 @@ const Footer = () => {
 
   return (
     <div className="flex h-fit bg-darkestBlue overflow-hidden flex-wrap-reverse justify-center ">
-      <div className="flex w-full h-[50px] border-t border-black items-center justify-center ">
+      <div className="flex w-full h-[50px] border-t border-black items-center justify-center ml-3">
         <span className='font-mono text-white'>
           Website Designed and Developed with 💙 by Tommy
         </span>
       </div>
       <iframe className="flex min-w-[400px] h-[370px]" src="/assets/general/FishingAnimation.html"/>
-      <div className="flex w-fit gap-20 justify-center mx-10 mt-20">
+      <div className="flex w-fit gap-20 mx-10 mt-20 flex-wrap">
         <span className="flex flex-col font-mono text-2xl text-white gap-4">
           <Link href={'/about#header'} >
             <span className="underlineText">
