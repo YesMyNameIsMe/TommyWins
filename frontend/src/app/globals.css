@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --font-titanOne-regular: TitanOne-Regular, sans-serif;
   --color-darkestBlue: #001D4A;
   --color-darkerBlue: #003281;
   --color-darkBlue: #0047B5;
@@ -14,6 +13,8 @@
 .heading {
   font-family: var(--font-titanOne);
 }
+
+
 
 html {
   scroll-behavior: smooth;

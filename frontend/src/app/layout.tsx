@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Titan_One } from "next/font/google";
+import { Open_Sans, Titan_One, Varela_Round } from "next/font/google";
+import { Inter } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import DetectMobile from "@/components/DetectMobile";
@@ -15,6 +16,23 @@ const titanOne = Titan_One({
   subsets: ["latin"],
 });
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const openSans = Open_Sans({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const varelaRound = Varela_Round({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: "Tommy Wins - UI/UX Designer",
   description: "Tommy Nguyen's Portfolio Site",
@@ -26,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-darkestBlue">
-      <body className={`${titanOne.variable} bg-darkestBlue`}>
+    <html lang="en" className={`bg-darkestBlue`}>
+      <body className={`${titanOne.variable} ${inter.className} bg-darkestBlue`}>
         <MobileProvider>
         <ScreenProvider>
           <DetectMobile />

@@ -53,7 +53,7 @@ function NavBar() {
                         initial={{x: -300}} animate={{x: -15}} exit={{x:-350}} transition={{duration: 0.5, type: 'spring', bounce: 0.3}}>
               <HiMenu className="flex cursor-pointer mt-6 ml-8 absolute" onClick={() => setOpen(!isOpen)} color='#FFFFFF' size={35}/>
               {/* ------------------------------------ TEXT -------------------------------------*/}
-              <div className={`flex flex-col gap-20 mt-30 ml-10 text-white font-bold ${isTinyMobile ? 'text-xl' : 'text-3xl'} font-mono`}  ref={sideBarRef}>
+              <div className={`flex flex-col gap-20 mt-30 ml-10 text-white font-bold ${isTinyMobile ? 'text-xl' : 'text-3xl'} `}  ref={sideBarRef}>
                 <Link href="/about">
                   <span className="underlineText">
                     ABOUT
@@ -69,11 +69,9 @@ function NavBar() {
                     EXPERIENCE
                   </span>
                 </Link>
-                <Link href="/#contact">
-                  <span className="underlineText">
-                    CONTACT
-                  </span>
-                </Link> 
+                <a className="underlineText" href={"/assets/general/Tommy Nguyen - Resume.pdf"} download={"Tommy Nguyen - Resume"} target="_blank" rel="noreferrer">
+                  RÉSUMÉ
+                </a>
               </div>
             </motion.div>
           </div>}
@@ -83,12 +81,12 @@ function NavBar() {
     // ------------------------------------------- DESKTOP ---------------------------------------------
     <div className="h-[85px] w-full justify-between flex flex-row bg-darkestBlue items-center fixed z-50">    
       <div className="flex w-full justify-between items-center mx-10">
-        <Link href="/about" className="flex justify-center text-white font-bold text-3xl font-mono">
+        <Link href="/about" className="flex justify-center text-white font-bold text-3xl ">
           <span className="underlineText">
             ABOUT
           </span>
         </Link>
-        <Link href="/#projects" className="flex justify-center text-white font-bold text-3xl font-mono">
+        <Link href="/#projects" className="flex justify-center text-white font-bold text-3xl ">
           <span className="underlineText">
             PROJECTS
           </span>
@@ -96,16 +94,16 @@ function NavBar() {
         <Link href="/#header" className="w-1/5 flex justify-center">
           <img className="scale-80" src="/assets/general/NavBarLogo.svg" alt="Logo" style={{cursor: 'pointer'}} />
         </Link>
-        <Link href="/#experience" className="flex justify-center text-white font-bold text-3xl font-mono">
+        <Link href="/#experience" className="flex justify-center text-white font-bold text-3xl ">
           <span className="underlineText">
             EXPERIENCE
           </span>
         </Link>
-        <Link href="/#header" className="flex justify-center text-white font-bold text-3xl font-mono">
-          <span className="underlineText">
-            CONTACT
-          </span>
-        </Link> 
+        <span className="flex justify-center text-white font-bold text-3xl ">
+          <a className="underlineText" href={"/assets/general/Tommy Nguyen - Resume.pdf"} download={"Tommy Nguyen - Resume"} target="_blank" rel="noreferrer">
+            RÉSUMÉ
+          </a>
+        </span> 
       </div>
     </div>
     }

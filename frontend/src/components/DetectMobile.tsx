@@ -34,17 +34,17 @@ const DetectMobile = () => {
         <div className={`fixed w-full flex backdrop-brightness-20 z-100 items-center justify-center`} style={{ minHeight: '100vh' }}>
             <div className="text-white w-[80%] h-[20%] justify-center items-center bg-linear-to-b from-darkestBlue to-darkerBlue rounded-2xl p-5">
                 <div className="flex w-full h-full justify-center flex-col text-center">
-                    <span className="font-mono text-2xl font-black">
+                    <span className="text-2xl font-black">
                         Hold It!
                     </span>
-                    <span className="font-mono ">
+                    <span className="">
                         It looks like you're using a mobile view, which will work, but I recommend you to switch on over to desktop for the best experience!
                     </span>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center items-center">
                     <img className="w-50 h-50 flex" src="/assets/general/Yamcha.svg"/>
                     <div onClick={() => {setMobile(false)}} className="h-[50px] w-[70%] flex justify-center items-center bg-blue rounded-xl cursor-pointer">
-                        <span className="text-white font-mono font-black text-2xl">
+                        <span className="text-white font-black text-2xl">
                             Got It
                         </span>
                     </div>

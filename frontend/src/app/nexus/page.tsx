@@ -75,14 +75,15 @@ useEffect(() => {
                 {desc: 'Quick Class Group Chat Creation via Class Scraping '}]
 
   return (
-    <div className={`flex justify-center ${isTinyMobile ? 'h-[8500px]' : isMobile ? 'h-[8000px]' : 'h-[7400px]'} min-w-full bg-darkBlue bg-center bg-cover`} style={{backgroundImage: isMobile ? "url('/assets/nexus/MobileNexusBG.svg')" : "url('/assets/nexus/NexusBG.svg')", overflow: 'auto'}}>
+    <div className={`flex justify-center min-w-full bg-darkBlue bg-center bg-cover bg-no-repeat`} 
+         style={{backgroundImage: isMobile ? "url('/assets/nexus/MobileNexusBG.svg')" : "url('/assets/nexus/NexusBG.svg')", overflow: 'auto'}}>
         <div id="header" className="flex flex-col h-full w-full items-center relative overflow-hidden">
           {/*============================== TITLE ==============================*/}
           <motion.div className="mx-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
             <img className={`items-center justify-center h-auto w-[500px] flex mt-50 `} src="/assets/nexus/NexusLogo.svg" />
           </motion.div>
           <motion.div initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.4}}>
-            <h1 className={`flex items-center justify-center ${isTinyMobile ? "text-xl" : "text-3xl"} text-white mt-5 font-mono font-bold`}>
+            <h1 className={`flex items-center justify-center ${isTinyMobile ? "text-xl" : "text-3xl"} text-white mt-5  font-bold`}>
               FRONT-END DEVELOPER & DESIGNER
             </h1>
           </motion.div>
@@ -91,11 +92,11 @@ useEffect(() => {
             <LinkBubble name="Website (Coming Soon!)" image="/assets/general/WebIcon.png"/>
           </motion.div>
           {/*============================== SAMPLE PAGES ==============================*/}
-          <div className="flex flex-col w-[60%] mt-30 relative">
+          <div className="flex flex-col w-[60%] mt-60 relative">
               <span className={`text-white ${isMobile ? "text-5xl" : "text-7xl"} heading text-center`}>
                 SAMPLE PAGES
               </span>
-              <h1 className='flex font-mono text-white mt-3 justify-center text-center'>
+              <h1 className='flex  text-white mt-3 justify-center text-center'>
                 (All Designed By Yours Truly!)
               </h1>
               <div className={`flex flex-col justify-center items-center relative`}>
@@ -110,9 +111,11 @@ useEffect(() => {
             </span>
             <div className="flex flex-row w-full gap-10 items-center justify-center flex-wrap mt-4">
               {wdid.map((item, index) => (
-                <div key={index} className={`flex flex-col min-w-[200px] w-[18%] h-[200px] bg-darkerBlue items-center justify-center text-center rounded-xl text-white font-mono ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg': 'text-xl'}`}>
+                <div key={index} className={`flex flex-col min-w-[200px] w-[18%] h-[200px] bg-darkerBlue items-center justify-center text-center rounded-xl text-white  ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg': 'text-xl'}`}>
                   <div className="flex w-full h-[100px] bg-darkBlue rounded-t-xl items-center justify-center">
-                    {item.desc}
+                    <span className='flex text-lg m-2'>
+                      {item.desc}
+                    </span>
                   </div>
                   <div className="flex items-center justify-center h-[100px] w-full p-3">
                     <img className="max-w-full max-h-full hover:scale-120 hover:rotate-10 transition duration-200" src={item.src} alt={item.desc} />
@@ -131,8 +134,8 @@ useEffect(() => {
               <div className="z-2 flex mt-5 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 {/* Text Container */}
                 <div className="w-full flex flex-col justify-center relative">
-                  <span className={`m-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
-                    In college, obtaining contact information with other classmates can be a hassle as students splinter off into separate group chats. There’s also a lack of a singular site that can serve as a consolidated study tool, forcing students to hop around different sites, which can become overwhelming. 
+                  <span className={`m-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
+                    In college, obtaining contact information with other classmates can be a hassle as students splinter off into separate group chats. There’s also a lack of a singular site that can serve as a consolidated study tool, forcing students to hop around different sites, which can become overwhelming. And many of the websites/web-apps that do have this focus on students/education suffer from a very bland/uninteractive design that can easily lose engagement among users, especially for the younger target demographic of college students.  
                   </span>
                 </div>
               </div>
@@ -143,9 +146,9 @@ useEffect(() => {
             <span className={`text-white ${isMobile ? "text-5xl" : "text-7xl"} heading text-center`}>
               WHAT IS NEXUS?
             </span>
-            <div className="flex flex-row w-[60%] gap-10 items-center justify-center mt-5 flex-wrap">
+            <div className="flex flex-row gap-10 w-[60%] items-center justify-center mt-5 flex-wrap">
               {wisn.map((item, index) => (
-                <div key={index} className={`flex min-w-[200px] w-[18%] h-[120px] bg-darkBlue items-center justify-center text-center rounded-xl text-white font-mono ${isTinyMobile ? 'text-md' : 'text-xl'} p-2`}>
+                <div key={index} className={`flex min-w-[200px] w-[18%] h-[120px] bg-darkBlue items-center justify-center text-center rounded-xl text-white  ${isTinyMobile ? 'text-md' : 'text-lg'} p-2`}>
                   {item.desc}
                 </div>
               ))}
@@ -154,7 +157,7 @@ useEffect(() => {
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
                 <Sticker className=" -scale-x-100 -bottom-20 -left-18" src='/assets/nexus/BackpackSticker.svg'/>
-                <span className={`m-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
+                <span className={`m-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                   Nexus is a web app created to give students an easy way to converse and study with their classmates without the hassle of obtaining contact information. It aims to make communication and studying easier for classmates by providing a consolidated platform for study tools.
                 </span>
               </div>
@@ -187,7 +190,7 @@ useEffect(() => {
               <div className="z-2 flex mt-5 rounded-2xl justify-center bg-linear-to-bl from-darkestBlue to-darkerBlue drop-shadow-xl relative">
                 {/* Text Container */}
                 <div className="w-full flex flex-col justify-center relative">
-                  <span className={`m-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
+                  <span className={`m-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                     I joined Nexus after it was conceived, meaning it already had an existing design. However, I was brought on as the lead designer, and was thrown in with no clear direction as the team never had one. Being given not much to work with other than knowing what pages to design, I came up with multiple concepts, some that followed the existing design and one that diverged. 
                     My PM presented the designs to other leads and the director, and it was decided that the divergent design was the favorite, making it the main style moving forward. 
                   </span>
@@ -213,10 +216,10 @@ useEffect(() => {
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
                 <Sticker className=" scale-90 -bottom-25 -right-20 -rotate-24" src='/assets/general/PaletteSticker.svg'/>
-                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
+                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                   My design choice was guided from the one concept piece that was well received among others as well as my own design style that I’ve developed. The design strays from the sanitized and minimalist look of other education-related websites in favor of a lively and playful style that’ll set Nexus apart and more memorable. 
                 </span>
-                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
+                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                   The biggest challenge I ran into, and frankly, still am, is keeping up with consistency. When I began I was still a novice in using Figma, and as I've grown more experienced, I find that many of my practices were nonoptimal. Going back to implement best practices for things I've already done is a hassle, but for the sake developer handoff, it'll ultimately save more time for everybody.
                 </span>
               </div>
@@ -232,7 +235,7 @@ useEffect(() => {
               </div>
           </div>    
           {/*============================== OUTCOME ==============================*/}
-          <div className="flex flex-col justify-center items-center mt-30" >
+          <div className="flex flex-col justify-center items-center mt-30 pb-30" >
             <span className={`text-white ${isMobile ? "text-5xl" : "text-7xl"} heading text-center`}>
               OUTCOME
             </span>
@@ -240,7 +243,7 @@ useEffect(() => {
               {/* Text Container */}
               <div className="w-full flex flex-col justify-center relative">
                 <Sticker className="-bottom-15 -right-13" src='/assets/general/Stonks.svg'/>
-                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} font-mono`}>
+                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                   Nexus is set to release in the Spring 2026 semester for all UTD students, stay tuned for results! 
                   Thanks to holding weekly meetings as well as having a framework already complete the year before, steady progress was made even during the team’s busy college schedule. 
                   Our team was able to ship a product I’m extremely satisfied with and am excited to develop and design more features for!
@@ -249,10 +252,13 @@ useEffect(() => {
             </div>
           </div>  
 
+          <img className="bottom-0 min-w-screen" src='/assets/nexus/NexusBottomBG.svg'/>
+
+          {/*============================== PAPER POP UP ==============================*/}
           {isMobile ? <> </> : 
-          <motion.div className="absolute -right-30 -bottom-40 flex flex-col" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}}>
-            <span className="absolute top-23 left-40 text-4xl font-mono font-bold"> Thanks for Reading! </span>
-            <Link href="/nexus#header" className="hover:underline absolute top-37 left-40 text-4xl font-mono font-bold"> Click Here to Go Back Up! </Link>
+          <motion.div className="absolute -right-60 -bottom-40 flex flex-col" initial={{y: 300}} whileInView={{rotate: -7, y:30}} transition={{duration: 1.2, type: 'spring', bounce: 0.5}} style={{ willChange: "transform" }}>
+            <span className="absolute top-23 left-40 text-4xl  font-semibold"> Thanks for Reading! </span>
+            <Link href="/nexus#header" className="hover:underline absolute top-37 left-40 text-4xl  font-semibold"> Click Here to Go Back Up! </Link>
             <img className="" src='/assets/nexus/Paper.svg'/>
           </motion.div>}
 
@@ -260,7 +266,7 @@ useEffect(() => {
           <AnimatePresence>
               {isOpen && 
             <motion.div className="z-150 fixed flex inset-0 backdrop-brightness-50 items-center justify-center" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.3}}>
-                  <img className="rounded-xl object-contain w-[90%]" src={openedImage} ref={imageRef} alt="" />
+              <img className="rounded-xl object-contain w-[90%]" src={openedImage} ref={imageRef} alt="" />
             </motion.div>
               }
           </AnimatePresence>

@@ -15,7 +15,7 @@ const SkillList = ({ className, skills }: SkillListProps) => {
           className="flex items-center justify-center rounded-full px-6 py-3 max-w-[250px] h-auto bg-clearBlue transition-transform duration-200 hover:scale-110" 
           key={index}
         >
-          <h1 className="font-mono font-bold text-white text-2xl">
+          <h1 className="font-bold text-white text-2xl">
             {skill.name}
           </h1>
         </div>

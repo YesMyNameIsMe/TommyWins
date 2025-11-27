@@ -74,8 +74,8 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
         {/* ================================== IMAGE MODAL ==================================*/}
         <AnimatePresence>
           {isOpen && 
-          <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
-            <div className={`w-[80%] ${isMobile ? 'h-fit' : 'h-[80%]'} flex items-center justify-center relative`} ref={imageRef}>
+          <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150 select-none" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
+            <div className={`max-w-[80%] ${isMobile ? 'h-fit' : 'h-[80%]'} flex items-center justify-center relative`} ref={imageRef}>
                 <img
                   className="max-w-full max-h-full object-contain"
                   src={openedImage}
@@ -102,7 +102,7 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
                             <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
                                 <img className="min-w-full h-full object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
                                       onClick={() => {setOpenedImage(images[currentIndex].src); setOpen(true)}}/>
-                                <span className="flex text-gray-300 font-mono flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
+                                <span className="flex text-gray-300 flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
                             </div>
                           ))}
                       </div>

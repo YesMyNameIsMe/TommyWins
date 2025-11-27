@@ -52,7 +52,7 @@ const LorePage = () => {
                         <div className="flex flex-col w-2/5 items-center justify-center relative">
                             <div className="flex flex-row justify-between rounded-xl">
                                 <img className="flex rounded-xl border-2 border-blue" src='/assets/LorePresNight.png'/>
-                                <img className="absolute -bottom-0 -left-20 w-[180px]" src="/assets/LoreWaitAnim.gif"/>
+                                <img className="absolute -bottom-0 -left-20 w-[180px]" src="/assets/loreLoreWaitAnim.gif"/>
                             </div>
                             <span className="text-gray-500 text-center mt-2"> Presentation Night! </span>
                         </div>
