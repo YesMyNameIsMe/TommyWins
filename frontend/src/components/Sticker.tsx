@@ -10,7 +10,7 @@ interface StickerProps {
 
 const Sticker = ({src, className}: StickerProps) => {
 
-  const MIN_SCALE = 0.5;
+  const MIN_SCALE = 0.4;
   const MAX_SCALE = 0.9;
   const REFERENCE_WIDTH = 1920;
   const screenWidth = useScreen()

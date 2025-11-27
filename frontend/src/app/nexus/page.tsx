@@ -219,7 +219,7 @@ useEffect(() => {
                 <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                   My design choice was guided from the one concept piece that was well received among others as well as my own design style that I’ve developed. The design strays from the sanitized and minimalist look of other education-related websites in favor of a lively and playful style that’ll set Nexus apart and more memorable. 
                 </span>
-                <span className={`mx-10 mb-5 mt-10 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
+                <span className={`mx-10 mb-5 text-white font-normal ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                   The biggest challenge I ran into, and frankly, still am, is keeping up with consistency. When I began I was still a novice in using Figma, and as I've grown more experienced, I find that many of my practices were nonoptimal. Going back to implement best practices for things I've already done is a hassle, but for the sake developer handoff, it'll ultimately save more time for everybody.
                 </span>
               </div>

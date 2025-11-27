@@ -88,11 +88,11 @@ const LorePage = () => {
             <img className="items-center justify-center h-auto w-[500px] flex mt-50" src="/assets/lore/LoreLogo.svg" />
           </motion.div>
           <motion.div initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.4}}>
-            <h1 className="flex items-center justify-center text-3xl text-white mt-5 font-bold" >
+            <h1 className={`flex items-center justify-center ${isTinyMobile ? "text-xl" : "text-3xl"} text-white mt-5  font-bold`}>
                 FRONT-END DEVELOPER & DESIGNER
             </h1>
           </motion.div>
-          <motion.div className="flex mt-5 gap-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.6}}>
+          <motion.div className="flex flex-row flex-wrap items-center justify-center mt-5 gap-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.6}}>
             <LinkBubble name="Figma" image="/assets/general/FigmaLogo.png" link="https://www.figma.com/design/6PwvZhxVdKTtVnILXk28bF/ACM-Lore?node-id=0-1&t=oiWfVVZgvw2kZDJC-1"/>
             <LinkBubble name="Live Presentation" image="/assets/general/VideoIcon.png" link="https://www.youtube.com/live/toUGY4KB2c8?si=yWPqK2mHa5dPgeGk&t=3256"/>
             <LinkBubble name="Demo Video" image="/assets/general/VideoIcon.png" link="https://drive.google.com/file/d/13smlSXXKzOVhZBdTQ7A8B_GJTHSYrkFX/view?usp=sharing"/>
@@ -120,7 +120,7 @@ const LorePage = () => {
               {wdid.map((item, index) => (
                 <div key={index} className={`flex flex-col min-w-[200px] w-[18%] h-[200px] bg-darkerBlue items-center justify-center text-center rounded-xl text-white drop-shadow-2xl ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg': 'text-xl'}`}>
                   <div className="flex w-full h-[100px] bg-darkBlue rounded-t-xl items-center justify-center text-lg">
-                    <span className='flex m-2'>
+                    <span className='flex m-4'>
                       {item.desc}
                     </span>
                   </div>
@@ -223,14 +223,14 @@ const LorePage = () => {
               </div>
             </div>
           </div>  
-          {/*====================================== DEMO ======================================*/}
+          {/*============================== DEMO ==============================*/}
           <div className="flex flex-col min-h-[700px]  relative w-full items-center justify-center mt-5">    
               <span className={`text-white ${isMobile ? "text-5xl" : "text-7xl"} heading text-center`}>
                   LORE DEMO
               </span>
               <div className="mt-4 flex w-full h-[60%] items-center justify-center relative">
                   <iframe className="z-2 w-[200px] h-[425px] rounded-xl border-darkestBlue border-4" src="https://youtube.com/embed/ULkRTxL-LoY?feature=share" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-                  {<img className={`bottom-0 w-[80%] absolute`} src="/assets/lore/DemoVideoSticker.svg"/>}          
+                  {!isTinyMobile && <img className={`bottom-0 w-[80%] absolute`} src="/assets/lore/DemoVideoSticker.svg"/>}          
               </div>
           </div>  
           {/*============================== OUTCOME ==============================*/}
