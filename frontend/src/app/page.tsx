@@ -121,9 +121,20 @@ function landingPage() {
               <span className={`text-white ${isTinyMobile ? "text-5xl" : "text-7xl"} heading`}>
                 PROJECTS
               </span>
-              <div className="mt-10 flex min-w-[300px] gap-10 flex-wrap items-center justify-center ">
-                <ProjectComponent link="/lore#header" title="Lore" img="/assets/general/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories"/>
-                <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes" newest={true}/>
+              <div className="mt-10 flex flex-col min-w-[300px] gap-10 flex-wrap items-start justify-center ">
+                <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes" mockup='/assets/landingpage/NexusMockUp.png' newest={true}/>
+                <div className="flex flex-row gap-10 w-full">
+                  <ProjectComponent link="/lore#header" title="Lore" img="/assets/general/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories" mockup='/assets/landingpage/LoreMockUp.png' phone={true}/>
+                  {!isMobile && <div className='flex-col bg-linear-to-b from-darkestBlue to-darkBlue rounded-xl w-[33%] h-full flex items-center justify-center p-6 relative'> 
+                    <h1 className="text-4xl text-white font-bold flex w-full text-start">
+                      TBA
+                    </h1>
+                    <span className="text-xl text-white flex w-full text-start">
+                      More Projects Coming Soon!™
+                    </span>
+                    <Sticker className="-bottom-10 -right-10 scale-120" src='/assets/general/ConstructionSticker.svg'/>
+                  </div>}
+                </div>
               </div>
             </div>
             {/* ========================================== EXPERIENCE ========================================== */}            

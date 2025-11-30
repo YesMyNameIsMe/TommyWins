@@ -55,7 +55,7 @@ const LinkBubble = ({ link, name, image, className, copyable }: LinkBubbleProps)
 
       <AnimatePresence>
         {
-          isCopied && 
+          isCopied && copyable && 
           <motion.div className="fixed flex bottom-0 bg-darkBlue w-[15%] rounded-full p-4 items-center justify-center" 
                       initial={{y: 0, opacity: 0}} animate={{y: -20, opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.3, ease: 'linear'}}>
             <span className='flex text-white text-lg text-center font-semibold'>
