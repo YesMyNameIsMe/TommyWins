@@ -81,7 +81,7 @@ function landingPage() {
                       <span className="font-bold">Front-End Development</span>
                       , as well as creating {' '}
                       <span className="font-bold">Graphics </span>
-                      for my works and projects. I've always been desining ever since I was a kid, so you could say this is my life's ambition!
+                      for my works and projects. I've always been designing ever since I was a kid, so you could say this is my life's ambition!
                     </span>
                     <Link href="/about" className={`w-fit mt-4  ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} text-white underlineText`}>
                       Wanna Know More About Me? →

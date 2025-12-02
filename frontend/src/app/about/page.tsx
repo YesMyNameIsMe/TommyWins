@@ -13,8 +13,8 @@ const AboutPage = () => {
     const {isTinyMobile} = useMobile()
 
     const images = [{src: '/assets/about/FatBurgerImage.jpg', desc: 'Fat Burger Challenge (3000 Calorie Burger)'}, 
-                        {src: '/assets/about/AustinImage.jpg', desc: 'After Hiking Up Mount Bonnell, Austin, TX'}, 
-                        {src: '/assets/about/ChloeImage.jpg', desc: 'Proud Uncle of this Single Celled Organism'}]
+                    {src: '/assets/about/AustinImage.jpg', desc: 'After Hiking Up Mount Bonnell, Austin, TX'}, 
+                    {src: '/assets/about/ChloeImage.jpg', desc: 'Proud Uncle of this Single Celled Organism'}]
 
     const skills = [{name: 'Figma'}, {name: 'UI/UX Design'}, {name: 'React'}, {name: 'TypeScript'}, 
                     {name: 'TailwindCSS'}, {name: 'Programming'}, {name: 'SVG Animation'}, {name: 'Prototyping'}]
@@ -81,7 +81,7 @@ const AboutPage = () => {
                     NEWEST VIDEO
                 </span>
                 <div className="mt-4 mb-20 flex w-[60%] h-[60%] items-center justify-center relative">
-                    <iframe className="z-2 w-full h-full rounded-xl border-darkestBlue border-4" src="https://www.youtube.com/embed/INs-bngIeVs?si=6fquNJwfbpF0Cfnf" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                    <iframe className="z-2 w-full h-full rounded-xl border-darkestBlue border-4" src="https://www.youtube.com/embed/Q2V4_4R4JxY?si=Q6NzpEfmQmVS2GBW" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                     {!isMobile && <Sticker className="-right-45 -top-38 -scale-x-100 z-10" src="/assets/about/YoutubeMe.svg"/>}
                 </div>
             </div>    
