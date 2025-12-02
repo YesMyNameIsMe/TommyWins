@@ -88,7 +88,7 @@ useEffect(() => {
             </h1>
           </motion.div>
           <motion.div className="items-center justify-center flex mt-5 gap-4 flex-wrap" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.6}}>
-            <LinkBubble name="Figma" image="/assets/general/FigmaLogo.png" link="https://www.figma.com/design/G5POQBVUXCiCwuvaA2rWmA/Nexus?t=zJsmJ8ybWiNWlcc7-1"/>
+            <LinkBubble name="Figma" image="/assets/general/FigmaLogo.png" link="https://www.figma.com/design/gy0D5p97LFqEWCdpZIgnQB/Nexus?node-id=0-1&t=8reMo7zhXilTCFKt-1"/>
             <LinkBubble name="Website (Coming Soon!)" image="/assets/general/WebIcon.png"/>
           </motion.div>
           {/*============================== SAMPLE PAGES ==============================*/}
@@ -205,7 +205,7 @@ useEffect(() => {
             </span>
             <img onClick={() => {setOpenedImage("/assets/nexus/UserFlow.png"); setOpen(true)}}
                 className='flex mt-5 w-[65%] object-contain rounded-xl cursor-pointer' src="/assets/nexus/UserFlow.png"/>
-            <LinkBubble className='mt-5' link='https://www.figma.com/proto/GqaxQ5U2G2XsezcwFAPSbI/Nexus?node-id=1057-17&t=bBgYf32IUJxHFk3x-1' name='Prototype Link' image='/assets/general/FigmaLogo.png'/>
+            <LinkBubble className='mt-5' link='https://www.figma.com/proto/gy0D5p97LFqEWCdpZIgnQB/Nexus?node-id=1063-1177&p=f&t=4t81RuzE3ttNZHJ9-1&scaling=min-zoom&content-scaling=fixed&page-id=1057%3A17&starting-point-node-id=1063%3A1177' name='Prototype Link' image='/assets/general/FigmaLogo.png'/>
           </div>
           {/*============================== DESIGN ==============================*/}
           <div className="flex flex-col justify-center items-center mt-30" >
