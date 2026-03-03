@@ -27,7 +27,17 @@ const Footer = () => {
           <span className='text-white text-center font-semibold'>
             Website Designed and Developed with 💙 by Tommy
           </span>
+
+        <div className="flex absolute right-10 items-center gap-4 text-white">
+          <a href="https://cs.utdring.com/tommywins.com?nav=prev">←</a>
+          <a href="https://cs.utdring.com/tommywins.com" target="">
+              <img src="https://cs.utdring.com/icon.white.svg" alt="CS Webring" style={{width: '36px', height: 'auto', opacity: 0.8}}/>
+          </a>
+          <a href="https://cs.utdring.com/tommywins.com">→</a>
         </div>
+  
+        </div>
+
         <iframe className="flex min-w-[400px] h-[370px]" src="/assets/general/FishingAnimation.html"/>
         <div className="flex w-fit gap-20 mx-10 mt-20 flex-wrap">
           <span className="flex flex-col font-bold text-2xl text-white gap-4">
