@@ -30,10 +30,10 @@ const Footer = () => {
 
         <div className="flex absolute right-10 items-center gap-4 text-white">
           <a href="https://cs.utdring.com/#tommywins.com?nav=prev">←</a>
-          <a href="https://cs.utdring.com/#tommywins.com?nav=next" target="">
+          <a href="https://cs.utdring.com/" target="">
               <img src="https://cs.utdring.com/icon.white.svg" alt="CS Webring" style={{width: '36px', height: 'auto', opacity: 0.8}}/>
           </a>
-          <a href="https://cs.utdring.com/tommywins.com">→</a>
+          <a href="https://cs.utdring.com/#tommywins.com?nav=next">→</a>
         </div>
   
         </div>
