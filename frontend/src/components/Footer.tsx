@@ -3,9 +3,10 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { useMobile } from '@/context/mobileContext';
 
 const Footer = () => {
-
+  const {isMobile} = useMobile()
   const [isCopied, setCopied] = useState(false)
   const copiedText = ("nguyen424787@gmail.com")
 
@@ -23,18 +24,18 @@ const Footer = () => {
   return (
     <>
       <div className="flex h-fit bg-darkestBlue overflow-hidden flex-wrap-reverse justify-center ">
-        <div className="flex w-full h-[70px]  items-center justify-center">
+        <div className={`flex-col flex w-full h-[70px] gap-4 mb-4 items-center justify-center`}>
           <span className='text-white text-center font-semibold'>
             Website Designed and Developed with 💙 by Tommy
           </span>
 
-        <div className="flex absolute right-10 items-center gap-4 text-white">
-          <a href="https://cs.utdring.com/#tommywins.com?nav=prev">←</a>
-          <a href="https://cs.utdring.com/" target="">
-              <img src="https://cs.utdring.com/icon.white.svg" alt="CS Webring" style={{width: '36px', height: 'auto', opacity: 0.8}}/>
-          </a>
-          <a href="https://cs.utdring.com/#tommywins.com?nav=next">→</a>
-        </div>
+          <div className="flex right-10 items-center gap-4 text-white">
+            <a href="https://cs.utdring.com/#tommywins.com?nav=prev">←</a>
+            <a href="https://cs.utdring.com/" target="">
+                <img src="https://cs.utdring.com/icon.white.svg" alt="CS Webring" style={{width: '36px', height: 'auto', opacity: 0.8}}/>
+            </a>
+            <a href="https://cs.utdring.com/#tommywins.com?nav=next">→</a>
+          </div>
   
         </div>
 
