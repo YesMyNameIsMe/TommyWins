@@ -48,7 +48,7 @@ useEffect(() => {
 
   const comparisons = [
     {src: '/assets/nexus/OldNexus1.png', desc: "Before: Landing Page"},
-    {src: '/assets/nexus/Landing Page.png', desc: "After: Landing Page"},
+    {src: '/assets/nexus/Landing Page.png', desc: "After: Landing Page", startAtTop: true},
     {src: '/assets/nexus/OldNexus2.png', desc: "Before: Superdoc"},
     {src: '/assets/nexus/Superdoc.png', desc: "After: Superdoc"},
     {src: '/assets/nexus/OldNexus3.png', desc:"Before: Grade Calculator"},

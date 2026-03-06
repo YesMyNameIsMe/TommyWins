@@ -10,6 +10,7 @@ interface ImageCarouselProps {
   className?: string;
   images: Array<{
     src: string;
+    startAtTop?: boolean;
     desc?: string;
   }>;
 }
@@ -100,7 +101,7 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
                           {images.map((image, index) => (
                             // Image Container
                             <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
-                                <img className="min-w-full h-full object-cover rounded-xl cursor-pointer overflow-hidden" src={image.src} alt={image.desc || `slide-${index}`} 
+                                <img className={`min-w-full h-full object-cover ${images[currentIndex].startAtTop ? 'object-top' : ''} rounded-xl cursor-pointer overflow-hidden`} src={image.src} alt={image.desc || `slide-${index}`} 
                                       onClick={() => {setOpenedImage(images[currentIndex].src); setOpen(true)}}/>
                                 <span className="flex text-gray-300 flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
                             </div>
