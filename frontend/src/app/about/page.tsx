@@ -29,7 +29,7 @@ const AboutPage = () => {
                 <span className={`text-white ${isTinyMobile ? "text-5xl" : "text-7xl"} heading`}>
                     ABOUT ME
                 </span>
-                <span className={`heading absolute -left-12 -top-5 -rotate-24 text-white ${isTinyMobile ? "text-2xl" : "text-3xl"}`}>
+                <span className={`font-bold absolute -left-12 -top-5 -rotate-24 text-white ${isTinyMobile ? "text-2xl" : "text-3xl"}`}>
                     [more]
                 </span>
             </div>

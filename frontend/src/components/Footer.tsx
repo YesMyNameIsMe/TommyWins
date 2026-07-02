@@ -23,7 +23,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="flex h-fit bg-darkestBlue overflow-hidden flex-wrap-reverse justify-center ">
+      <div className="relative z-50 flex h-fit bg-darkestBlue overflow-hidden flex-wrap-reverse justify-center ">
         <div className={`flex-col flex w-full h-[70px] gap-4 mb-4 items-center justify-center`}>
           <span className='text-white text-center font-semibold'>
             Website Designed and Developed with 💙 by Tommy

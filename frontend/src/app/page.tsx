@@ -122,7 +122,8 @@ function landingPage() {
                 PROJECTS
               </span>
               <div className="mt-10 flex flex-col min-w-[300px] gap-10 flex-wrap items-start justify-center ">
-                <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes" mockup='/assets/landingpage/NexusMockUp.png' newest={true}/>
+                <ProjectComponent link="/orion" title="Orion: Relaunched" img="/assets/general/OrionSticker.svg" description="Redesigning UTD's student portal" mockup='/assets/landingpage/OrionMockUp.png' newest={true}/>
+                <ProjectComponent link="/nexus#header" title="Nexus" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes" mockup='/assets/landingpage/NexusMockUp.png'/>
                 <div className="flex flex-row gap-10 w-full">
                   <ProjectComponent link="/lore#header" title="Lore" img="/assets/general/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories" mockup='/assets/landingpage/LoreMockUp.png' phone={true}/>
                   {!isMobile && <div className='flex-col bg-linear-to-b from-darkestBlue to-darkBlue rounded-xl w-[33%] h-full flex items-center justify-center p-6 relative'> 

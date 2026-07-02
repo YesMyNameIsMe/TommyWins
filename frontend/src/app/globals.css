@@ -10,10 +10,13 @@
   --color-clearBlue: #40A4CC;
 }
 
+#anchor {
+  scroll-margin-top: 100px;
+}
+
 .heading {
   font-family: var(--font-titanOne);
 }
-
 
 html {
   scroll-behavior: smooth;
@@ -41,4 +44,72 @@ html {
 
 .underlineText:hover::after {
   width: 100%;
+}
+
+.scroll-fade {
+  /* Apply the mask image to create the fade effect */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - 25px), /* Start fade 48px from bottom */
+    transparent 100%        /* Fully transparent at the bottom */
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - 25px),
+    transparent 100%
+  );
+  --bottom-mask-size: 48px; /* CSS custom property for dynamic control */
+}
+
+.scroll-fade-top {
+  -webkit-mask-image: linear-gradient(
+    to top,
+    black 0%,
+    black calc(100% - 25px), 
+    transparent 100%        
+  );
+  mask-image: linear-gradient(
+    to top,
+    black 0%,
+    black calc(100% - 25px),
+    transparent 100%
+  );
+  --top-mask-size: 48px; 
+}
+
+.hideScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hideScroll {
+  scrollbar-width: none;
+}
+
+.hideScroll {
+  -ms-overflow-style: none;
+}
+
+.tinyText {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  line-height: 1.15; 
+}
+.bodyText {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.15; 
+}
+.headingText {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.15; 
+}
+.titleText {
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  line-height: 1.15; 
+}
+
+.circle {
+  display: flex;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
