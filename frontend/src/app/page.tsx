@@ -42,7 +42,7 @@ function landingPage() {
         <div className={`flex w-full h-full flex-col justify-center items-center z-10 mt-[45px]`}>
             {/* ========================================== TITLE ========================================== */}            
             <div className={`flex flex-col w-full min-h-screen bg-cover bg-center justify-center items-center z-10`} 
-                 style={{backgroundImage: theme=='dark' ? "url('/assets/landingPage/Header-Dark.png" : "url('/assets/landingPage/Header-Light.png"}}>
+                 style={{backgroundImage: theme=='dark' ? "url('/assets/landingpage/Header-Dark.png" : "url('/assets/landingpage/Header-Light.png"}}>
               
               <motion.div className={`flex flex-col justify-center items-center z-10  ${isMobile ? 'mt-10 px-10' : ''}`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
                   {<HeroPageLogo/>}
