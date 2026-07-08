@@ -90,9 +90,9 @@ const OrionPage = () => {
                 {/* =============================== INTRODUCTION ====================*/}
                 <div className="flex flex-col justify-center items-center mt-30 relative " id='introduction'>
                 <span className={`text-surface-contrast mb-4 titleText justify-between items-center dmSans font-bold w-full flex `}>
-                  <line>
+                  <h1>
                     Introduction
-                  </line>
+                  </h1>
                 </span>
                     <Body flexdirection={'flex-col'}>
                             <span className={` text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
@@ -106,9 +106,9 @@ const OrionPage = () => {
                 {/* ============================ PROJECT BACKGROUND ===========================*/}
                 <div className="flex flex-col justify-center items-center relative " id='background'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Project Background
-                        </line>
+                        </h1>
                     </span>
                     <Body flexdirection={"flex-col"}>
                         <span className={`text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
@@ -119,9 +119,9 @@ const OrionPage = () => {
                 {/* ============================ KEY CONSTRAINTS ===========================*/}
                 <div className="flex flex-col justify-center items-center relative " id='constraints'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Key Constraints
-                        </line>
+                        </h1>
                     </span>
                     <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} w-full gap-10`}>
                         {wiso.map((item, index) => (
@@ -134,33 +134,33 @@ const OrionPage = () => {
                 {/* ============================ RESEARCH & DISCOVERY ===========================*/}
                 <div className="flex flex-col justify-center items-center relative" id='R&D'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Research & Discovery
-                        </line>
+                        </h1>
                     </span>
                     <Body flexdirection={"flex-col"}>
                         <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
-                            <line>Based on 54 user responses to a survey, an average <b className='font-bold'>satisfaction rating of 3.74</b> was reported for users’ experience using Orion, alongside a <b className='font-bold'>51.9% interest rating in a potential redesign</b> for Orion. While the overall sentiment towards Orion isn’t negative, there’s a clear indication the the user experience is <b className='font-bold'>far from optimal</b>.</line>
-                            <line>Those that cited a specific specific problem with Orion stated that their frustration stems from <b className='font-bold'>navigation issues, readability, and UI design.</b> These problems lead to confusion about things like registration dates, course requirements, and class information, which result in more support tickets and work for faculty members.</line>
+                            <h1>Based on 54 user responses to a survey, an average <b className='font-bold'>satisfaction rating of 3.74</b> was reported for users’ experience using Orion, alongside a <b className='font-bold'>51.9% interest rating in a potential redesign</b> for Orion. While the overall sentiment towards Orion isn’t negative, there’s a clear indication the the user experience is <b className='font-bold'>far from optimal</b>.</h1>
+                            <h1>Those that cited a specific specific problem with Orion stated that their frustration stems from <b className='font-bold'>navigation issues, readability, and UI design.</b> These problems lead to confusion about things like registration dates, course requirements, and class information, which result in more support tickets and work for faculty members.</h1>
                         </span>
                     </Body>
 
                     <Body flexdirection={'flex-col'}>
                         {/* ========================== SATISFACTION ==============================*/}
                         <div className='flex flex-col gap-4 text-surface-contrast mt-4 dmSans font-medium w-full items-center'>
-                            <line className='text-left w-full'>54 Survey Responses - <b className='font-bold'> "How Satisfied Are You With UTD's Orion?"</b>.</line>
+                            <h1 className='text-left w-full'>54 Survey Responses - <b className='font-bold'> "How Satisfied Are You With UTD's Orion?"</b>.</h1>
                             <img className={`flex w-full max-w-[700px] h-full select-none items-center justify-center`} src={theme=='dark' ? "/assets/orion/SatisfactionBarChart-Dark.svg": "/assets/orion/SatisfactionBarChart-Light.svg"}/>
                         </div>
                         {/* ========================== REDESIGN INTEREST ==============================*/}
                         <div className='flex flex-col gap-4 w-full h-full items-center text-surface-contrast mt-4 dmSans font-medium'>
-                            <line className='w-full text-left'>54 Survey Responses - <b className='font-bold'> "What best matches your thoughts on a redesign of Orion?"</b>.</line>
+                            <h1 className='w-full text-left'>54 Survey Responses - <b className='font-bold'> "What best matches your thoughts on a redesign of Orion?"</b>.</h1>
                             <div className={`flex ${isMobile ? 'flex-col' : 'flex-row px-20'} gap-4 items-center justify-center h-full w-full`}>
                                 <div className='flex w-[clamp(200px,100%,400px)] h-[clamp(200px,10vh,400px)] items-center justify-center'>
                                     <img className={`flex ${isMobile ? '' : ''} select-none items-center justify-center`} src={"/assets/orion/RedesignPieChart.svg"}/>
                                 </div>
                                 <span className='flex flex-col gap-4 tinyText w-full'>
                                     {redesignData.map((item, index) => (
-                                        <div className={`flex flex-row gap-2 items-center`}>
+                                        <div key={index} className={`flex flex-row gap-2 items-center`}>
                                             <div className={`circle w-[15px] h-[15px]`} style={{backgroundColor: item.color}}/>
                                             {item.label}  
                                         </div>
@@ -170,14 +170,14 @@ const OrionPage = () => {
                         </div>
                         {/* ========================== PRIMARY USE ==============================*/}
                         <div className='flex flex-col gap-4 w-full h-full items-center text-surface-contrast mt-4 dmSans font-medium'>
-                            <line className='w-full text-left'>54 Survey Responses - <b className='font-bold'> "What Do You Primarily Use Orion For?"</b>.</line>
+                            <h1 className='w-full text-left'>54 Survey Responses - <b className='font-bold'> "What Do You Primarily Use Orion For?"</b>.</h1>
                             <div className={`flex ${isMobile ? 'flex-col' : 'flex-row px-20'} gap-4 items-center justify-center h-full w-full`}>
                                 <div className='flex w-[clamp(200px,100%,400px)] h-[clamp(200px,10vh,400px)] items-center justify-center'>
                                     <img className={`flex ${isMobile ? '' : ''} select-none items-center justify-center`} src={"/assets/orion/PrimaryUsePieChart.svg"}/>
                                 </div>
                                 <span className='flex flex-col gap-4 tinyText w-full'>
                                     {primaryUseData.map((item, index) => (
-                                        <div className={`flex flex-row gap-2 items-center w-full`}>
+                                        <div key={index} className={`flex flex-row gap-2 items-center w-full`}>
                                             <div className={`circle w-[15px] h-[15px]`} style={{backgroundColor: item.color}}/>
                                             <span className='flex w-full'>
                                                 {item.label}
@@ -189,14 +189,14 @@ const OrionPage = () => {
                         </div>
                         {/* ========================== SPECIFIC PROBLEMS ==============================*/}
                         <div className='flex flex-col gap-4 w-full h-full items-center text-surface-contrast mt-4 dmSans font-medium'>
-                            <line className='w-full text-left'>30 Survey Responses - <b className='font-bold'> "Do You Have Any Specific Problems Regarding Orion?"</b>.</line>
+                            <h1 className='w-full text-left'>30 Survey Responses - <b className='font-bold'> "Do You Have Any Specific Problems Regarding Orion?"</b>.</h1>
                             <div className={`flex ${isMobile ? 'flex-col' : 'flex-row px-20'} gap-4 items-center justify-center h-full w-full`}>
                                 <div className='flex w-[clamp(200px,100%,400px)] h-[clamp(200px,10vh,400px)] items-center justify-center'>
                                     <img className={`flex ${isMobile ? '' : ''} select-none items-center justify-center`} src={"/assets/orion/ProblemPieChart.svg"}/>
                                 </div>
                                 <span className='flex flex-col gap-4 tinyText w-full'>
                                     {problemData.map((item, index) => (
-                                        <div className={`flex flex-row gap-2 items-center w-full`}>
+                                        <div key={index} className={`flex flex-row gap-2 items-center w-full`}>
                                             <div className={`circle w-[15px] h-[15px]`} style={{backgroundColor: item.color}}/>
                                             <span className='flex w-full'>
                                                 {item.label}
@@ -208,7 +208,7 @@ const OrionPage = () => {
                         </div>
                     {/* ========================== SAMPLE QUOTES ==============================*/}
                         <div className='flex flex-col gap-4 w-full h-full items-start text-surface-contrast mt-4 dmSans font-medium'>
-                            <line className='w-full font-bold'>User Quote Samples</line>
+                            <h1 className='w-full font-bold'>User Quote Samples</h1>
                             <img className={`flex ${isMobile ? '' : 'px-20'} h-full select-none items-center justify-center`} src={"/assets/orion/UserQuotes.svg"}/>
                         </div>
                     </Body>
@@ -217,9 +217,9 @@ const OrionPage = () => {
                 {/* ============================ PROBLEM STATEMENT ===========================*/}
                 <div className="flex flex-col justify-center items-center relative " id='problem'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Problem Statement
-                        </line>
+                        </h1>
                     </span>
                     <Body flexdirection={"flex-col"}>
                         <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
@@ -230,9 +230,9 @@ const OrionPage = () => {
                 {/* ============================ PROJECT SCOPE ===========================*/}
                 <div className="flex flex-col justify-center items-center relative " id='scope'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Project Scope
-                        </line>
+                        </h1>
                     </span>
                     <Body flexdirection={"flex-col"}>
                         <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
@@ -249,9 +249,9 @@ const OrionPage = () => {
                 {/* ============================ DESIGN PROCESS ===========================*/}
                 <div className="flex flex-col justify-center items-center relative" id='Design Process'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Design Process
-                        </line>
+                        </h1>
                     </span>
                     <Body flexdirection={"flex-col"}>
                         <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
@@ -377,9 +377,9 @@ const OrionPage = () => {
                 <div className='flex flex-col gap-10 items-center justify-center' id='Design Comparisons'>
                     <Body flexdirection={'flex-col'}>
                         <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                            <line>
+                            <h1>
                                 Design Comparisons - Quickfire
-                            </line>
+                            </h1>
                         </span>
                         <div className={`flex flex-col justify-center items-center relative`}>
                             <ImageCarousel className="mt-5" images={comparisons} />
@@ -395,9 +395,9 @@ const OrionPage = () => {
                 {/* ============================ REFLECTION ===========================*/}
                 <div className="flex flex-col justify-center items-center relative mb-20" id='reflection'>
                     <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <line>
+                        <h1>
                             Reflection
-                        </line>
+                        </h1>
                     </span>
                     <Body flexdirection={"flex-col"}>
                         <span className={`flex flex-col text-surface-contrast gap-4 dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>

@@ -15,8 +15,8 @@ function GrassField() {
     const clickSound = '/assets/about/splat.mp3';
     const {theme} = useTheme()
     const containerRef = useRef<HTMLDivElement>(null);
-    const [containerWidth, setContainerWidth] = useState(window.innerWidth);
-    const [containerHeight, setContainerHeight] = useState(window.innerHeight);
+    const [containerWidth, setContainerWidth] = useState(1);
+    const [containerHeight, setContainerHeight] = useState(1);
     const [fish, setFish] = useState<FishInstance[]>([]); 
     const [handVisible, setHandVisible] = useState(false)
     const [handState, setHandState] = useState(theme=='dark' ? '/assets/about/FishButtonHand-Dark.png' : '/assets/about/FishButtonHand.png')
@@ -32,6 +32,10 @@ function GrassField() {
 
     useEffect(() => {
         if (!containerRef.current) return;
+
+        setContainerWidth(containerRef.current.clientWidth);
+        setContainerHeight(containerRef.current.clientHeight);
+
         const observer = new ResizeObserver((entries) => {
         const { width, height } = entries[0].contentRect;
         setContainerWidth(width);

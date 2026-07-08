@@ -47,7 +47,7 @@ function landingPage() {
               <motion.div className={`flex flex-col justify-center items-center z-10  ${isMobile ? 'mt-10 px-10' : ''}`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
                   {<HeroPageLogo/>}
                   <span className={`text-primary font-medium bodyText my-4`}>
-                    Tommy <span className='line-through'> Win</span> {' '}Nguyen | UI/UX & Product Designer
+                    Tommy <span className='p-through'> Win</span> {' '}Nguyen | UI/UX & Product Designer
                   </span>
               </motion.div>
               
@@ -65,12 +65,12 @@ function landingPage() {
               {/* ========================================== ABOUT ========================================== */}            
               <div id="about" className='flex flex-col items-center justify-center'>            
                 <span className={`text-surface-contrast titleText justify-between items-center racingSans w-full flex `}>
-                  <line>
+                  <p>
                     ABOUT
-                  </line>
-                  <line className='text-4xl'>
+                  </p>
+                  <p className='text-4xl'>
                     01
-                  </line>
+                  </p>
                 </span>
                 <div className={`flex ${isMobile ? 'flex-col' : ''} mt-4 gap-8 relative w-full items-center justify-center p-4`}>
                   {/* Text Container */}
@@ -94,7 +94,7 @@ function landingPage() {
                         for my works and projects. I've always been designing ever since I was a kid, so you could say this is my life's ambition!
                       </span>
                       <Link href="/about" className={`w-fit mt-4 bg-surface-contrast p-2 text-surface-primary hover:scale-105 transition duration-300
-                                          ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} underlineText`}>
+                                          ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} underpText`}>
                         Wanna Know More About Me? →
                       </Link>
                     </h1> 
@@ -126,12 +126,12 @@ function landingPage() {
               {/* ========================================== PROJECTS ========================================== */}            
               <div id="projects" className='flex flex-col items-center justify-center mt-20 w-full'>            
                 <span className={`text-surface-contrast titleText justify-between items-center racingSans w-full flex `}>
-                  <line>
+                  <p>
                     PROJECTS
-                  </line>
-                  <line className='text-4xl'>
+                  </p>
+                  <p className='text-4xl'>
                     02
-                  </line>
+                  </p>
                 </span>
                 <div className="mt-10 flex flex-col min-w-[300px] gap-10 flex-wrap items-start justify-center ">
                   <ProjectComponent background='bg-[#325949]' link="/orion" title="UTD ORION REDESIGN" img="/assets/general/OrionSticker.svg" description="Redesigning UTD's student portal" mockup='/assets/landingpage/OrionMockUp.png' newest={true}/>
@@ -144,12 +144,12 @@ function landingPage() {
               {/* ========================================== EXPERIENCE ========================================== */}            
               <div id="experience" className='flex flex-col items-center justify-center mt-20 w-full'>            
                 <span className={`text-surface-contrast titleText justify-between items-center racingSans w-full flex `}>
-                  <line className='flex h-full items-center'>
+                  <p className='flex h-full items-center'>
                     EXPERIENCE
-                  </line>
-                  <line className='text-4xl'>
+                  </p>
+                  <p className='text-4xl'>
                     03
-                  </line>
+                  </p>
                 </span>
                 {/* Experience Clicker */}
                 <div className="flex w-full min-w-[300px] min-h-[2%] mt-10 py-4 items-center select-none drop-shadow-xl"> 
@@ -228,12 +228,12 @@ function landingPage() {
               {/* ========================================== TECH STACK ================================= */}            
               <div id="experience" className='flex flex-col items-center justify-center mt-20 w-full mb-30'>            
                 <span className={`text-surface-contrast titleText justify-between items-center racingSans w-full flex `}>
-                  <line>
+                  <p>
                     TECH STACK
-                  </line>
-                  <line className='text-4xl'>
+                  </p>
+                  <p className='text-4xl'>
                     04
-                  </line>
+                  </p>
                 </span>
                 <div className="mt-10 min-w-[300px] flex flex-wrap items-center justify-center relative w-full">
                     <TechStack block={techStack}/>
