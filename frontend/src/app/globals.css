@@ -1,7 +1,18 @@
 @import "tailwindcss";
 
+[data-theme="dark"] {
+  --color-primary: #ffffff;
+  --color-surface-contrast: #ffffff;
+  --color-surface-primary: #001D4A;
+}
+
 @theme {
+  --color-primary: #001D4A;
+  --color-surface-contrast: #001D4A;
+  --color-surface-primary: #ffffff;
+
   --color-darkestBlue: #001D4A;
+  --color-lightBlue: #CBE0FF;
   --color-darkerBlue: #003281;
   --color-darkBlue: #0047B5;
   --color-blue: #005FF2;
@@ -16,6 +27,18 @@
 
 .heading {
   font-family: var(--font-titanOne);
+}
+
+.bitCount {
+  font-family: var(--font-bitcountPropSingle);
+}
+
+.racingSans {
+  font-family: var(--font-racingSansOne);
+}
+
+.dmSans {
+  font-family: var(--font-dmSans);
 }
 
 html {
@@ -36,8 +59,8 @@ html {
   bottom: 0;
   left: 0;
 
-  height: 2px;
-  background-color: #ffffff;
+  height: 3px;
+  background-color: var(--color-surface-contrast);
   width: 0;
   transition: 0.4s ease-out
 }
@@ -104,8 +127,8 @@ html {
   line-height: 1.15; 
 }
 .titleText {
-  font-size: clamp(2.2rem, 3vw, 3rem);
-  line-height: 1.15; 
+  font-size: clamp(2.6rem, 5.5vw, 6rem);
+  line-height: 1; 
 }
 
 .circle {

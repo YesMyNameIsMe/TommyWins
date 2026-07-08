@@ -11,9 +11,10 @@ interface LinkBubbleProps {
   image: string;
   className?: string;
   copyable?: boolean;
+  bg?: string;
 }
 
-const LinkBubble = ({ link, name, image, className, copyable }: LinkBubbleProps) => {
+const LinkBubble = ({ link, name, image, className, copyable, bg }: LinkBubbleProps) => {
 
   const {isTinyMobile} = useMobile()
   const [isCopied, setIsCopied] = useState(false);
@@ -33,7 +34,7 @@ const LinkBubble = ({ link, name, image, className, copyable }: LinkBubbleProps)
   return (
     <>
       <a 
-        className={`${className} cursor-pointer flex w-fit h-[50px] bg-darkBlue p-4 gap-2 rounded-full items-center justify-center transition duration-200 hover:scale-110`} 
+        className={`${className} cursor-pointer flex w-fit h-[50px] ${bg? bg : 'bg-darkestBlue'} p-4 gap-2 rounded-full items-center justify-center transition duration-200 hover:scale-110`} 
         target='_blank' 
         rel="noopener noreferrer" 
         href={link}
@@ -56,7 +57,7 @@ const LinkBubble = ({ link, name, image, className, copyable }: LinkBubbleProps)
       <AnimatePresence>
         {
           isCopied && copyable && 
-          <motion.div className="fixed flex bottom-0 bg-darkBlue w-[15%] rounded-full p-4 items-center justify-center" 
+          <motion.div className="fixed flex bottom-0 bg-darkBlue w-[15%] rounded-full p-4 items-center justify-center z-150" 
                       initial={{y: 0, opacity: 0}} animate={{y: -20, opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.3, ease: 'linear'}}>
             <span className='flex text-white text-lg text-center font-semibold'>
               Text Copied!

@@ -16,9 +16,9 @@ interface MobileContextType {
 const MobileContext = createContext<MobileContextType | undefined>(undefined);
 
 export const MobileProvider = ({ children }: { children: ReactNode }) => {
-	const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({ width: 1920, height: 1080 });
-	const [isMobile, setIsMobile] = useState(false);
 	const [isTinyMobile, setTinyMobile] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+	const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>({ width: 1920, height: 1080 });
 
 	useEffect(() => {
 		const handleResize = () => {

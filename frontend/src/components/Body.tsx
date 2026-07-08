@@ -1,14 +1,14 @@
 import React from 'react'
 import { useMobile } from '@/context/mobileContext'
 
-function Body({ children, flexdirection }: { children: React.ReactNode, flexdirection: String }) {
+function Body({ children, flexdirection, className }: { children: React.ReactNode, flexdirection: String, className?: String }) {
 
     const {isMobile} = useMobile();
     const {isTinyMobile} = useMobile();
 
     return (
-        <div className={`flex ${flexdirection} items-center justify-center relative min-w-[300px] w-[60%] gap-4 min-h-[10%] bg-darkestBlue border-darkBlue border-2 mt-5 p-6 rounded-2xl
-                        ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-lg'} text-white font-normal`}>        
+        <div className={`flex w-full ${flexdirection} items-center justify-center relative gap-4 ${className}
+                        ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-lg'}`}>        
             {children}
         </div>
     )

@@ -5,6 +5,7 @@ import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'motion/react';
 import { useMobile } from '@/context/mobileContext';
+import { useTheme } from '@/context/themeContext';
 
 interface ImageCarouselProps {
   className?: string;
@@ -22,6 +23,7 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
   const [openedImage, setOpenedImage] = useState("")
   const [isOpen, setOpen] = useState(false)
   const imageRef = useRef<HTMLImageElement | null>(null)
+  const {theme} = useTheme()
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -82,18 +84,18 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
                   src={openedImage}
                   alt="expanded"
                 />
-            <HiArrowCircleLeft className="absolute -bottom-15 right-[55%] cursor-pointer" size={40} onClick={goToPrev} color='white'/>
-            <HiArrowCircleRight className="absolute -bottom-15 left-[55%] cursor-pointer" size={40} onClick={goToNext} color='white'/>
+            <HiArrowCircleLeft className="absolute -bottom-15 right-[55%] cursor-pointer text-white" size={40} onClick={goToPrev}/>
+            <HiArrowCircleRight className="absolute -bottom-15 left-[55%] cursor-pointer text-white" size={40} onClick={goToNext} color={''}/>
             </div>
           </motion.div>
         }
         </AnimatePresence>
 
         <div className={`${isTinyMobile ? 'scale-85' : ''}`}>
-          <div className={`${className} flex min-w-[300px] ${isTinyMobile ? 'max-w-[300px]' : ''} justify-center items-center h-[300px] md:h-[550px] select-none relative`}> {/* Carousel Container */}
+          <div className={`${className} flex min-w-[300px] ${isTinyMobile ? 'max-w-[300px]' : ''} justify-center items-center h-[300px] md:h-[650px] select-none relative`}> {/* Carousel Container */}
               
               {/* ================================== IMAGE CONTAINERS ==================================*/}
-              <HiArrowCircleLeft className="absolute -left-15 cursor-pointer" size={40} onClick={goToPrev} color='white'/>
+              <HiArrowCircleLeft className="absolute -left-15 cursor-pointer text-surface-contrast" size={40} onClick={goToPrev}/>
                   {/* Holds Overflowing Images */}
                   <div className="flex h-full w-full overflow-hidden">
                       {/* Contains Images in a Row */}
@@ -103,19 +105,19 @@ const ImageCarousel = ({ className, images }: ImageCarouselProps) => {
                             <div className="min-w-full h-full flex flex-col justify-center items-center rounded-xl" key={index}>
                                 <img className={`min-w-full h-full object-cover ${images[currentIndex].startAtTop ? 'object-top' : ''} rounded-xl cursor-pointer overflow-hidden`} src={image.src} alt={image.desc || `slide-${index}`} 
                                       onClick={() => {setOpenedImage(images[currentIndex].src); setOpen(true)}}/>
-                                <span className="flex text-gray-300 flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
+                                <span className="flex text-gray-400 flex-wrap text-center text-sm md:text-lg my-3">{image.desc}</span>
                             </div>
                           ))}
                       </div>
                   </div>
-              <HiArrowCircleRight className="absolute -right-15 cursor-pointer" size={40} onClick={goToNext} color='white'/>
+              <HiArrowCircleRight className="absolute -right-15 cursor-pointer text-surface-contrast" size={40} onClick={goToNext}/>
               
               {/* ================================== DOT CONTAINER ==================================*/}
               <div className="absolute w-full justify-center flex -bottom-5 gap-5">
                 {/* Dots */}
                 {images.map((image, imageIndex) => (
                   <div
-                  className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-white' : 'bg-gray-500'}`}
+                  className={`rounded-full h-5 w-5 cursor-pointer ${imageIndex === currentIndex ? 'bg-surface-contrast' : 'bg-gray-400'}`}
                   key={imageIndex}
                   onClick={() => {goToImage(imageIndex)}}
                   />

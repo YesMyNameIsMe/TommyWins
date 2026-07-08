@@ -15,6 +15,7 @@ const NexusPage = () => {
   const [isOpen, setOpen] = useState(false)
   const [openedImage, setOpenedImage] = useState("")
   const imageRef = useRef<HTMLImageElement | null>(null)
+  const [updateDisclaimer, setUpdateDisclaimer] = useState(true)
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -77,6 +78,28 @@ useEffect(() => {
   return (
     <div className={`flex justify-center min-w-full bg-darkBlue bg-center bg-cover bg-no-repeat`} 
          style={{backgroundImage: isMobile ? "url('/assets/nexus/MobileNexusBG.svg')" : "url('/assets/nexus/NexusBG.svg')", overflow: 'auto'}}>
+        
+          {updateDisclaimer && <div className={`fixed w-full flex backdrop-brightness-20 z-100 items-center justify-center`} style={{ minHeight: '100vh' }}>
+            <div className={`text-white w-[30%] min-w-[300px] h-[20%] justify-center items-center bg-linear-to-b from-darkestBlue to-darkerBlue rounded-2xl p-5`}>
+                <div className="flex w-full h-full justify-center flex-col text-center">
+                    <span className="text-2xl font-black">
+                        Hold It!
+                    </span>
+                    <span className="">
+                        This page is currently being updated, you can still read through it, but know that everything is not final!
+                    </span>
+                </div>
+                <div className="w-full h-full flex flex-col justify-center items-center">
+                    <img className="w-50 h-50 flex" src="/assets/general/ConstructionSticker.svg"/>
+                    <div onClick={() => {setUpdateDisclaimer(false)}} className="h-[50px] w-[70%] flex justify-center items-center bg-blue rounded-xl cursor-pointer hover:scale-105">
+                        <span className="text-white font-black text-2xl">
+                            Got It
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>}
+        
         <div id="header" className="flex flex-col h-full w-full items-center relative overflow-hidden">
           {/*============================== TITLE ==============================*/}
           <motion.div className="mx-4" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>

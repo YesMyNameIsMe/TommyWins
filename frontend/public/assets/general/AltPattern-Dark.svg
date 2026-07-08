@@ -1,0 +1,23 @@
+<svg width="1419" height="56" viewBox="0 0 1419 56" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1419" height="31.4595" fill="url(#pattern0_902_227)"/>
+<rect y="31.4595" width="1419" height="8.52539" fill="url(#pattern1_902_227)"/>
+<rect y="39.9849" width="1419" height="15.0379" fill="url(#pattern2_902_227)"/>
+<defs>
+<pattern id="pattern0_902_227" patternUnits="userSpaceOnUse" patternTransform="matrix(15.8999 0 0 15.8999 0 0)" preserveAspectRatio="none" viewBox="0 0 15.8999 15.8999" width="1" height="1">
+<g id="pattern0_902_227_inner">
+<rect width="8.38113" height="8.38113" fill="#0E0E20"/>
+<rect x="8.3811" y="8.38135" width="7.35723" height="7.35723" fill="#0E0E20"/>
+</g>
+</pattern><pattern id="pattern1_902_227" patternUnits="userSpaceOnUse" patternTransform="matrix(31.8 0 0 15.8999 0 31.4595)" preserveAspectRatio="none" viewBox="0 0 31.8 15.8999" width="1" height="1">
+<use xlink:href="#pattern1_902_227_inner" transform="translate(-31.8 0)"/>
+<g id="pattern1_902_227_inner">
+<rect width="8.38113" height="8.38113" fill="#0E0E20"/>
+<rect x="15.8999" width="8.38113" height="8.38113" fill="#0E0E20"/>
+</g>
+</pattern><pattern id="pattern2_902_227" patternUnits="userSpaceOnUse" patternTransform="matrix(31.8 0 0 15.8999 0 39.9849)" preserveAspectRatio="none" viewBox="0 0 31.8 15.8999" width="1" height="1">
+<use xlink:href="#pattern2_902_227_inner" transform="translate(-31.8 0)"/>
+<g id="pattern2_902_227_inner">
+<rect x="7.5188" width="8.38113" height="8.38113" fill="#0E0E20"/>
+</g>
+</pattern></defs>
+</svg>
