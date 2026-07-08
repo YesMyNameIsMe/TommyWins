@@ -8,7 +8,7 @@ function HeroPageLogo() {
   return (
     <div className={`${isTinyMobile ? "scale-75":""}`} style={{ position: "relative", width: 525, height: 389 }}>
       
-     <img src={'/assets/LandingPage/HeroPageMe.svg'}
+     <img src={'/assets/landingpage/HeroPageMe.svg'}
                 style={{ position: "absolute", left: 76.9}}/>
 
       {/* Icon 1: the sparkle SVG */}
