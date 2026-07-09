@@ -91,6 +91,14 @@ const OrionPage = () => {
                 <div className="flex flex-col justify-center items-center mt-30 relative " id='introduction'>
                 <span className={`text-surface-contrast mb-4 titleText justify-between items-center dmSans font-bold w-full flex `}>
                   <h1>
+                    Trailer
+                  </h1>
+                </span>
+                <div className="mt-4 flex w-full h-[600px] items-center justify-center relative">
+                    <iframe className="z-2 w-full h-full border-darkestBlue " src="https://www.youtube.com/embed/d1AUBk4gsqI?si=ldRP5pI5aVyqq22D" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                </div>
+                <span className={`text-surface-contrast mt-30 mb-4 titleText justify-between items-center dmSans font-bold w-full flex `}>
+                  <h1>
                     Introduction
                   </h1>
                 </span>

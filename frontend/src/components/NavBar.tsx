@@ -102,9 +102,11 @@ function NavBar() {
           </span>
         </Link>
         <span className="flex justify-center text-primary font-bold text-3xl ">
-          <a className="underlineText" href={"/assets/general/Tommy Nguyen Resume.pdf"} download={"Tommy Nguyen - Resume"} target="_blank" rel="noreferrer">
-            RÉSUMÉ
-          </a>
+        <Link href="/#header" className="flex justify-center text-primary font-bold text-3xl ">
+          <span className="underlineText">
+            CONTACT
+          </span>
+        </Link>
         </span> 
       </div>
     </div>

@@ -92,14 +92,14 @@ const AboutPage = () => {
                 </div>
             </div>   
             {/*====================================== YOUTUBE ======================================*/}
-            <div className="flex flex-col h-[700px] w-full relative w-full items-center justify-center">    
+            <div className="flex flex-col h-[850px] w-full relative items-center justify-center">    
                 <span className={`text-surface-contrast titleText justify-center items-center racingSans w-full flex `}>
                     <p className='flex h-full items-center'>
                     NEWEST VIDEO
                     </p>
                 </span>
                 <div className="mt-4 mb-20 flex w-full h-full items-center justify-center relative">
-                    <iframe className="z-2 w-full h-full rounded-xl border-darkestBlue border-4" src="https://www.youtube.com/embed/Q2V4_4R4JxY?si=Q6NzpEfmQmVS2GBW" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                    <iframe className="z-2 w-full h-full rounded-xl border-darkestBlue border-4" src="https://www.youtube.com/embed/LNlFAxxFsRA?si=TN_bD8kx_ZY45GFm" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
                 </div>
             </div>    
             {/*====================================== GAME ======================================*/}
