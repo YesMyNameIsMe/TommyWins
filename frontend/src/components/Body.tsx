@@ -7,7 +7,7 @@ function Body({ children, flexdirection, className }: { children: React.ReactNod
     const {isTinyMobile} = useMobile();
 
     return (
-        <div className={`flex w-full ${flexdirection} items-center justify-center relative gap-4 ${className}
+        <div className={`flex w-full ${flexdirection} items-start justify-center relative gap-4 ${className}
                         ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-lg'}`}>        
             {children}
         </div>

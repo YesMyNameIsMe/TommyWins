@@ -2,13 +2,13 @@
 
 import Image from 'next/image';
 import { useMobile } from '@/context/mobileContext';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
 interface LinkBubbleProps {
   link?: string;
   name: string;
-  image: string;
+  image: ReactNode;
   className?: string;
   copyable?: boolean;
   bg?: string;
@@ -19,6 +19,13 @@ const LinkBubble = ({ link, name, image, className, copyable, bg }: LinkBubblePr
   const {isTinyMobile} = useMobile()
   const [isCopied, setIsCopied] = useState(false);
   const textToCopy = name
+
+  const renderImage = () => {
+    if (typeof image === 'string') {
+      return <img src={image} alt="image" className="w-8 h-8" />; // Adjust size as needed
+    }
+    return image;
+  };
 
   const handleCopyClick = async () => {
     try {
@@ -39,13 +46,8 @@ const LinkBubble = ({ link, name, image, className, copyable, bg }: LinkBubblePr
         rel="noopener noreferrer" 
         href={link}
       >
-        <div className="flex relative w-8 h-8">
-          <Image 
-            src={image} 
-            alt={name || 'Link bubble image'} 
-            fill
-            style={{objectFit: 'contain'}}
-          />
+        <div className='flex w-8 h-8'>
+          {renderImage()}
         </div>
         {name && (
           <h1 className="flex items-center justify-center text-lg text-white font-semibold" onClick={handleCopyClick}>
@@ -57,7 +59,7 @@ const LinkBubble = ({ link, name, image, className, copyable, bg }: LinkBubblePr
       <AnimatePresence>
         {
           isCopied && copyable && 
-          <motion.div className="fixed flex bottom-0 bg-darkBlue w-[15%] rounded-full p-4 items-center justify-center z-150" 
+          <motion.div className="fixed flex bottom-0 bg-darkBlue w-[15%] rounded-full p-4 items-center justify-center" 
                       initial={{y: 0, opacity: 0}} animate={{y: -20, opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.3, ease: 'linear'}}>
             <span className='flex text-white text-lg text-center font-semibold'>
               Text Copied!

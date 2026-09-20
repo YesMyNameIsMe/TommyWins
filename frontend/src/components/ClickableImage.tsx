@@ -3,7 +3,7 @@ import { useTheme } from '@/context/themeContext';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react'
 
-const ClickableImage = ({ image, caption }: { caption?: string, image: string }) => {
+const ClickableImage = ({ image, caption, className }: { caption?: string, image: string, className?: string }) => {
     const {isMobile} = useMobile();
     const {isTinyMobile} = useMobile();
     const [isOpen, setOpen] = useState(false);
@@ -35,7 +35,7 @@ const ClickableImage = ({ image, caption }: { caption?: string, image: string })
     }, [isOpen])
 
   return (
-    <div className={`flex flex-col items-center justify-center w-full h-full`}>
+    <div className={`flex flex-col items-center justify-center w-full h-full ${className}`}>
         <img className='rounded-xl cursor-pointer border-surface-contrast border-1' src={image} onClick={() => {setOpenedImage(image); setOpen(true)}}/>
         {caption && <span className="flex text-gray-400 font-normal flex-wrap text-center tinyText mt-3">{caption}</span>}
 

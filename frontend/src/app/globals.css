@@ -37,6 +37,10 @@
   font-family: var(--font-racingSansOne);
 }
 
+.titilliumWeb {
+  font-family: var(--font-titilliumWeb)
+}
+
 .dmSans {
   font-family: var(--font-dmSans);
 }

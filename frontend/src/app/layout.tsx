@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Open_Sans, Titan_One, Varela_Round, Bitcount_Prop_Single, Racing_Sans_One, DM_Sans } from "next/font/google";
+import { Open_Sans, Titan_One, Varela_Round, Bitcount_Prop_Single, Racing_Sans_One, DM_Sans, Titillium_Web } from "next/font/google";
 import { Inter } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -16,6 +16,12 @@ import ThemeToggle from "@/components/ThemeToggle";
 const titanOne = Titan_One({
   weight: '400',
   variable: '--font-titanOne',
+  subsets: ["latin"],
+});
+
+const titilliumWeb = Titillium_Web({
+  weight: '400',
+  variable: '--font-titilliumWeb',
   subsets: ["latin"],
 });
 
@@ -68,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`bg-darkestBlue`}>
       <body className={`${titanOne.variable} ${inter.className} ${bitCountPropSingle.variable} 
-                        ${racingSans.variable} ${dmSans.variable} bg-darkestBlue`}>
+                        ${racingSans.variable} ${dmSans.variable} ${titilliumWeb.variable} bg-darkestBlue`}>
         <ThemeProvider>
         <MobileProvider>
         <ScreenProvider>

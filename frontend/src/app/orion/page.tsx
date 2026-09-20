@@ -12,18 +12,12 @@ import ImageCarousel from '@/components/ImageCarousel'
 import Link from 'next/link'
 import { useTheme } from '@/context/themeContext'
 import QuickJumpMenu from '@/components/QuickJumpMenu'
+import ConveyorBelt from '@/components/ConveyorBelt'
 
 const OrionPage = () => {
     const {isMobile} = useMobile();
     const {isTinyMobile} = useMobile();
-    const [atBottom, setAtBottom] = useState(false)
     const {theme} = useTheme()
-
-    const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-        const bottom = scrollHeight - scrollTop <= clientHeight + 1;
-        setAtBottom(bottom);
-    }; 
 
     const comparisons = [
         {src: '/assets/orion/OldOrion1.png', desc: "Tasks and Communications are time-sensitive info, so I wanted to emphasize their importance by placing them on the navbar and better indicate any new tasks/messages with high-contrasting alerts."},
@@ -71,6 +65,20 @@ const OrionPage = () => {
                         {title:'Reflection', anchor:'/orion/#reflection'},
                         ]
 
+    const cbLight = [{src: "/assets/orion/DegreeAudit-Light.svg", alt: "Degree Audit"}, 
+                     {src: "/assets/orion/Financial Aid-Light.svg", alt: "Financial Aid"},
+                     {src: "/assets/orion/Grades-Light.svg", alt: "Grades"},
+                     {src: "/assets/orion/Enrollment Appointment-Light.svg", alt: "Enrollment Appointment"},
+                     {src: "/assets/orion/Undergraduate Certificate-Light.svg", alt: "Certificate"}
+    ]
+
+    const cbDark = [{src: "/assets/orion/DegreeAudit-Dark.svg", alt: "Degree Audit"}, 
+                     {src: "/assets/orion/Financial Aid-Dark.svg", alt: "Financial Aid"},
+                     {src: "/assets/orion/Grades-Dark.svg", alt: "Grades"},
+                     {src: "/assets/orion/Enrollment Appointment-Dark.svg", alt: "Enrollment Appointment"},
+                     {src: "/assets/orion/Undergraduate Certificate-Dark.svg", alt: "Certificate"}
+    ]
+
     return (
     <div className={`relative flex flex-col min-w-full h-full ${theme=='dark' ? "bg-[#232323]" : "bg-surface-primary"}`}>
 
@@ -84,6 +92,14 @@ const OrionPage = () => {
                     <LinkBubble bg='bg-[#294339] ' name="Prototype" image="/assets/general/FigmaLogo.svg" link="https://www.figma.com/proto/ScuPXqtK4eakkqE1rKASoU/UTD-Orion-Redesign?node-id=844-13780&p=f&t=hL5NGjtKEHM2PDEq-8&scaling=contain&content-scaling=responsive&page-id=844%3A12864&starting-point-node-id=844%3A13780&hide-ui=1"/>
                     <LinkBubble bg='bg-[#294339] ' name="Figma File" image="/assets/general/FigmaLogo.svg" link="https://www.figma.com/design/ScuPXqtK4eakkqE1rKASoU/UTD-Orion-Redesign?node-id=844-12864&t=1uPUfVc8sLzw8I5u-1"/>
                 </motion.div>
+            </div>
+
+            {/*============================== CONVEYOR BELT ==============================*/}
+            <div className='flex min-w-screen h-full mt-30'>
+                <ConveyorBelt 
+                    images={theme == "dark" ? cbDark : cbLight}
+                            speed={50}
+                            direction="right"/>
             </div>
 
             <div className='flex w-[85%] h-full gap-30 flex-col items-center justify-center'>
@@ -223,17 +239,19 @@ const OrionPage = () => {
 
                 </div>
                 {/* ============================ PROBLEM STATEMENT ===========================*/}
-                <div className="flex flex-col justify-center items-center relative " id='problem'>
-                    <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <h1>
-                            Problem Statement
-                        </h1>
-                    </span>
-                    <Body flexdirection={"flex-col"}>
-                        <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
-                            How might I help UTD students check and track their academic standing through class registration, coursework, and financial aid without having to spend too much time?  
+                <div className="flex flex-col justify-center items-center relative min-w-screen py-10 bg-[#325949]" id='problem'>
+                    <div className='flex flex-col w-[85%]'>
+                        <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
+                            <h1>
+                                Problem Statement
+                            </h1>
                         </span>
-                    </Body>
+                        <Body flexdirection={"flex-col"}>
+                            <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
+                                How might I help UTD students check and track their academic standing through class registration, coursework, and financial aid without having to spend too much time?  
+                            </span>
+                        </Body>
+                    </div>
                 </div>
                 {/* ============================ PROJECT SCOPE ===========================*/}
                 <div className="flex flex-col justify-center items-center relative " id='scope'>
@@ -401,31 +419,33 @@ const OrionPage = () => {
                     <LinkBubble bg='bg-[#294339] ' name="Prototype" image="/assets/general/FigmaLogo.svg" link="https://www.figma.com/proto/ScuPXqtK4eakkqE1rKASoU/UTD-Orion-Redesign?node-id=844-13780&p=f&t=hL5NGjtKEHM2PDEq-8&scaling=contain&content-scaling=responsive&page-id=844%3A12864&starting-point-node-id=844%3A13780&hide-ui=1"/>
                 </div>
                 {/* ============================ REFLECTION ===========================*/}
-                <div className="flex flex-col justify-center items-center relative mb-20" id='reflection'>
-                    <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
-                        <h1>
-                            Reflection
-                        </h1>
-                    </span>
-                    <Body flexdirection={"flex-col"}>
-                        <span className={`flex flex-col text-surface-contrast gap-4 dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
-                            <span>
-                                I’m really happy with the way I approached this project; this was the first time I went out and gathered real responses from users and actually applied it to my design process and decision making. I’m also pleased with the way the final product turned out and (as naive as this probably sounds) I actually think that there might be a chance that UTD could pick this project up and turn it into a reality.
-                            </span>
-                            <span>
-                                But, if there was one thing I’d do differently, it would be how I structured my user surveys. Throughout the project I found myself wishing I had written better questions that would’ve given me a lot more insight and allowed me to make decisions more confidently. 
-                            </span>
-                            <span>
-                                Other than that, this was by far the most I’ve ever pushed my design skills and Figma knowledge. I wanted to emulate how I thought a “real” designer would actually handle this redesign, so in the Figma file there’s a relatively robust design system (that nobody else will use) that I made from scratch. 
-                            </span>
-                            <span>
-                                The prototype also contains the most high-fidelity wireframes I’ve ever made, with interactions that have no business being as detailed as they are for a Figma file (i.e. a functioning search bar). While the interactions I stuffed into this prototype are admittedly unnecessary, I learned an incredible amount of just how far I can push Figma. I would even go as far as to say that I’m now an expert in it.
-                            </span>
-                            <span>
-                                This project was a very important learning experience for me, and I’m so happy that I undertook it!
-                            </span>
+                <div className="flex flex-col justify-center items-center relative mb-20 py-10 bg-[#325949] min-w-screen" id='reflection'>
+                    <div className='flex flex-col w-[85%]'>
+                        <span className={`text-white titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
+                            <h1>
+                                Reflection
+                            </h1>
                         </span>
-                    </Body>
+                        <Body flexdirection={"flex-col"}>
+                            <span className={`flex flex-col text-white gap-4 dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
+                                <span>
+                                    I’m really happy with the way I approached this project; this was the first time I went out and gathered real responses from users and actually applied it to my design process and decision making. I’m also pleased with the way the final product turned out and (as naive as this probably sounds) I actually think that there might be a chance that UTD could pick this project up and turn it into a reality.
+                                </span>
+                                <span>
+                                    But, if there was one thing I’d do differently, it would be how I structured my user surveys. Throughout the project I found myself wishing I had written better questions that would’ve given me a lot more insight and allowed me to make decisions more confidently. 
+                                </span>
+                                <span>
+                                    Other than that, this was by far the most I’ve ever pushed my design skills and Figma knowledge. I wanted to emulate how I thought a “real” designer would actually handle this redesign, so in the Figma file there’s a relatively robust design system (that nobody else will use) that I made from scratch. 
+                                </span>
+                                <span>
+                                    The prototype also contains the most high-fidelity wireframes I’ve ever made, with interactions that have no business being as detailed as they are for a Figma file (i.e. a functioning search bar). While the interactions I stuffed into this prototype are admittedly unnecessary, I learned an incredible amount of just how far I can push Figma. I would even go as far as to say that I’m now an expert in it.
+                                </span>
+                                <span>
+                                    This project was a very important learning experience for me, and I’m so happy that I undertook it!
+                                </span>
+                            </span>
+                        </Body>
+                    </div>
                 </div>
                 {/* ============================ TOC ===========================*/}
                 {!isMobile && 
