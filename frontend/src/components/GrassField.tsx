@@ -18,8 +18,6 @@ function GrassField() {
     const [containerWidth, setContainerWidth] = useState(1);
     const [containerHeight, setContainerHeight] = useState(1);
     const [fish, setFish] = useState<FishInstance[]>([]); 
-    const [handVisible, setHandVisible] = useState(false)
-    const [handState, setHandState] = useState(theme=='dark' ? '/assets/about/FishButtonHand-Dark.png' : '/assets/about/FishButtonHand.png')
     const nextId = useRef(0); 
     const [alert, setAlert] = useState(false)
 
@@ -63,15 +61,11 @@ function GrassField() {
         ]);
     };
 
-    useEffect(() => {
-        {theme=='dark' ? setHandState('/assets/about/FishButtonHand-Dark.png') : setHandState('/assets/about/FishButtonHand.png')}
-    }, [theme])
-
     const yMin = containerHeight/1.4; 
     const yMax = containerHeight; 
 
     return containerWidth > 0 && containerHeight > 0 ? (
-        <div ref={containerRef} className="relative w-full h-full">
+        <div ref={containerRef} className="relative w-full h-full items-center justify-center">
 
             <AnimatePresence>
                 {alert && 
@@ -79,14 +73,10 @@ function GrassField() {
                         <img src={'/assets/about/EnoughFish.svg'}/>
                     </motion.div>}
             </AnimatePresence>
-            <div className="w-[10%] min-w-[100px]  absolute bottom-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <div className="w-[clamp(200px,10%,500px)] absolute bottom-40 left-1/2 -translate-x-1/2 flex items-center justify-center">
                 <img
-                    src={theme=='dark' ? '/assets/about/FishButton-Dark.png' : '/assets/about/FishButton.png'}
+                    src={theme=='dark' ? '/assets/about/Gacha-Dark.png' : '/assets/about/Gacha-Light.png'}
                     className="cursor-pointer"
-                    onMouseEnter={() => setHandVisible(true)}
-                    onMouseLeave={() => setHandVisible(false)}
-                    onMouseDown={() => {theme=='dark' ? setHandState('/assets/about/FishButtonHandPress-Dark.png') : setHandState('/assets/about/FishButtonHandPress.png')}}
-                    onMouseUp={() => {theme=='dark' ? setHandState('/assets/about/FishButtonHand-Dark.png') : setHandState('/assets/about/FishButtonHand.png')}}
                     onClick={() => {if(fish.length <= 20) 
                                         {
                                             playSound()
@@ -97,11 +87,6 @@ function GrassField() {
                                         }
                                     }}
                 />
-                {handVisible && 
-                <img
-                    src={handState}
-                    className="absolute pointer-events-none top-10 -right-10"
-                />}
             </div>
 
             {fish.map((f) => (

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import Sticker from './Sticker';
 import { useMobile } from '@/context/mobileContext';
@@ -13,6 +13,7 @@ interface ProjectComponentProps {
   title: string;
   img: string;
   description: string;
+  backgroundElement?: ReactElement;
   newest?: boolean;
   mockup?: string;
   phone?: boolean;
@@ -20,7 +21,7 @@ interface ProjectComponentProps {
   bgImage?: string;
 }
 
-function ProjectComponent({ link, title, img, description, newest, mockup, phone, background, bgImage }: ProjectComponentProps) {
+function ProjectComponent({ link, title, img, description, newest, mockup, phone, background, bgImage, backgroundElement }: ProjectComponentProps) {
   const [isHovered, setHovered] = useState(false);
   const {isMobile} = useMobile()
   const {isTinyMobile} = useMobile()
@@ -37,6 +38,7 @@ function ProjectComponent({ link, title, img, description, newest, mockup, phone
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{backgroundImage: bgImage}}>
+
               {title}
               <div className="absolute -bottom-15 -right-15 w-[120px] h-[140px]">
                 <Image 
@@ -52,24 +54,32 @@ function ProjectComponent({ link, title, img, description, newest, mockup, phone
               </h1>
       </Link>
 
-      {newest && <motion.div className="absolute w-[35%] -right-10 -top-15" animate={{y: [0, 20, 0]}} transition={{ease: 'linear', duration: 4, repeat: Infinity}}>
+      {newest && <motion.div className="absolute w-[clamp(85px,25%,100px)] right-0 -top-5" animate={{y: [0, 20, 0]}} transition={{ease: 'linear', duration: 4, repeat: Infinity}}>
         <img className="" src={theme=='dark' ? "/assets/landingpage/NewSticker-Dark.svg" : "/assets/landingpage/NewSticker-Light.svg"}/>
       </motion.div>}
     </div>
     :
     <>
     {/* NOT MOBILE */}
-    {newest ? 
-      // =========================== NEWEST ================================
-      <div className="flex relative w-full">
-        <div className={`flex flex-row w-full bg-center bg-cover h-[320px] ${background} drop-shadow-2xl py-4 justify-between
-                         text-5xl font-black text-white ${isHovered ? '' : 'overflow-hidden'} ${isTinyMobile ? 'scale-80' : isMobile ? 'scale-90' : ''}`} 
-                         style={{backgroundImage: bgImage}}>
-          <div className="flex flex-col flex-wrap w-[40%] h-full justify-center mr-4 ml-12">
+    {/*=========================== NEWEST ================================*/}
+      <div className={`flex relative ${newest ? 'w-full' : ''}`}>
+        <Link href={link} className={`flex flex-row w-full bg-center bg-cover h-[320px] ${background} drop-shadow-2xl justify-between
+                         text-[clamp(2.3rem,3.4vw,3rem)] leading-tight font-black text-white ${isHovered ? '' : 'overflow-hidden'} ${isTinyMobile ? 'scale-80' : isMobile ? 'scale-90' : ''}`} 
+                         style={{backgroundImage: bgImage}}
+                          onMouseEnter={() => setHovered(true)}
+                          onMouseLeave={() => setHovered(false)}>
+                    
+          <div className='absolute w-full h-full flex overflow-hidden'>
+              <AnimatePresence>
+                {!isMobile && isHovered && 
+                backgroundElement}
+              </AnimatePresence>
+          </div>
+          <div className="flex flex-col flex-wrap w-[40%] h-full justify-center mr-4 ml-[clamp(12px,8%,48px)]">
               <span className="flex w-full text-start">
                 {title}
               </span>
-              <div className="absolute -bottom-10 -left-10 w-[120px] h-[120px]">
+              <div className="absolute -bottom-10 -left-10 w-[120px] h-[120px] ">
                 <Image 
                   className={`transition duration-300 ${isHovered ? 'scale-100 rotate-0' : 'scale-90 rotate-12'}`}
                   src={img}
@@ -78,56 +88,18 @@ function ProjectComponent({ link, title, img, description, newest, mockup, phone
                   style={{objectFit: 'contain'}}
                 />
               </div>
-              <h1 className="mt-2 text-lg font-normal text-white w-full">
+              <h1 className="mt-2 text-[clamp(0.7rem,1.5vw,1.2rem)] leading-tight font-normal text-white w-full">
                 {description}
               </h1>
-              {/* Button */}
-              <Link href={link} 
-                    className="flex mt-4 w-fit px-20 h-[15%] hover:scale-105 transition duration-300 bg-white text-darkestBlue items-center justify-center text-xl font-medium"
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}>
-                Read More →
-              </Link>
           </div>
-          <img className={`flex w-fit h-full object-contain transition duration-300 ${isHovered ? 'scale-110': ''}`} src={mockup}/>
-        </div>
-        <motion.div className={`absolute ${isMobile ? "w-[25%] -right-10 -top-10": "w-[15%] -right-15 -top-25"}`} animate={{y: [0, 20, 0]}} transition={{ease: 'linear', duration: 4, repeat: Infinity}}>
-          <img className="" src={theme=='dark' ? "/assets/landingpage/NewSticker-Dark.svg" : "/assets/landingpage/NewSticker-Light.svg"}/>
-        </motion.div>
+          <img className={`py-4 flex w-[50%] h-full object-contain transition duration-300 ${isHovered ? 'scale-110': ''}`} src={mockup}/>
+        </Link>
+
+        {newest && 
+          <motion.div className={` absolute ${isMobile ? "w-[15%] -right-10 -top-10": "w-[clamp(125px,12%,150px)] -right-15 -top-10"}`} animate={{y: [0, 20, 0]}} transition={{ease: 'linear', duration: 4, repeat: Infinity}}>
+            <img className="" src={theme=='dark' ? "/assets/landingpage/NewSticker-Dark.svg" : "/assets/landingpage/NewSticker-Light.svg"}/>
+          </motion.div>}
       </div>
-      :        
-      // =========================== NOT NEWEST ================================
-      <div className="flex relative">
-        <div className={`flex flex-row bg-center bg-cover w-full h-[320px] ${background} drop-shadow-2xl py-4 justify-between
-                         text-5xl font-black text-white ${isHovered ? '' : 'overflow-hidden'} ${isTinyMobile ? 'scale-80' : isMobile ? 'scale-90' : ''}`} 
-                         style={{backgroundImage: bgImage}}>
-          <div className="flex flex-col flex-wrap w-[40%] h-full justify-center mr-4 ml-12">
-              <span className="flex w-full text-start">
-                {title}
-              </span>
-              <div className="absolute -bottom-10 -left-10 w-[120px] h-[120px]">
-                <Image 
-                  className={`transition duration-300 ${isHovered ? 'scale-100 rotate-0' : 'scale-90 rotate-12'}`}
-                  src={img}
-                  alt={`${title} project image`}
-                  fill
-                  style={{objectFit: 'contain'}}
-                />
-              </div>
-              <h1 className="mt-2 text-lg font-normal text-white w-full">
-                {description}
-              </h1>
-              {/* Button */}
-              <Link href={link} 
-                    className="flex mt-4 w-full max-w-[200px] h-[15%] hover:scale-105 transition duration-300 bg-white text-darkestBlue items-center justify-center text-xl font-medium"
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}>
-                Read More →
-              </Link>
-          </div>
-          <img className={`flex ${phone ? 'w-fit' : 'w-[55%]'} h-full object-contain transition duration-300 ${isHovered ? 'scale-110': ''}`} src={mockup}/>
-        </div>
-      </div>}
     </>
     }
     </>

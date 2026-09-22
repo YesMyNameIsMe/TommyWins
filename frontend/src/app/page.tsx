@@ -14,6 +14,7 @@ import HeroPageLogo from '@/components/HeroPageLogo';
 import ThemeToggle from '@/components/ThemeToggle';
 import { useTheme } from '@/context/themeContext';
 import HoppingFish from '@/components/HoppingFish';
+import StarFieldOverlay from '@/components/StarFieldOverlay';
 
 function landingPage() {
 
@@ -34,21 +35,53 @@ function landingPage() {
     { src: '/assets/techstack/VercelTS.png', desc: 'Vercel',}, 
   ]
 
+  function nexusBG() {
+    return(<div className='-z-1'>
+              <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 0.6}}>
+                <StarFieldOverlay count={200}/>
+              </motion.div>
+              <motion.img className='flex absolute bottom-0 right-0 pointer-events-none will-change-transform w-[clamp(100px,60%,700px)]' src={'assets/nexus/NexusHeaderCloud2.svg'} initial={{y:200, opacity: 0}} animate={{y:10, opacity:1}} exit={{y:300}} transition={{duration:2, type: 'spring', damping: 15, delay:0.35}}/>
+              <motion.img className='flex absolute bottom-0 left-0 -scale-x-100 pointer-events-none will-change-transform w-[clamp(100px,60%,700px)]' src={'assets/nexus/NexusHeaderCloud2.svg'} initial={{y:200, opacity: 0}} animate={{y:10, opacity:1}} exit={{y:300}} transition={{duration:2, type: 'spring', damping: 15, delay:0.35}}/>
+              <motion.img className='flex absolute bottom-0 right-0 pointer-events-none will-change-transform w-[clamp(100px,45%,500px)]' src={'assets/nexus/NexusHeaderCloud.svg'} initial={{y:200, opacity: 0}} animate={{y:0, opacity: 1}} exit={{y:200}} transition={{type:'spring',  damping: 15, duration: 2, delay: 0.2}}/>
+              <motion.img className='flex absolute bottom-0 left-0 -scale-x-100 pointer-events-none will-change-transform w-[clamp(100px,45%,500px)]' src={'assets/nexus/NexusHeaderCloud.svg'} initial={{y:200, opacity: 0}} animate={{y:0, opacity: 1}} exit={{y:200}} transition={{type:'spring',  damping: 15, duration: 2, delay: 0.2}}/>
+            </div>)
+  }
+
+  function orionBG() {
+    return(
+      <div>
+      </div>
+    )
+  }
+
   return (
-    <div id="header" className={`"flex overflow-hidden justify-center bg-cover bg-center bg-no-repeat min-h-screen relative ${theme=='dark' ? 'bg-surface-primary' : 'bg-surface-primary'} overflow-hidden"`}>        
-        <div className='fixed inset-0 z-0 pointer-events-none'>
-            <img src={`${theme=='dark' ? "/assets/orion/Stars.svg" : null}`} className='h-full w-full object-cover' alt="" />
-        </div>
+    <div id="header" className={`"flex overflow-hidden justify-center bg-cover bg-center bg-no-repeat min-h-screen relative ${theme=='dark' ? 'bg-linear-to-b from-[#011144] to-surface-primary' : 'bg-surface-primary'} overflow-hidden"`}>        
         <div className={`flex w-full h-full flex-col justify-center items-center z-10 mt-[45px]`}>
+        <div className='fixed inset-0 z-0 pointer-events-none'>
+            {theme == 'dark' ? <StarFieldOverlay count={100}/> : ""}
+        </div>
             {/* ========================================== TITLE ========================================== */}            
-            <div className={`flex flex-col w-full min-h-screen bg-cover bg-center justify-center items-center z-10`} 
-                 style={{backgroundImage: theme=='dark' ? "url('/assets/landingpage/Header-Dark.png" : "url('/assets/landingpage/Header-Light.png"}}>
-              
+            <div className={`flex flex-col w-full min-h-screen bg-cover bg-center justify-center items-center z-10 bg-linear-to-b `} >
+
+            <div style={{ position: "absolute", width: "100%", height: "100vh", overflow: "hidden" }}>
+              <video
+                src={theme == 'dark' ? "/assets/landingpage/HeaderBG-Dark.webm" : "/assets/landingpage/HeaderBGTest.webm"}
+                autoPlay
+                loop
+                className='absolute w-full h-full object-cover -z-1'
+          
+              />
+            </div>
               <motion.div className={`flex flex-col justify-center items-center z-10  ${isMobile ? 'mt-10 px-10' : ''}`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
                   {<HeroPageLogo/>}
-                  <span className={`text-primary font-medium bodyText my-4`}>
-                    Tommy <span className='p-through'> Win</span> {' '}Nguyen | UI/UX & Product Designer
-                  </span>
+                  <div className='scale-90 flex flex-col items-center justify-center'>
+                    <span className={`text-primary font-medium bodyText mt-4 mb-2`}>
+                      Tommy <span className='p-through'> Win</span> {' '}Nguyen | UI/UX & Product Designer
+                    </span>
+                    <span className={`text-primary font-medium bodyText mb-4`}>
+                      CS & Figma Campus Leader @ UTD
+                    </span>
+                  </div>
               </motion.div>
               
               <motion.div className="flex flex-col justify-center items-center z-10 mb-6" initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
@@ -134,9 +167,9 @@ function landingPage() {
                   </p>
                 </span>
                 <div className="mt-10 flex flex-col min-w-[300px] gap-10 flex-wrap items-start justify-center ">
-                  <ProjectComponent background='bg-[#325949]' link="/orion" title="UTD ORION REDESIGN" img="/assets/general/OrionSticker.svg" description="Redesigning UTD's student portal" mockup='/assets/landingpage/OrionMockUp.png' newest={true}/>
+                  <ProjectComponent backgroundElement={orionBG()} background='bg-[#325949]' link="/orion" title="UTD ORION REDESIGN" img="/assets/general/OrionSticker.svg" description="Redesigning UTD's student portal" mockup='/assets/landingpage/OrionMockUp.png' newest={true}/>
                   <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} gap-10 w-full`}>
-                    <ProjectComponent background='bg-linear-to-b from-darkestBlue to-darkBlue' link="/nexus#header" title="NEXUS" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes" mockup='/assets/landingpage/NexusMockUp.png'/>
+                    <ProjectComponent backgroundElement={nexusBG()} background={`bg-linear-to-b from-darkestBlue to-darkBlue `} link="/nexus#header" title="NEXUS" img="/assets/general/NexusSticker.svg" description="A website for students to easily stay on top of classes" mockup='/assets/landingpage/NexusMockUp.png'/>
                     <ProjectComponent bgImage="url('/assets/landingpage/LoreBGImage.svg')" link="/lore#header" title="LORE" img="/assets/general/LoreSticker.svg" description="Mobile party game app that uses AI to generate stories" mockup='/assets/landingpage/LoreMockUp.png' phone={true}/>
                   </div>
                 </div>

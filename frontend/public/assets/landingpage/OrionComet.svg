@@ -1,0 +1,63 @@
+<svg width="442" height="414" viewBox="0 0 442 414" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+svg { overflow: visible; }
+@keyframes kf_Vector_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.507px) translateY(0px) translate(397.696px, 93.59px) scaleX(1) scaleY(1) translate(-397.696px, -93.59px) rotate(0rad) skewX(0rad);
+  }
+  50.65% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(22.507px) translateY(0px) translate(397.696px, 93.59px) scaleX(0.776) scaleY(1) translate(-397.696px, -93.59px) rotate(0rad) skewX(0rad);
+  }
+  100% {
+    transform: translateX(22.507px) translateY(0px) translate(397.696px, 93.59px) scaleX(1) scaleY(1) translate(-397.696px, -93.59px) rotate(0rad) skewX(0rad);
+  }
+}
+#Vector {
+  transform-origin: 0 0;
+  animation: kf_Vector_transform_0 2s linear infinite;
+}
+@keyframes kf_Group_10_transform_0 {
+  0% {
+    transform: translateX(264.52px) translateY(28.807px) translate(64.784px, 64.784px) rotate(-6.283rad) translate(-64.784px, -64.784px) rotate(0rad) skewX(0rad);
+  }
+  100% {
+    transform: translateX(264.52px) translateY(28.807px) translate(64.784px, 64.784px) rotate(0rad) translate(-64.784px, -64.784px) rotate(0rad) skewX(0rad);
+  }
+}
+#Group_10 {
+  transform-origin: 0 0;
+  animation: kf_Group_10_transform_0 2s linear infinite;
+}
+@keyframes kf_Ellipse_91_2_transform_0 {
+  0% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(0px) translateY(70.067px) translateX(0px) translateY(0px) rotate(0rad) skewX(0rad);
+  }
+  50.65% {
+    animation-timing-function: ease-in-out;
+    transform: translateX(0px) translateY(70.067px) translateX(80.354px) translateY(0px) rotate(0rad) skewX(0rad);
+  }
+  100% {
+    transform: translateX(0px) translateY(70.067px) translateX(-0.005px) translateY(0px) rotate(0rad) skewX(0rad);
+  }
+}
+#Ellipse_91_2 {
+  transform-origin: 0 0;
+  animation: kf_Ellipse_91_2_transform_0 2s linear infinite;
+}
+</style>
+<g id="Group_210">
+<g id="Group_11">
+<path id="Vector" transform="translate(22.5065 -0.000131894)" d="M304.115 4.9209C353.08 4.92096 392.774 44.615 392.774 93.5801C392.774 142.545 353.08 182.24 304.115 182.24L19.4512 182.26C11.4263 182.26 4.9209 175.753 4.9209 167.729C4.92107 159.704 11.4264 153.198 19.4512 153.198H116.775C131.803 153.198 143.985 141.016 143.985 125.989C143.985 110.962 131.803 98.7803 116.775 98.7803H39.2422C32.3929 98.7803 26.8398 93.2272 26.8398 86.3779C26.8399 79.5287 32.3929 73.9766 39.2422 73.9766H53.3096C64.3381 73.9766 73.2783 65.0354 73.2783 54.0068C73.2781 42.9785 64.338 34.0381 53.3096 34.0381H19.4785C11.4386 34.0379 4.92092 27.5204 4.9209 19.4805C4.9209 11.4405 11.4386 4.92303 19.4785 4.92285L304.115 4.9209Z" stroke="white" stroke-width="9.8419"/>
+<g id="Group_10" transform="translate(264.52 28.8074)">
+<circle id="Ellipse_87" cx="64.7838" cy="64.7838" r="59.8629" stroke="white" stroke-width="9.8419"/>
+<circle id="Ellipse_89" transform="translate(42.6524 80.7945)" cx="7.5573" cy="7.5573" r="4.92095" stroke="white" stroke-width="5.27271"/>
+<circle id="Ellipse_90" transform="translate(49.6685 29.4764)" cx="7.5573" cy="7.5573" r="4.92095" stroke="white" stroke-width="5.27271"/>
+<circle id="Ellipse_91" transform="translate(90.8315 56.0839)" cx="7.5573" cy="7.5573" r="4.92095" stroke="white" stroke-width="5.27271"/>
+</g>
+<circle id="Ellipse_91_2" transform="translate(0 70.0667)" cx="16.3347" cy="16.3347" r="11.4137" stroke="white" stroke-width="9.8419"/>
+</g>
+</g>
+</svg>

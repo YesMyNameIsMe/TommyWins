@@ -15,6 +15,7 @@ const LorePage = () => {
   const [openedImage, setOpenedImage] = useState("")
   const [isOpen, setOpen] = useState(false)
   const imageRef = useRef<HTMLImageElement | null>(null)
+  const [disclaimerOpen, setDisclaimerOpen] = useState(true)
 
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -82,6 +83,28 @@ const LorePage = () => {
         }
         </AnimatePresence>
         
+        {disclaimerOpen &&
+        <div className={`fixed w-full flex backdrop-brightness-20 z-100 items-center justify-center`} style={{ minHeight: '100vh' }}>
+            <div className="text-surface-contrast w-[clamp(200px,30%,500px)] h-[20%] justify-center items-center bg-surface-primary rounded-2xl p-5">
+                <div className="flex w-full h-full justify-center flex-col text-center">
+                    <span className="text-2xl font-black">
+                        Hold It!
+                    </span>
+                    <span className="">
+                        This project is  <span className='font-bold'>outdated</span> and only here for <span className='font-bold'>archival purposes</span>. Feel free to read through, but I recommend looking through my other <Link className='font-bold underline' href={"/#projects"}>projects</Link> first to get something more representational of my current skills!
+                    </span>
+                </div>
+                <div className="w-full h-full flex flex-col justify-center items-center">
+                    <img className="w-50 h-50 flex" src="/assets/general/Yamcha.svg"/>
+                    <div onClick={() => {setDisclaimerOpen(false)}} className="h-[50px] w-[70%] flex justify-center items-center bg-surface-contrast rounded-xl cursor-pointer">
+                        <span className="text-surface-primary font-black text-2xl">
+                            Got It
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>}
+
         <div id="header" className="flex flex-col h-full w-full items-center relative overflow-hidden">
           {/*---------------------------------- TITLE ---------------------------------*/}
           <motion.div initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>

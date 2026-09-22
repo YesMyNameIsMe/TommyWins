@@ -55,7 +55,7 @@ export default function StarFieldOverlay({
   }, [count, bigWeight, smallSize, bigSize, smallTwinkle, bigTwinkle, allowDepthBlur]);
 
   return (
-    <div className="starfield-overlay">
+    <div className="starfield-overlay -z-2">
       {stars.map((star) => (
         <img
           key={star.id}
