@@ -66,10 +66,11 @@ function landingPage() {
             <div style={{ position: "absolute", width: "100%", height: "100vh", overflow: "hidden" }}>
               <video
                 src={theme == 'dark' ? "/assets/landingpage/HeaderBG-Dark.webm" : "/assets/landingpage/HeaderBGTest.webm"}
-                autoPlay
-                loop
+                autoPlay={true}
+                loop={true}
+                muted
+                playsInline
                 className='absolute w-full h-full object-cover -z-1'
-          
               />
             </div>
               <motion.div className={`flex flex-col justify-center items-center z-10  ${isMobile ? 'mt-10 px-10' : ''}`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
