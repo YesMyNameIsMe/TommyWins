@@ -64,6 +64,11 @@ function landingPage() {
             <div className={`flex flex-col w-full min-h-screen bg-cover bg-center justify-center items-center z-10 bg-linear-to-b `} >
 
             <div style={{ position: "absolute", width: "100%", height: "100vh", overflow: "hidden" }}>
+              {isMobile ? 
+              <img 
+                src={theme == 'dark' ? "/assets/landingpage/Header-Dark.png" : "/assets/landingpage/Header-Light.png"}
+                className='absolute w-full h-full object-cover -z-1'/>
+              :
               <video
                 src={theme == 'dark' ? "/assets/landingpage/HeaderBG-Dark.webm" : "/assets/landingpage/HeaderBGTest.webm"}
                 autoPlay={true}
@@ -71,7 +76,7 @@ function landingPage() {
                 muted
                 playsInline
                 className='absolute w-full h-full object-cover -z-1'
-              />
+              />}
             </div>
               <motion.div className={`flex flex-col justify-center items-center z-10`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
                   {<HeroPageLogo/>}

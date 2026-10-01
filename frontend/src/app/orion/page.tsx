@@ -241,13 +241,13 @@ const OrionPage = () => {
                 {/* ============================ PROBLEM STATEMENT ===========================*/}
                 <div className="flex flex-col justify-center items-center relative min-w-screen py-10 bg-[#325949]" id='problem'>
                     <div className='flex flex-col w-[85%]'>
-                        <span className={`text-surface-contrast titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
+                        <span className={`text-white titleText mb-4 justify-between items-center dmSans font-bold w-full flex `}>
                             <h1>
                                 Problem Statement
                             </h1>
                         </span>
                         <Body flexdirection={"flex-col"}>
-                            <span className={`flex flex-col gap-4 text-surface-contrast dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
+                            <span className={`flex flex-col gap-4 text-white dmSans font-medium ${isTinyMobile ? 'text-md' : isMobile ? 'text-lg' : 'text-xl'} `}>
                                 How might I help UTD students check and track their academic standing through class registration, coursework, and financial aid without having to spend too much time?  
                             </span>
                         </Body>
