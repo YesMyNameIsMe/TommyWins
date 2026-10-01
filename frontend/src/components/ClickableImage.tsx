@@ -2,6 +2,7 @@ import { useMobile } from '@/context/mobileContext';
 import { useTheme } from '@/context/themeContext';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react'
+import { HiArrowCircleLeft, HiArrowCircleRight } from 'react-icons/hi';
 
 const ClickableImage = ({ image, caption, className }: { caption?: string, image: string, className?: string }) => {
     const {isMobile} = useMobile();
@@ -40,11 +41,17 @@ const ClickableImage = ({ image, caption, className }: { caption?: string, image
         {caption && <span className="flex text-gray-400 font-normal flex-wrap text-center tinyText mt-3">{caption}</span>}
 
         <AnimatePresence>
-              {isOpen && 
+          {isOpen && 
           <motion.div className="fixed inset-0 flex backdrop-brightness-50 items-center justify-center z-150 select-none" initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0 }} transition={{duration: 0.3}}>
-                    <img className={`z-150 rounded-xl object-contain w-fit ${isMobile ? 'h-fit' : 'h-[90%]'} bg-darkestBlue`} src={openedImage} ref={imageRef} alt="" />
-                </motion.div>
-              }
+            <div className={`max-w-[90%] ${isMobile ? 'h-fit' : 'h-[90%]'} flex items-center justify-center relative`} ref={imageRef}>
+                <img
+                  className="max-w-full max-h-full object-contain"
+                  src={openedImage}
+                  alt="expanded"
+                />
+            </div>
+          </motion.div>
+        }
         </AnimatePresence>
     </div>
   )

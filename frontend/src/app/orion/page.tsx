@@ -147,7 +147,7 @@ const OrionPage = () => {
                             Key Constraints
                         </h1>
                     </span>
-                    <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} w-full gap-10`}>
+                    <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} w-full items-center gap-10`}>
                         {wiso.map((item, index) => (
                             <div key={index} className={`mt-5 text-center flex items-center bg-[#325949] min-w-[200px] w-[18%] h-full font-normal text-white rounded-xl p-3 ${isTinyMobile ? 'text-md' : 'text-lg'}`}>
                                 {item.desc}

@@ -73,7 +73,7 @@ function landingPage() {
                 className='absolute w-full h-full object-cover -z-1'
               />
             </div>
-              <motion.div className={`flex flex-col justify-center items-center z-10  ${isMobile ? 'mt-10 px-10' : ''}`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
+              <motion.div className={`flex flex-col justify-center items-center z-10`} initial={{y: 20, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 0.5, type: 'tween', delay: 0.2}}>
                   {<HeroPageLogo/>}
                   <div className='scale-90 flex flex-col items-center justify-center'>
                     <span className={`text-primary font-medium bodyText mt-4 mb-2`}>
@@ -255,8 +255,8 @@ function landingPage() {
                       </AnimatePresence>
                     }
                   </div>
-                  <Sticker className="-bottom-24 -left-26" src='/assets/landingpage/CoffeeMe.svg'/> 
-                  <Sticker className="-bottom-18 -right-20" src='/assets/landingpage/Glasses.svg'/> 
+                  <Sticker className={` ${isMobile ? "-bottom-24 -left-18" : "-bottom-24 -left-26"}`} src='/assets/landingpage/CoffeeMe.svg'/> 
+                  <Sticker className={` ${isMobile ? "-bottom-18 -right-16" : "-bottom-18 -right-20"}`} src='/assets/landingpage/Glasses.svg'/> 
                 </div>
               </div>
               {/* ========================================== TECH STACK ================================= */}            

@@ -1,4 +1,3 @@
-import { useMobile } from "@/context/mobileContext";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -32,14 +31,14 @@ function HeroPageLogo() {
     }}
   >
     <div
+      className="absolute items-center justify-center"
       style={{
-        position: "absolute",   // <- takes it out of flow
         top: 0,
-        left: 0,
+        left: "50%",
         width: BASE_W,
         height: BASE_H,
-        transform: `scale(${scale})`,
-        transformOrigin: "top left",
+        transform: `translateX(-50%) scale(${scale})`,
+        transformOrigin: "top center",
       }}
     >
       
