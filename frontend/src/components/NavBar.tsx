@@ -71,9 +71,6 @@ function NavBar() {
                     EXPERIENCE
                   </span>
                 </Link>
-                <a className="underlineText" href={"/assets/general/Tommy Nguyen Resume.pdf"} download={"Tommy Nguyen - Resume"} target="_blank" rel="noreferrer">
-                  RÉSUMÉ
-                </a>
               </div>
             </motion.div>
           </div>}
