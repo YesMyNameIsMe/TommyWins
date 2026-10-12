@@ -55,7 +55,8 @@ function landingPage() {
   }
 
   return (
-    <div id="header" className={`"flex overflow-hidden justify-center bg-cover bg-center bg-no-repeat min-h-screen relative ${theme=='dark' ? 'bg-linear-to-b from-[#011144] to-surface-primary' : 'bg-surface-primary'} overflow-hidden"`}>        
+    <div id="header" className={`"flex overflow-hidden justify-center bg-cover bg-center bg-no-repeat min-h-screen relative ${theme=='dark' ? 'bg-linear-to-b from-[#011144] to-surface-primary' : 'bg-surface-primary'} overflow-hidden"`}>             
+        
         <div className={`flex w-full h-full flex-col justify-center items-center z-10 mt-[45px]`}>
         <div className='fixed inset-0 z-0 pointer-events-none'>
             {theme == 'dark' ? <StarFieldOverlay count={100}/> : ""}
@@ -82,7 +83,7 @@ function landingPage() {
                   {<HeroPageLogo/>}
                   <div className='scale-90 flex flex-col items-center justify-center'>
                     <span className={`text-primary font-medium bodyText mt-4 mb-2`}>
-                      Tommy <span className='p-through'> Win</span> {' '}Nguyen | UI/UX & Product Designer
+                      Tommy <s> Win</s> {' '}Nguyen | UI/UX & Product Designer
                     </span>
                     <span className={`text-primary font-medium bodyText mb-4`}>
                       CS & Figma Campus Leader @ UTD
@@ -281,6 +282,7 @@ function landingPage() {
               </div>
             </div>
         </div>
+
     </div>
   )
 }
