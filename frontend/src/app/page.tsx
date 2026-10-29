@@ -83,7 +83,7 @@ function landingPage() {
                   {<HeroPageLogo/>}
                   <div className='scale-90 flex flex-col items-center justify-center'>
                     <span className={`text-primary font-medium bodyText mt-4 mb-2`}>
-                      Tommy <s> Win</s> {' '}Nguyen | UI/UX & Product Designer
+                      Tommy <s>Win</s> {' '}Nguyen | UI/UX & Product Designer
                     </span>
                     <span className={`text-primary font-medium bodyText mb-4`}>
                       CS & Figma Campus Leader @ UTD

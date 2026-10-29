@@ -10,7 +10,8 @@ export default function PreloadGate({ children }) {
     const {isMobile} = useMobile()
 
     const ASSETS = {
-        images: ["/assets/landingpage/HeroPageMe.svg", "/assets/orion/OrionLogo.svg", "/assets/nexus/NexusLogo.svg",
+        images: [!isMobile && "/assets/landingpage/HeroPageMe.svg", 
+                !isMobile && "/assets/orion/OrionLogo.svg", "/assets/nexus/NexusLogo.svg",
                 ],
         videos: [!isMobile && "/assets/landingpage/HeaderBG-Dark.webm", 
                  !isMobile && "/assets/landingpage/HeaderBGTest.webm"]
