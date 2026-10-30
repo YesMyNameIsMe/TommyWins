@@ -12,6 +12,7 @@ import { ScreenProvider } from "@/context/screenContext";
 import "./globals.css";
 import { ThemeProvider } from "@/context/themeContext";
 import ThemeToggle from "@/components/ThemeToggle";
+import PreloadGate from "@/components/PreloadGate";
 
 const titanOne = Titan_One({
   weight: '400',
@@ -66,6 +67,7 @@ export const metadata: Metadata = {
   description: "Tommy Nguyen's Portfolio Site",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -78,6 +80,7 @@ export default function RootLayout({
         <ThemeProvider>
         <MobileProvider>
         <ScreenProvider>
+        <PreloadGate>
           <DetectMobile />
           <NavBar />
           <ThemeToggle />
@@ -85,6 +88,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights />
           <Footer />
+        </PreloadGate>
         </ScreenProvider>
         </MobileProvider>
         </ThemeProvider>

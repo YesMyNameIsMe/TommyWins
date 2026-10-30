@@ -18,6 +18,7 @@ function GrassField() {
     const [containerWidth, setContainerWidth] = useState(1);
     const [containerHeight, setContainerHeight] = useState(1);
     const [fish, setFish] = useState<FishInstance[]>([]); 
+    const [ball, setBall] = useState(false)
     const nextId = useRef(0); 
     const [alert, setAlert] = useState(false)
 
@@ -61,6 +62,8 @@ function GrassField() {
         ]);
     };
 
+    const [isShaking, setShaking] = useState(false)
+
     const yMin = containerHeight/1.4; 
     const yMax = containerHeight; 
 
@@ -73,21 +76,33 @@ function GrassField() {
                         <img src={'/assets/about/EnoughFish.svg'}/>
                     </motion.div>}
             </AnimatePresence>
-            <div className="w-[clamp(200px,10%,500px)] absolute bottom-40 left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <motion.div className="w-[clamp(200px,10%,500px)] absolute bottom-40 left-1/2 -translate-x-1/2 flex items-center justify-center">
                 <img
                     src={theme=='dark' ? '/assets/about/Gacha-Dark.png' : '/assets/about/Gacha-Light.png'}
-                    className="cursor-pointer"
+                    className={`${isShaking ? 'shake' : ''} cursor-pointer`}
                     onClick={() => {if(fish.length <= 20) 
                                         {
                                             playSound()
-                                            spawnFish();
+                                            spawnFish()
+                                            
                                         } else {
                                             setAlert(true)
                                             handleAlert()
                                         }
-                                    }}
+                                    if(isShaking) {return}
+                                    else {setShaking(true)}}         
+                                    }
+                    onAnimationEnd={() => {setShaking(false); setBall(true)}}
                 />
-            </div>
+            </motion.div>
+            
+            <AnimatePresence>
+                {ball && 
+                <motion.div>
+                    
+                </motion.div>
+                }
+            </AnimatePresence>
 
             {fish.map((f) => (
                 <HoppingFish
