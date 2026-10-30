@@ -156,7 +156,7 @@ function landingPage() {
                   </div>
                   {/* Image Container */}
                   <div className={`${isTinyMobile ? 'w-[80%]' : isMobile ? 'w-[60%]': 'w-[50%]'} items-center justify-center p-4 flex relative`}>
-                    <img className={`${isMobile ? 'rounded-full': 'w-full rounded-lg'} object-cover h-fit`} src={'/assets/landingpage/HeadShotMobile.png'}/>
+                    <img className={`${isMobile ? 'rounded-full aspect-square': 'w-full rounded-lg'} object-cover h-fit`} src={'/assets/landingpage/HeadShotMobile.png'}/>
                     <Sticker className={`-bottom-8 -left-8`} src="/assets/landingpage/MePondering.svg"/>
                     <Sticker className={`-top-8 ${isTinyMobile ? '-right-8' : isMobile ? '-right-0' : '-right-8'}`} src="/assets/general/Camera.svg"/>
                   </div>
